@@ -1,0 +1,21 @@
+.title {
+    color: rgb(255, 255, 255);
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+    font-style: italic;
+
+  }
+  .navbar {
+    background: rgb(199, 29, 29);
+  }
+  
+  .links {
+    color: rgb(255, 255, 255);
+    font-family: 'Trebuchet MS';
+    margin-top: 20px;
+  }
+  
+  .loginBtn {
+    margin-top: 20px;
+    margin-right: 5px;
+  }

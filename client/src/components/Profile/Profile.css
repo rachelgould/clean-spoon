@@ -1,0 +1,8 @@
+#profileBody {
+    margin-top: 40px;
+}
+
+#centered_buttons { 
+    position: relative;
+    display: flex; 
+    justify-content: center; }

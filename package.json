@@ -19,5 +19,18 @@
   "bugs": {
     "url": "https://github.com/rachelgould/clean-spoon/issues"
   },
-  "homepage": "https://github.com/rachelgould/clean-spoon#readme"
+  "homepage": "https://github.com/rachelgould/clean-spoon#readme",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "helmet": "^3.16.0",
+    "jquery": "^1.9.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.0",
+    "react-router-dom": "^5.0.0",
+    "reactstrap": "^7.1.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.29.6"
+  }
 }
