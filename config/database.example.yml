@@ -13,7 +13,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: #<database name>
+  database: #database_name should be the name of your testing database
 production:
   <<: *default
   database: <%= ENV['DATABASE_URL'] %>
