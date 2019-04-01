@@ -23,7 +23,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'foreman', '~> 0.82.0'
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.20.0'
 
 group :development do
   gem 'web-console', '~> 2.0'
