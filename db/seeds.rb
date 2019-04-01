@@ -1,5 +1,6 @@
 # This file will seed all data needed
 
+
 # Helper Functions
 
 # Images will be stored in the seed_images folder
@@ -9,6 +10,6 @@ def get_image file_name
 end
 
 users.create!({
-  name: tristan,
-  email: tristan@gmail.com
+  name: "tristan",
+  email: "tristan@gmail.com"
 })
