@@ -11,5 +11,10 @@ end
 
 users.create!({
   name: "tristan",
-  email: "tristan@gmail.com"
+  email: "tristan@gmail.com",
+  vegan: false,
+  vegetarian: false,
+  gf: false,
+  allergies: ["olives"]
+
 })

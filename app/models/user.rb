@@ -5,4 +5,7 @@ class User < ApplicationRecord
   has_many :fridge_ingredients
   has_many :list_ingredients, :through => :fav_recipes
 
+  validates :name, presence: true
+  validates :email, presence: true
+
 end
