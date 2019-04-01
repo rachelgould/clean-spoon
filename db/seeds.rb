@@ -9,9 +9,19 @@ def get_image file_name
   File.open(Rails.root.join('db', 'seed_images', file_name))
 end
 
-# SHOPPING LIST (NOT ON RECIPE)
 
+# Delete all memory
+puts "Dropping all tables"
+#-----------------------------------
+ListIngredient.destroy_all
+FridgeIngredient.destroy_all
+FavRecipe.destroy_all
 Recipe.destroy_all
+User.destroy_all
+
+# SHOPPING LIST (NOT ON RECIPE)
+puts "Seeding recipes"
+#-----------------------------------
 
 cart = Recipe.create!({
   yummily_id: "nil",
@@ -21,8 +31,8 @@ cart = Recipe.create!({
 })
 
 # USERS
-
-User.destroy_all
+puts "Seeding users"
+#-----------------------------------
 
 tristan = User.create!({
   name: "tristan",
@@ -34,15 +44,16 @@ tristan = User.create!({
 })
 
 # FAV RECIPES
-Fav_recipe.destroy_all
+puts "Seeding fav_recipes"
+#-----------------------------------
 
 tristan_cart = tristan.fav_recipes.create!({
   recipe_id: cart.id,
 })
 
 # List Ingredients
-
-List_ingredient.destroy_all
+puts "Seeding list ingredients"
+#-----------------------------------
 
 tristan_cart.list_ingredients.create!(
   name: "mustard"
