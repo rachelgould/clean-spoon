@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20190330012648) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "fav_recipes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["recipe_id"], name: "index_fav_recipes_on_recipe_id"
-    t.index ["user_id"], name: "index_fav_recipes_on_user_id"
+    t.index ["recipe_id"], name: "index_fav_recipes_on_recipe_id", using: :btree
+    t.index ["user_id"], name: "index_fav_recipes_on_user_id", using: :btree
   end
 
   create_table "fridge_ingredients", force: :cascade do |t|
@@ -27,7 +30,7 @@ ActiveRecord::Schema.define(version: 20190330012648) do
     t.date     "expiry_date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["user_id"], name: "index_fridge_ingredients_on_user_id"
+    t.index ["user_id"], name: "index_fridge_ingredients_on_user_id", using: :btree
   end
 
   create_table "list_ingredients", force: :cascade do |t|
@@ -35,18 +38,18 @@ ActiveRecord::Schema.define(version: 20190330012648) do
     t.integer  "fav_recipe_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["fav_recipe_id"], name: "index_list_ingredients_on_fav_recipe_id"
+    t.index ["fav_recipe_id"], name: "index_list_ingredients_on_fav_recipe_id", using: :btree
   end
 
   create_table "preferences", force: :cascade do |t|
     t.boolean  "vegan"
     t.boolean  "vegetarian"
     t.boolean  "gf"
-    t.string   "allergies"
+    t.string   "allergies",               array: true
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_preferences_on_user_id"
+    t.index ["user_id"], name: "index_preferences_on_user_id", using: :btree
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -54,15 +57,19 @@ ActiveRecord::Schema.define(version: 20190330012648) do
     t.string "name"
     t.text   "instructions"
     t.text   "preparations"
-    t.string "ingredients"
+    t.string "ingredients",  array: true
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "fav_recipes", "recipes"
+  add_foreign_key "fav_recipes", "users"
+  add_foreign_key "fridge_ingredients", "users"
+  add_foreign_key "list_ingredients", "fav_recipes"
+  add_foreign_key "preferences", "users"
 end
