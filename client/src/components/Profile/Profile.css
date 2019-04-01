@@ -1,8 +1,8 @@
-#profileBody {
-    margin-top: 40px;
+
+
+#profile {
+    margin-top: 50px;
+    margin-left: 300px;
+    position: relative;
 }
 
-#centered_buttons { 
-    position: relative;
-    display: flex; 
-    justify-content: center; }

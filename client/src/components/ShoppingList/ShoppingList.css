@@ -1,3 +1,6 @@
 #shoppingList {
-    margin-left: 500px;
+    padding-left: 250px;
+    padding-right: 250px;
+    position: relative;
 }
+

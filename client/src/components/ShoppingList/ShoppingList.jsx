@@ -12,7 +12,7 @@ class ShoppingList extends Component {
   render() {
     
     return (
-      <div class="row" id="fridgeList">
+      <div class="row" id="shoppingList">
    <div class="col-md-4">
           <Card body >
             <CardTitle className="CardTitle">This is your Shopping List</CardTitle>

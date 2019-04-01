@@ -9,10 +9,15 @@ import {
   Nav,
   NavItem,
   NavLink,
+  Modal,
+  prevState,
+  ModalHeader, 
+  ModalBody,
+  ModalFooter
 } from 'reactstrap';
+
 import './logo.png'
 
-let imgUrl = './logo.png';
 
 class nav extends React.Component {
   constructor(props) {
@@ -20,12 +25,15 @@ class nav extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      modal: false
     };
+    this.toggle = this.toggle.bind(this);
   }
   toggle() {
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !this.state.isOpen,
+       modal: !prevState.modal
     });
   }
 
@@ -47,6 +55,7 @@ class nav extends React.Component {
               </NavItem>
               <NavItem> <Button color="info" className="loginBtn" href="/signup">Sign Up</Button>
               </NavItem>
+              <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}</Button>
             </Nav>
           </Collapse>
         </Navbar>

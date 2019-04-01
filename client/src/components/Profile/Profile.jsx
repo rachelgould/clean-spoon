@@ -2,18 +2,24 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Navbar from '../Navbar/nav.jsx';
 import './Profile.css';
-import { Col, Card, Form, Button, Input, Label, FormGroup } from 'reactstrap';
+import { Col, Card, Form, Button, Input, Label, FormGroup, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class Profile extends Component {
   constructor(props) {
     super(props);
   }
+
+
+
   render() {
     return (
-      <div>
-        <Navbar />
-        <Col sm="8" id="search">
-          <Card body >
+      
+      <div class="row">
+      <Navbar />
+      <div class="col-md-4" id="profile">
+        
+        <Col sm="8" >
+          <Card body>
         <div className="row justify-content-center" id="profileBody">
           <div className="col-3">
             Update your profile
@@ -60,6 +66,7 @@ class Profile extends Component {
         </div>
         </Card>
         </Col>
+      </div>
       </div>
     );
   }
