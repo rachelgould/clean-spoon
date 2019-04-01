@@ -81,7 +81,7 @@ When I go shopping, I want to be able to scan my receipt and have those items go
 
 # Database Planning
 
-https://photos.app.goo.gl/21pggSRycRumpYv19
+https://www.canva.com/design/DADVp7huS0Q/jeaC_KruWQI6th9qoDgFfQ/
 
 ---
 ---
