@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './QuickSearch.css';
-import { Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { Card, Button, CardTitle, Row, Col } from 'reactstrap';
 
 const QuickSearch = (props) => {
     return (

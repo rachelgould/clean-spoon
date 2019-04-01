@@ -9,10 +9,6 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
 } from 'reactstrap';
 
 class nav extends React.Component {
@@ -41,11 +37,11 @@ class nav extends React.Component {
                 <NavLink href="/profile"><p className="links">Edit Profile</p></NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/dashboard"><p className="links">Recipe Search</p></NavLink>
-              </NavItem>
-              <NavItem> <Button color="info" className="loginBtn" href="/signup">Sign Up</Button>
+                <NavLink href="/"><p className="links">Recipe Search</p></NavLink>
               </NavItem>
               <NavItem> <Button color="success" className="loginBtn" href="/login">Login</Button>{' '}
+              </NavItem>
+              <NavItem> <Button color="info" className="loginBtn" href="/signup">Sign Up</Button>
               </NavItem>
             </Nav>
           </Collapse>

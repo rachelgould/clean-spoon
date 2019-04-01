@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './YourFridge.css';
-import { Input, InputGroup, InputGroupAddon, Table,Card, ButtonDropdown, Button, DropdownToggle, DropdownItem, DropdownMenu, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { Input, InputGroup, InputGroupAddon, Table,Card, Button, CardTitle, Row, Col } from 'reactstrap';
 
 
 class YourFridge extends Component {
@@ -21,10 +21,10 @@ class YourFridge extends Component {
   }
   render() {
     return (
-      <Row>
-        <Col sm="8" id="search">
-          <Card body >
-            <CardTitle className="CardTitle">This is your fridge</CardTitle>
+      <div class="row" id="fridgeList">
+   <div class="col-md-4">
+   <Card body >
+            <CardTitle>This is your fridge</CardTitle>
             <Table>
         <tbody>
           <tr>
@@ -52,8 +52,10 @@ class YourFridge extends Component {
         </InputGroupAddon>
       </InputGroup>
           </Card>
-        </Col>
-      </Row>
+          </div> 
+</div>
+
+     
     );
   }
 }

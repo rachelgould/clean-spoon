@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Input, InputGroup, InputGroupAddon, Table,Card, ButtonDropdown, Button, DropdownToggle, DropdownItem, DropdownMenu, CardTitle, CardText, Row, Col } from 'reactstrap';
+import './ShoppingList.css'
+import { Input, InputGroup, InputGroupAddon, Table,Card, Button, CardTitle, Row, Col } from 'reactstrap';
+
+// import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 
 class ShoppingList extends Component {
   constructor(props) {
     super(props);
   }
   render() {
+    
     return (
-      <div>
-      <Row>
-        <Col sm="8" id="search">
+      <div class="row" id="fridgeList">
+   <div class="col-md-4">
           <Card body >
             <CardTitle className="CardTitle">This is your Shopping List</CardTitle>
             <Table>
@@ -44,13 +47,11 @@ class ShoppingList extends Component {
         </InputGroupAddon>
       </InputGroup>
           </Card>
-        </Col>
-      </Row>
+      </div>
       </div>
     );
   }
 }
 export default ShoppingList;
-
 
 

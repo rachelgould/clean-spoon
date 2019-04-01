@@ -24,6 +24,7 @@ class Dashboard extends Component {
       case 'savedRecipes': return <SavedRecipes />
       case 'yourFridge': return <YourFridge />
       case 'shoppingList': return <ShoppingList />
+      default : return <YourFridge />
     }
   }
 
@@ -32,7 +33,7 @@ class Dashboard extends Component {
       <div>
         <Navbar />
         <div className="text-center" id="topMargin">
-          <ButtonGroup size="lg" class="block">
+          <ButtonGroup size="lg" className="block">
             <Button color="danger" onClick={this.handleKeyPress.bind(this, 'savedRecipes')}>Saved Recipes</Button>
             <Button color="danger" onClick={this.handleKeyPress.bind(this, 'yourFridge')}>Your Fridge</Button>
             <Button color="danger" onClick={this.handleKeyPress.bind(this, 'shoppingList')}>Shopping List</Button>       
@@ -44,6 +45,5 @@ class Dashboard extends Component {
   }
 }
 export default Dashboard;
-
 
 
