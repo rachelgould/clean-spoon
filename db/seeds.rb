@@ -9,7 +9,7 @@ def get_image file_name
   File.open(Rails.root.join('db', 'seed_images', file_name))
 end
 
-users.create!({
+User.create!({
   name: "tristan",
   email: "tristan@gmail.com",
   vegan: false,
