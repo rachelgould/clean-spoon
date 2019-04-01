@@ -6,6 +6,12 @@ class AddInitialTables < ActiveRecord::Migration[5.0]
       t.string :email
       #t.string :password_digest # Users do not need login security during development
 
+      #preferences:
+      t.boolean :vegan
+      t.boolean :vegetarian
+      t.boolean :gf
+      t.string :allergies, array: true
+
       t.timestamps null: false
     end
 
@@ -20,16 +26,6 @@ class AddInitialTables < ActiveRecord::Migration[5.0]
     create_table :fav_recipes do |t|
       t.references :user, index: true, foreign_key: true
       t.references :recipe, index: true, foreign_key: true
-
-      t.timestamps null: false
-    end
-
-    create_table :preferences do |t|
-      t.boolean :vegan
-      t.boolean :vegetarian
-      t.boolean :gf
-      t.string :allergies, array: true
-      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end
