@@ -10,6 +10,9 @@ import {
   NavItem,
   NavLink,
 } from 'reactstrap';
+import './logo.png'
+
+let imgUrl = './logo.png';
 
 class nav extends React.Component {
   constructor(props) {
@@ -25,11 +28,12 @@ class nav extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
+
   render() {
     return (
       <div>
         <Navbar expand="md">
-          <NavbarBrand href="/" className="title">Clean Spoon</NavbarBrand>
+          <NavbarBrand href="/"><img src={require('./logo.png')} /></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
