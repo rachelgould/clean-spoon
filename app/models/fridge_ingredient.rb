@@ -1,4 +1,4 @@
-class Fridge_ingredient < ApplicationRecord
+class FridgeIngredient < ApplicationRecord
  
   belongs_to :user
 

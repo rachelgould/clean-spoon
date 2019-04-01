@@ -1,4 +1,4 @@
-class Fav_recipe < ApplicationRecord
+class FavRecipe < ApplicationRecord
  
   belongs_to :user
   belongs_to :recipe

@@ -1,4 +1,4 @@
-class List_ingredient < ApplicationRecord
+class ListIngredient < ApplicationRecord
  
   belongs_to :fav_recipe
 
