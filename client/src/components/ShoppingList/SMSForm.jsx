@@ -20,7 +20,7 @@ class SMSForm extends Component {
     return number.toString()
   }
 
-  onFormSubmit = (event) => {
+  submitForm = (event) => {
     event.preventDefault();
     this.props.smsSubmit(this.formatPhoneNum(this.state.number));
   }
@@ -29,7 +29,7 @@ class SMSForm extends Component {
     return (
     <div id="smsParent">
       <div id="sms">
-        <form onSubmit={this.onFormSubmit}>
+        <form onSubmit={this.submitForm}>
           <InputGroup size="lg">
             <Input placeholder="Phone number" onChange={this.handleChange} />
             <InputGroupAddon addonType="append" >

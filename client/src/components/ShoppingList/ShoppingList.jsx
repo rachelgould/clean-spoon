@@ -55,8 +55,8 @@ class ShoppingList extends Component {
     const { foodItems } = this.state;
 
     return (
-      <div class="row" id="shoppingList">
-        <div class="col-md-4">
+      <div className="row" id="shoppingList">
+        <div className="col-md-4">
 
           <Card body >
             <CardTitle className="CardTitle">This is your Shopping List</CardTitle>
