@@ -56,7 +56,7 @@ class ShoppingList extends Component {
             
 
              <br />
-             <SMSForm />
+             <SMSForm handleSubmit={this.smsSubmit}/>
           </Card>
 
         </div>
