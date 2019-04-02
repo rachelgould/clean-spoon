@@ -13,7 +13,24 @@ const Routes = () => (
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/profile" component={Profile} />
-        <Route exact path="/dashboard" component={Dashboard} />
+        <Route 
+          exact path="/recipes"
+          render={(routeProps) => (
+          <Dashboard {...routeProps} view="savedRecipes" />
+          )}
+        />
+        <Route 
+          exact path="/fridge"
+          render={(routeProps) => (
+          <Dashboard {...routeProps} view="yourFridge" />
+          )}
+        />
+        <Route 
+          exact path="/list"
+          render={(routeProps) => (
+          <Dashboard {...routeProps} view="shoppingList" />
+          )}
+        />
     </Switch>   
     </BrowserRouter>
 );

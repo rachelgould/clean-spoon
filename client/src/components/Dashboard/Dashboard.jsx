@@ -9,7 +9,9 @@ import {Button, ButtonGroup} from 'reactstrap';
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.state = {render: ''};
+    this.state = {
+      render: this.props.view
+    };
   }
 
   handleKeyPress = (compName, event) => {
