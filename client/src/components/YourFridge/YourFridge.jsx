@@ -1,59 +1,60 @@
 import React, { Component } from 'react';
-import { Input, InputGroup, InputGroupAddon, Table,Card, Button, CardTitle, Row, Col } from 'reactstrap';
+import { Input, InputGroup, InputGroupAddon, Card, Button, CardTitle, Row, Col } from 'reactstrap';
+import Table from '../Table/Table.jsx'
+import Form from '../Table/Form.jsx'
 
 
 class YourFridge extends Component {
-  constructor(props) {
-    super(props);
+  
+  //default values for the time being
+  state = {
+    foodItems: [
+      {
+        item: 'Milk'
+      },
+      {
+        item: 'Cheese'
+      },
+      {
+        item: 'Strawberries'
+      },
+      {
+        item: 'Butter'
+      }
+    ]
+  };
 
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      dropdownOpen: false
-    };
-  }
+  removeItem = index => {
+    const { foodItems } = this.state
 
-  toggle() {
     this.setState({
-      dropdownOpen: !this.state.dropdownOpen
-    });
+      foodItems: foodItems.filter((character, i) => {
+        return i !== index
+      }),
+    })
   }
+
+  handleSubmit = item => {
+    this.setState({ foodItems: [...this.state.foodItems, item] })
+  }
+
   render() {
+
+    const { foodItems } = this.state;
+
     return (
       <div class="row" id="fridgeList">
-   <div class="col-md-4">
-   <Card body >
+        <div class="col-md-4">
+          <Card body >
             <CardTitle>This is your fridge</CardTitle>
-            <Table>
-        <tbody>
-          <tr>
-            <th scope="row">Lima Beans</th>
-            <td><button>Update</button></td>
-            <td><button>Remove</button></td>
-          </tr>
-          <tr>
-            <th scope="row">Carrots</th>
-            <td><button>Update</button></td>
-            <td><button>Remove</button></td>
-          </tr>
-          <tr>
-            <th scope="row">Chicken Breasts</th>
-            <td><button>Update</button></td>
-            <td><button>Remove</button></td>
-          </tr>
-        </tbody>
-      </Table>
-      <br />
-      <InputGroup>
-        <Input />
-        <InputGroupAddon addonType="append">
-          <Button color="secondary" color="danger">Add Item</Button>
-        </InputGroupAddon>
-      </InputGroup>
-          </Card>
-          </div> 
-</div>
 
-     
+            <Table characterData={foodItems} removeItem={this.removeItem} />
+            <Form handleSubmit={this.handleSubmit} />
+            <br />
+
+          </Card>
+        </div>
+      </div>
     );
   }
 }
