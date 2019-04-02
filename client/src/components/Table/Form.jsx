@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Input, InputGroup, InputGroupAddon, Card, Button, CardTitle } from 'reactstrap';
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 //For Shopping List and Your Fridge 
 
 class Form extends Component {
@@ -36,6 +37,7 @@ class Form extends Component {
 
     return (
       <form onSubmit={this.onFormSubmit}>
+      
         <input
           type="text"
           name="item"
@@ -43,6 +45,7 @@ class Form extends Component {
           onChange={this.handleChange} />
         <Button color="danger">Add Item</Button>
       </form>
+      
     );
   }
 }
