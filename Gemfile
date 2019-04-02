@@ -25,6 +25,8 @@ gem 'foreman', '~> 0.82.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.20.0'
 
+gem 'twilio-ruby'
+
 group :development do
   gem 'web-console', '~> 2.0'
 end
