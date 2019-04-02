@@ -4,6 +4,10 @@
   font-family: 'Poppins', sans-serif;
 }
 
+h1, h2, h3, h4 {
+  color: #bb3535;
+}
+
 .dashboard .block {
   display: block;
   width: 100%;
@@ -16,6 +20,91 @@
 
 .dashboard #topMargin {
   margin-top: 20px;
+}
+
+.welcome .hero {
+  background-image: url("https://images.unsplash.com/photo-1516685018646-549198525c1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 400px;
+  margin: 0;
+}
+
+.welcome .hero .quicksearch {
+  width: 300px;
+  height: 200px;
+  padding: 30px;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px;
+  position: relative;
+  top: 25%;
+  left: 10%;
+  background-color: white;
+}
+
+.welcome .hero .quicksearch h1 {
+  font-weight: bold;
+  color: #bb3535;
+  font-size: 38px;
+}
+
+.welcome .hero .quicksearch .search-button {
+  border: 0;
+  border-radius: 0;
+  background-color: #bb3535;
+  font-weight: bold;
+}
+
+.welcome .hero .quicksearch .search-button:hover {
+  border: 0;
+  border-radius: 0;
+  background-color: #962c2c;
+}
+
+.welcome .howto h1 {
+  color: #bb3535;
+  text-align: center;
+}
+
+.welcome .howto .steps {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 40px;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.welcome .howto .steps .card {
+  padding: 10px;
+  width: 30%;
+  min-width: 200px;
+  border: none;
+}
+
+.welcome .howto .steps .card img {
+  height: 200px;
+  text-align: center;
+}
+
+.welcome .howto .steps .card .title {
+  color: #bb3535;
+  text-align: center;
+  font-weight: bold;
+  font-size: 125%;
 }
 
 .navigation .title {
