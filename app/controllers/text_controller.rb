@@ -7,7 +7,7 @@ class TextController < ApplicationController
     else
       from = '+16474925440' # Your Twilio number
       to = q # Should be changed to destination for production
-      message = list
+      message = list.join(', ')
       TwilioTextMessenger.new(message, to, from).call
       render(
         status: 200,

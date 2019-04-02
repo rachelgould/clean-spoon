@@ -41,10 +41,14 @@ class ShoppingList extends Component {
 
   smsSubmit = (num) => {
     console.log("Submitting the text message")
+    let parsedList = [];
+    this.state.foodItems.forEach(entry => {
+      parsedList.push(entry.item)
+    });
     axios.get('api/text', {
       params: {
         q: num,
-        list: this.state.foodItems
+        list: parsedList
       }
     }).then(response => {
       console.log(response)
