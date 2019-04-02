@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600');
 
 $main-bright: #bb3535;
+$main-bright-btn-hover: #962c2c;
 $text-color: white;
 
 * {
@@ -21,6 +22,50 @@ $text-color: white;
 
   #topMargin {
     margin-top:20px;
+  }
+}
+
+.welcome {
+  .hero {
+    background-image: url('https://images.unsplash.com/photo-1516685018646-549198525c1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100vw;
+    height: 80vh;
+    margin: 0;
+
+    .quicksearch {
+      width: 300px;
+      height: 200px;
+      padding: 30px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+      position: relative;
+      top: 25%;
+      left: 10%;
+
+      h1 {
+        font-weight: bold;
+        color: $main-bright;
+        font-size: 38px;
+      }
+
+      .search-button {
+        border: 0;
+        border-radius: 0;
+        background-color: $main-bright;
+        font-weight: bold;
+      }
+      .search-button:hover {
+        border: 0;
+        border-radius: 0;
+        background-color: $main-bright-btn-hover;
+      }
+      background-color: white;
+    }
   }
 }
 
