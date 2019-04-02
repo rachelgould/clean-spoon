@@ -8,7 +8,7 @@ class Form extends Component {
       item: '',
     }
 
-    this.state = this.initialState
+    this.state = this.initialState;
   }
 
 
@@ -40,8 +40,8 @@ submitForm = () => {
                 <label>Item</label>
                 <input 
                     type="text" 
-                    item="item" 
-                    // value={name} 
+                    name="item" 
+                    value={item} 
                     onChange={this.handleChange} />
 
 <input type="button" value="Submit" onClick={this.submitForm} />

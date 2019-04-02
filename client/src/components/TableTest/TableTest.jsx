@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Navbar from '../Navbar/nav.jsx';
-import QuickSearch from '../QuickSearch/QuickSearch.jsx';
 import Table from '../Table/Table.jsx'
 import Form from '../Table/Form.jsx'
 
