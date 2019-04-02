@@ -2,10 +2,15 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600');
 
 $main-bright: #bb3535;
+$main-bright-btn-hover: #962c2c;
 $text-color: white;
 
 * {
   font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  color: $main-bright;
 }
 
 .dashboard {
@@ -21,6 +26,82 @@ $text-color: white;
 
   #topMargin {
     margin-top:20px;
+  }
+}
+
+.welcome {
+  .hero {
+    background-image: url('https://images.unsplash.com/photo-1516685018646-549198525c1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 400px;
+    margin: 0;
+
+    .quicksearch {
+      width: 300px;
+      height: 200px;
+      padding: 30px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+      position: relative;
+      top: 25%;
+      left: 10%;
+
+      h1 {
+        font-weight: bold;
+        color: $main-bright;
+        font-size: 38px;
+      }
+
+      .search-button {
+        border: 0;
+        border-radius: 0;
+        background-color: $main-bright;
+        font-weight: bold;
+      }
+      .search-button:hover {
+        border: 0;
+        border-radius: 0;
+        background-color: $main-bright-btn-hover;
+      }
+      background-color: white;
+    }
+  }
+
+  .howto {
+
+    h1 {
+      color: $main-bright;
+      text-align: center;
+    }
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      justify-content: space-evenly;
+
+      .card {
+        padding: 10px;
+        width: 30%;
+        min-width: 200px;
+        border: none;
+
+        img {
+          height: 200px;
+          text-align: center;
+        }
+
+        .title {
+          color: $main-bright;
+          text-align: center;
+          font-weight: bold;
+          font-size: 125%;
+        }
+      }
+    }
   }
 }
 
