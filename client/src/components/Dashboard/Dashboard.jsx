@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
 import Navbar from '../Navbar/nav.jsx';
-import './Dashboard.css';
 import ShoppingList from '../ShoppingList/ShoppingList.jsx';
 import SavedRecipes from '../SavedRecipes/SavedRecipes.jsx';
 import YourFridge from '../YourFridge/YourFridge.jsx';
@@ -30,7 +28,7 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div>
+      <div className="dashboard">
         <Navbar />
         <div className="text-center" id="topMargin">
           <ButtonGroup size="lg" className="block">

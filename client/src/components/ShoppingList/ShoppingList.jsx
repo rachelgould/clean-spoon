@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-import './ShoppingList.css'
 import { Input, InputGroup, InputGroupAddon, Table,Card, Button, CardTitle, Row, Col } from 'reactstrap';
 
 // import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';

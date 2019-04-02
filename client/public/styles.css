@@ -1,0 +1,60 @@
+@import url(/Users/rachelgould/lighthouse/clean-spoon/client/node_modules/bootstrap/dist/css/bootstrap.css);
+.dashboard .block {
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.dashboard #topMargin {
+  margin-top: 20px;
+}
+
+.navigation .title {
+  color: white;
+  font-family: 'Trebuchet MS';
+  font-weight: bold;
+  font-style: italic;
+}
+
+.navigation .navbar {
+  background: #dc3545;
+}
+
+.navigation .links {
+  color: white;
+  font-family: 'Trebuchet MS';
+  margin-top: 20px;
+}
+
+.navigation .loginBtn {
+  margin-top: 20px;
+  margin-right: 5px;
+}
+
+.quicksearch .search {
+  margin-top: 120px;
+  margin-left: 500px;
+  margin-right: 500px;
+  position: absolute;
+}
+
+.quicksearch .CardTitle {
+  text-align: center;
+}
+
+#shoppingList {
+  padding-left: 250px;
+  padding-right: 250px;
+  position: relative;
+}
+
+#fridgeList {
+  padding-left: 250px;
+  padding-right: 250px;
+  position: relative;
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,12 +1,16 @@
-## Running
+## Setup
 
+1. Fork and Clone
+2. Follow below to install dependencies
 ```
 bundle
 cd client
 npm i
 cd ..
-rake start
 ```
+3. Create `config/database.yml` by copying `config/database.example.yml` 
+4. Run `bin/rake db:reset` to create, load and seed db
+5. Start with `rake start`
 
 ## Overview
 
