@@ -11,18 +11,19 @@ end
 
 
 # Delete all memory
-puts "Dropping all tables"
+puts "Dropping all table data"
 #-----------------------------------
 ListIngredient.destroy_all
 FridgeIngredient.destroy_all
 FavRecipe.destroy_all
+Ingredient.destroy_all
 Recipe.destroy_all
 User.destroy_all
 
-# SHOPPING LIST (NOT ON RECIPE)
+
 puts "Seeding recipes"
 #-----------------------------------
-
+# Shopping list -> when an item does not belong to a recipe but is still in list ingredients
 cart = Recipe.create!({
   yummily_id: "nil",
   name: "cart",
@@ -30,7 +31,6 @@ cart = Recipe.create!({
   preparations: "nil"
 })
 
-# USERS
 puts "Seeding users"
 #-----------------------------------
 
@@ -43,7 +43,6 @@ tristan = User.create!({
   allergies: ["olives"]
 })
 
-# FAV RECIPES
 puts "Seeding fav_recipes"
 #-----------------------------------
 
@@ -51,10 +50,17 @@ tristan_cart = tristan.fav_recipes.create!({
   recipe_id: cart.id,
 })
 
-# List Ingredients
+puts "Seeding ingredients"
+#-----------------------------------
+
+mustard = Ingredient.create!(
+  name: "mustard",
+  image: get_image("mustard.jpg")
+)
+
 puts "Seeding list ingredients"
 #-----------------------------------
 
 tristan_cart.list_ingredients.create!(
-  name: "mustard"
+  ingredient_id: mustard.id
 )

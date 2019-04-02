@@ -36,7 +36,7 @@ class AddInitialTables < ActiveRecord::Migration[5.0]
     end
 
     create_table :fridge_ingredients do |t|
-      t.references :ingredients, index: true, foreign_key: true
+      t.references :ingredient, index: true, foreign_key: true
       t.references :user, index: true, foreign_key: true
       t.date :expiry_date
 
@@ -44,7 +44,7 @@ class AddInitialTables < ActiveRecord::Migration[5.0]
     end
 
     create_table :list_ingredients do |t|
-      t.references :ingredients, index: true, foreign_key: true
+      t.references :ingredient, index: true, foreign_key: true
       t.references :fav_recipe, index: true, foreign_key: true #optional
 
       t.timestamps null: false
