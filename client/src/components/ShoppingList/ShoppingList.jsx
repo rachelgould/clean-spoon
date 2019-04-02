@@ -39,7 +39,7 @@ class ShoppingList extends Component {
     this.setState({ foodItems: [...this.state.foodItems, item] })
   }
 
-  smsSubmit = num => {
+  smsSubmit = (num) => {
     axios.get('api/text', {
       params: {
         q: num,
