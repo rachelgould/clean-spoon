@@ -1,4 +1,9 @@
 @import url(/Users/rachelgould/lighthouse/clean-spoon/client/node_modules/bootstrap/dist/css/bootstrap.css);
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600");
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
 .dashboard .block {
   display: block;
   width: 100%;
@@ -15,24 +20,35 @@
 
 .navigation .title {
   color: white;
-  font-family: 'Trebuchet MS';
   font-weight: bold;
   font-style: italic;
 }
 
 .navigation .navbar {
-  background: #dc3545;
+  background: #bb3535;
 }
 
 .navigation .links {
   color: white;
-  font-family: 'Trebuchet MS';
   margin-top: 20px;
 }
 
 .navigation .loginBtn {
   margin-top: 20px;
   margin-right: 5px;
+}
+
+.navigation .recipe-search, .navigation .recipe-search:active {
+  background-color: white;
+  color: #bb3535;
+  border: 0;
+  border-radius: 0;
+}
+
+.navigation .recipe-search:hover {
+  background-color: #f7f7f7;
+  color: #bb3535;
+  border: 0;
 }
 
 .quicksearch .search {
@@ -57,4 +73,24 @@
   padding-right: 250px;
   position: relative;
 }
+
+img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* @media screen and (max-width: 1024px) { 
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   
+  }
+} */
 /*# sourceMappingURL=styles.css.map */

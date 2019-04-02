@@ -1,4 +1,12 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.css';
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600');
+
+$main-bright: #bb3535;
+$text-color: white;
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
 
 .dashboard {
   .block {
@@ -18,25 +26,36 @@
 
 .navigation {
   .title {
-    color: rgb(255, 255, 255);
-    font-family: 'Trebuchet MS';
+    color: $text-color;
     font-weight: bold;
     font-style: italic;
 
   }
   .navbar {
-    background: rgb(220, 53, 69);
+    background: $main-bright;
   }
   
   .links {
-    color: rgb(255, 255, 255);
-    font-family: 'Trebuchet MS';
+    color: $text-color;
     margin-top: 20px;
   }
   
   .loginBtn {
     margin-top: 20px;
     margin-right: 5px;
+  }
+
+  .recipe-search, .recipe-search:active {
+    background-color: white;
+    color: $main-bright;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .recipe-search:hover {
+    background-color: rgb(247, 247, 247);
+    color: $main-bright;
+    border: 0;
   }
 }
 
@@ -64,3 +83,25 @@
   padding-right: 250px;
   position: relative;
 }
+
+img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+    
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+    
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* @media screen and (max-width: 1024px) { 
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   
+  }
+} */
