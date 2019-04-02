@@ -1,54 +1,51 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Input, InputGroup, InputGroupAddon, Card, Button, CardTitle } from 'reactstrap';
+
+//For Shopping List and Your Fridge 
 
 class Form extends Component {
   constructor(props) {
     super(props)
-
     this.initialState = {
       item: '',
     }
-
     this.state = this.initialState;
   }
 
 
   handleChange = event => {
     const { name, value } = event.target;
-
     this.setState({
-        [name] : value
+      [name]: value
     });
-}
+  }
 
-onFormSubmit = (event) => {
+  onFormSubmit = (event) => {
     event.preventDefault();
-    
+
     this.props.handleSubmit(this.state);
     this.setState(this.initialState);
-}
+  }
 
-submitForm = () => {
+  submitForm = () => {
     this.props.handleSubmit(this.state)
     this.setState(this.initialState)
   }
 
- render() {
-        const { item } = this.state; 
+  render() {
+    const { item } = this.state;
 
-        return (
-            <form onSubmit={this.onFormSubmit}>
-                <label>Item</label>
-                <input 
-                    type="text" 
-                    name="item" 
-                    value={item} 
-                    onChange={this.handleChange} />
-
-<input type="button" value="Submit" onClick={this.submitForm} />
-
-            </form>
-        );
-    }
+    return (
+      <form onSubmit={this.onFormSubmit}>
+        <input
+          type="text"
+          name="item"
+          value={item}
+          onChange={this.handleChange} />
+        <Button color="danger">Add Item</Button>
+      </form>
+    );
+  }
 }
 
 export default Form;

@@ -5,12 +5,11 @@ import Login from './components/Login/Login.jsx';
 import SignUp from './components/SignUp/SignUp.jsx';
 import Profile from './components/Profile/Profile.jsx';
 import Dashboard from './components/Dashboard/Dashboard.jsx';
-import TableTest from './components/TableTest/TableTest.jsx'
 
 const Routes = () => (
     <BrowserRouter>
     <Switch>
-        <Route exact path="/" component={TableTest} />
+        <Route exact path="/" component={Welcome} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/profile" component={Profile} />

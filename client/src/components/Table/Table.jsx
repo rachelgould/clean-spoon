@@ -1,43 +1,44 @@
 import React, { Component } from 'react'
+import {Button} from 'reactstrap';
 
-const TableHeader = () => {
+//For Shopping List and Your Fridge 
+
+
+// Removed this for the time being, not necessery
+// const TableHeader = () => {
+//   return (
+//     <thead>
+//       <tr>
+//         <th>Item</th>    
+//       </tr>
+//     </thead>
+//   )
+// }
+
+const TableBody = props => {
+
+  const rows = props.characterData.map((row, index) => {
     return (
-      <thead>
-        <tr>
-          <th>Item</th>
-        
-        </tr>
-      </thead>
+      <tr key={index}>
+        <td>{row.item}</td>
+        <td><Button color="danger" onClick={() => props.removeItem(index)}> Remove </Button></td>
+      </tr>
     )
-  }
-
-  const TableBody = props => {
-
-      const rows = props.characterData.map((row, index) => {
-        return (
-          <tr key={index}>
-            <td>{row.item}</td>
-            <td><button onClick={() => props.removeCharacter(index)}><i>Delete</i></button></td>
-          </tr>
-        )
-      })
-    
-      return <tbody>{rows}</tbody>
-  }
-
+  })
+  return <tbody>{rows}</tbody>
+}
 
 class Table extends Component {
-    render() {
-        
-        const { characterData, removeCharacter } = this.props
+  render() {
 
-      return (
-        <table>
-          <TableHeader />
-          <TableBody characterData={characterData} removeCharacter={removeCharacter}/>
-        </table>
-      )
-    }
+    const { characterData, removeItem } = this.props
+
+    return (
+      <table>
+        {/* <TableHeader /> */}
+        <TableBody characterData={characterData} removeItem={removeItem} />
+      </table>
+    )
   }
-
+}
 export default Table

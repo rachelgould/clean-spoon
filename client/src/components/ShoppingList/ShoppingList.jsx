@@ -1,51 +1,67 @@
 import React, { Component } from 'react';
-import { Input, InputGroup, InputGroupAddon, Table,Card, Button, CardTitle, Row, Col } from 'reactstrap';
-
-// import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
+import { Input, InputGroup, InputGroupAddon, Card, Button, CardTitle } from 'reactstrap';
+import Table from '../Table/Table.jsx'
+import Form from '../Table/Form.jsx'
 
 class ShoppingList extends Component {
-  constructor(props) {
-    super(props);
+
+  //default values for the time being
+  state = {
+    foodItems: [
+      {
+        item: 'Chicken'
+      },
+      {
+        item: 'Lima Beans'
+      },
+      {
+        item: 'Rice'
+      },
+      {
+        item: 'Youghurt'
+      }
+    ]
+  };
+
+  removeItem = index => {
+    const { foodItems } = this.state
+
+    this.setState({
+      foodItems: foodItems.filter((character, i) => {
+        return i !== index
+      }),
+    })
   }
+
+  handleSubmit = item => {
+    this.setState({ foodItems: [...this.state.foodItems, item] })
+  }
+
   render() {
-    
+
+    const { foodItems } = this.state;
+
     return (
       <div class="row" id="shoppingList">
-   <div class="col-md-4">
+        <div class="col-md-4">
+
           <Card body >
             <CardTitle className="CardTitle">This is your Shopping List</CardTitle>
-            <Table>
-        <tbody>
-          <tr>
-            <th scope="row">Peas</th>
-            <td><button>Remove</button></td>
-          </tr>
-          <tr>
-            <th scope="row">Eggs</th>
-            <td><button>Remove</button></td>
-          </tr>
-          <tr>
-            <th scope="row">Spaghetti</th>
-            <td><button>Remove</button></td>
-          </tr>
-        </tbody>
-      </Table>
-      <br />
-      <InputGroup>
-        <Input />
-        <InputGroupAddon addonType="append">
-          <Button color="secondary" color="danger">Add Item</Button>
-        </InputGroupAddon>
-      </InputGroup>
-      <br />
-      <InputGroup>
-        <Input />
-        <InputGroupAddon addonType="append">
-          <Button color="secondary" color="danger">Send to SMS</Button>
-        </InputGroupAddon>
-      </InputGroup>
+
+            <Table characterData={foodItems} removeItem={this.removeItem} />
+            <Form handleSubmit={this.handleSubmit} />
+            <br />
+
+            <InputGroup>
+              <Input />
+              <InputGroupAddon addonType="append">
+                <Button color="danger">Send to SMS</Button>
+              </InputGroupAddon>
+            </InputGroup>
+
           </Card>
-      </div>
+
+        </div>
       </div>
     );
   }
