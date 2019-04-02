@@ -1,8 +1,6 @@
 import React, {
   Component
 } from 'react';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
 import './styles/foundation.min.css';
 import  Routes from './routes';
 

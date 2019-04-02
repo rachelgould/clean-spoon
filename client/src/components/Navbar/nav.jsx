@@ -45,16 +45,17 @@ class nav extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/profile"><p className="links">Edit Profile</p></NavLink>
+                <NavLink href="/fridge"><p className="links">Fridge</p></NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/"><p className="links">Recipe Search</p></NavLink>
+                <NavLink href="/list"><p className="links">Shopping List</p></NavLink>
               </NavItem>
-              <NavItem> <Button color="success" className="loginBtn" href="/login">Login</Button>{' '}
+              <NavItem>
+                <NavLink href="/profile"><p className="links">Profile</p></NavLink>
               </NavItem>
-              <NavItem> <Button color="info" className="loginBtn" href="/signup">Sign Up</Button>
+              <NavItem> <Button 
+              color="primary" className="loginBtn recipe-search" href="/recipes">Recipe Search</Button>
               </NavItem>
-              <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}</Button>
             </Nav>
           </Collapse>
         </Navbar>
