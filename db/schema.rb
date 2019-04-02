@@ -25,20 +25,27 @@ ActiveRecord::Schema.define(version: 20190330012648) do
   end
 
   create_table "fridge_ingredients", force: :cascade do |t|
-    t.string   "name"
+    t.integer  "ingredient_id"
     t.integer  "user_id"
     t.date     "expiry_date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["ingredient_id"], name: "index_fridge_ingredients_on_ingredient_id", using: :btree
     t.index ["user_id"], name: "index_fridge_ingredients_on_user_id", using: :btree
   end
 
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+  end
+
   create_table "list_ingredients", force: :cascade do |t|
-    t.string   "name"
+    t.integer  "ingredient_id"
     t.integer  "fav_recipe_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["fav_recipe_id"], name: "index_list_ingredients_on_fav_recipe_id", using: :btree
+    t.index ["ingredient_id"], name: "index_list_ingredients_on_ingredient_id", using: :btree
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -62,6 +69,8 @@ ActiveRecord::Schema.define(version: 20190330012648) do
 
   add_foreign_key "fav_recipes", "recipes"
   add_foreign_key "fav_recipes", "users"
+  add_foreign_key "fridge_ingredients", "ingredients"
   add_foreign_key "fridge_ingredients", "users"
   add_foreign_key "list_ingredients", "fav_recipes"
+  add_foreign_key "list_ingredients", "ingredients"
 end
