@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Input, InputGroup, InputGroupAddon, Card, Button, CardTitle } from 'reactstrap';
 import Table from './Table.jsx'
 import Form from './Form.jsx'
+import SMSForm from './SMSForm.jsx'
 
 class ShoppingList extends Component {
 
@@ -55,17 +56,7 @@ class ShoppingList extends Component {
             
 
              <br />
-             <div id="smsParent">
-             <div id="sms">
-            <InputGroup size="lg">
-              <Input />
-              <InputGroupAddon addonType="append">
-                <Button color="danger">Send to SMS</Button>
-              </InputGroupAddon>
-            </InputGroup>
-            </div>
-            </div>
-
+             <SMSForm />
           </Card>
 
         </div>
