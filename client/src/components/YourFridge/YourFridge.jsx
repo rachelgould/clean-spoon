@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Input, InputGroup, InputGroupAddon, Card, Button, CardTitle, Row, Col } from 'reactstrap';
-import Table from '../Table/Table.jsx'
-import Form from '../Table/Form.jsx'
+import {Card, CardTitle} from 'reactstrap';
+import Table from './Table.jsx'
+import Form from './Form.jsx'
 
 
 class YourFridge extends Component {
@@ -49,8 +49,8 @@ class YourFridge extends Component {
             <CardTitle>This is your fridge</CardTitle>
 
             <Table characterData={foodItems} removeItem={this.removeItem} />
-            <Form handleSubmit={this.handleSubmit} />
             <br />
+            <Form handleSubmit={this.handleSubmit} />
 
           </Card>
         </div>

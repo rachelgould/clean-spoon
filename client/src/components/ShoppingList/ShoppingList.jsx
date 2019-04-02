@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Input, InputGroup, InputGroupAddon, Card, Button, CardTitle } from 'reactstrap';
-import Table from '../Table/Table.jsx'
-import Form from '../Table/Form.jsx'
+import Table from './Table.jsx'
+import Form from './Form.jsx'
 
 class ShoppingList extends Component {
 
@@ -47,17 +47,24 @@ class ShoppingList extends Component {
 
           <Card body >
             <CardTitle className="CardTitle">This is your Shopping List</CardTitle>
-
+            
+        
             <Table characterData={foodItems} removeItem={this.removeItem} />
-            <Form handleSubmit={this.handleSubmit} />
             <br />
+            <Form handleSubmit={this.handleSubmit} />
+            
 
-            <InputGroup>
+             <br />
+             <div id="smsParent">
+             <div id="sms">
+            <InputGroup size="lg">
               <Input />
               <InputGroupAddon addonType="append">
                 <Button color="danger">Send to SMS</Button>
               </InputGroupAddon>
             </InputGroup>
+            </div>
+            </div>
 
           </Card>
 

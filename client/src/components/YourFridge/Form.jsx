@@ -39,11 +39,13 @@ class Form extends Component {
       <form onSubmit={this.onFormSubmit}>
       
         <input
+          id="addFood"
           type="text"
           name="item"
           value={item}
+          placeholder="Enter food item here and hit enter"
           onChange={this.handleChange} />
-        <Button color="danger">Add Item</Button>
+        {/* <Button color="danger">Add Item</Button> */}
       </form>
       
     );
