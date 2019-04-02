@@ -4,7 +4,7 @@ import { Input, InputGroup, InputGroupAddon, Button } from 'reactstrap';
 class SMSForm extends Component {
   constructor(props) {
     super(props)
-    this.initialState = {
+    this.state = {
       number: '',
     }
   }
@@ -16,9 +16,13 @@ class SMSForm extends Component {
     });
   }
 
+  formatPhoneNum = number => {
+    return number.toString()
+  }
+
   onFormSubmit = (event) => {
     event.preventDefault();
-    this.props.smsSubmit(this.state);
+    this.props.smsSubmit(this.formatPhoneNum(this.state.number));
   }
 
   render() {
@@ -27,7 +31,7 @@ class SMSForm extends Component {
       <div id="sms">
         <form onSubmit={this.onFormSubmit}>
           <InputGroup size="lg">
-            <Input placeholder="Phone number" type="tel" onChange={this.handleChange} />
+            <Input placeholder="Phone number" onChange={this.handleChange} />
             <InputGroupAddon addonType="append" >
             <Button color="danger">Send to SMS</Button>
             </InputGroupAddon>

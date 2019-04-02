@@ -3,6 +3,7 @@ import { Input, InputGroup, InputGroupAddon, Card, Button, CardTitle } from 'rea
 import Table from './Table.jsx'
 import Form from './Form.jsx'
 import SMSForm from './SMSForm.jsx'
+import axios from 'axios';
 
 class ShoppingList extends Component {
 
@@ -36,6 +37,17 @@ class ShoppingList extends Component {
 
   handleSubmit = item => {
     this.setState({ foodItems: [...this.state.foodItems, item] })
+  }
+
+  smsSubmit = num => {
+    axios.get('api/text', {
+      params: {
+        q: num,
+        list: this.state.foodItems
+      }
+    }).then(response => {
+      console.log(response)
+    }).catch(error => console.log(error))
   }
 
   render() {
