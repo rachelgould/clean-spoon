@@ -1,7 +1,7 @@
 import React, {
   Component
 } from 'react';
-import './styles/foundation.min.css';
+// import './styles/foundation.min.css';
 import  Routes from './routes';
 
 class App extends Component {

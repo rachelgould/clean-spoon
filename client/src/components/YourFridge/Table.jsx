@@ -4,15 +4,17 @@ import {Button} from 'reactstrap';
 //For Shopping List and Your Fridge 
 
 // Removed this for the time being, not necessery
-// const TableHeader = () => {
-//   return (
-//     <thead>
-//       <tr>
-//         <th>Item</th>    
-//       </tr>
-//     </thead>
-//   )
-// }
+const TableHeader = () => {
+  return (
+    <thead>
+      <tr>
+        <th>Item</th>    
+        <th>Expires</th> 
+        <th>Action</th>
+      </tr>
+    </thead>
+  )
+}
 
 const TableBody = props => {
 
@@ -20,6 +22,7 @@ const TableBody = props => {
     return (
       <tr key={index}>
         <td>{row.item}</td>
+        <td><input type="date" id="date"/></td>
         <td><Button color="danger" onClick={() => props.removeItem(index)}> Remove </Button></td>
       </tr>
     )
@@ -34,7 +37,7 @@ class Table extends Component {
 
     return (
       <table>
-        {/* <TableHeader /> */}
+        <TableHeader />
         <TableBody characterData={characterData} removeItem={removeItem} />
       </table>
     )

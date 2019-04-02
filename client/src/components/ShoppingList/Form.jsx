@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Input, InputGroup, InputGroupAddon, Card, Button, CardTitle } from 'reactstrap';
 
-//For Shopping List and Your Fridge 
+//For Shopping List
 
 class Form extends Component {
   constructor(props) {
@@ -37,6 +37,7 @@ class Form extends Component {
     return (
       <form onSubmit={this.onFormSubmit}>
         <input
+          id="addFood"
           type="text"
           name="item"
           value={item}
