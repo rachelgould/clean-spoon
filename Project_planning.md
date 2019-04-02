@@ -125,6 +125,37 @@ Shopping List:
 Allergies:
 * Create a new allergy: `POST /allergies/`
 * Delete from your allergies: `DELETE /allergies/allergy[:id]/`
+---
+---
+
+# API Routes
+
+Users:
+* Get user details: `GET /api/users/user[:id]`
+* Edit user profile: `POST /api/users/user[:id]`
+* Create account: `POST /api/users/`
+
+(Login and logout routes are not MVP)
+
+Recipes:
+* Get user's saved recipes: `GET /api/fav_recipes/user[:id]`
+* Get recipes based on fridge items: `GET /api/recipes/user[:id]`
+* Add a saved recipe: `POST /users/user[:id]/recipes/recipe[:id]`
+* Delete a saved recipe: `DELETE /fav_recipes/fav_recipe[:id]`
+
+Fridge:
+* Browse what's in your fridge: `GET /api/fridges/user[:id]`
+* Add to your fridge: `POST /api/fridges/user[:id]`
+* Delete from your fridge: `DELETE /api/fridges/fridge_ingredient[:id]`
+
+Shopping List:
+* Browse what's in your shopping list: `GET /api/lists/user[:id]`
+* Add to your shopping list: `POST /api/lists/user[:id]`
+* Delete from your shopping list: `DELETE /api/lists/user[:id]`
+
+Allergies:
+* Create a new allergy: `POST /api/allergies/user[:id]`
+* Delete from your allergies: `DELETE /api/allergies/allergy[:name]/`
 
 ---
 ---
