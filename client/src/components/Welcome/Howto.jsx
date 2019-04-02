@@ -5,32 +5,30 @@ function Howto(props) {
   return (
     <div className="howto">
     <h1>How It Works</h1>
-    <Card>
-        <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
+    <div className="steps">
+      <Card className="card">
+        <CardImg top src="https://media-public.canva.com/MACy4RRI2V8/5/screen.svg" alt="Peanut" />
         <CardBody>
           <CardTitle className="title">Enter Your Dietary Restrictions</CardTitle>
           <CardText>Visit your profile to enter your dietary restrictions and allergies.</CardText>
         </CardBody>
       </Card>
-    <div>
-      <img src="" alt="" />
-      <h2></h2>
-      <p>
-      </p>
+      <Card className="card">
+        <CardImg top src="https://media-public.canva.com/MAC29W5cpFo/1/screen.svg" alt="Peanut" />
+        <CardBody>
+          <CardTitle className="title">Add Items to Your Fridge</CardTitle>
+          <CardText>Start inputting the ingredients you want to use up.</CardText>
+        </CardBody>
+      </Card>
+      <Card className="card">
+        <CardImg top src="https://media-public.canva.com/MABnsH3AhsE/1/screen.svg" alt="Peanut" />
+        <CardBody>
+          <CardTitle className="title">Browse Recipes & Get Cookin'</CardTitle>
+          <CardText>Browse recipes and make a shopping list if there's more you need.</CardText>
+        </CardBody>
+      </Card>
     </div>
-    <div>
-      <img src="" alt="" />
-      <h2>Add Items to Your Fridge</h2>
-      <p>Start inputting the ingredients you want to use up.
-      </p>
-    </div>
-    <div>
-      <img src="" alt="" />
-      <h2>Browse Recipes & Get Cookin'</h2>
-      <p>Browse recipes and make a shopping list if there's more you need.
-      </p>
-    </div>
-    </div>
+  </div>
   )
 }
 
