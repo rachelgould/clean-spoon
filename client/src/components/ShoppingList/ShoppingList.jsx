@@ -40,6 +40,7 @@ class ShoppingList extends Component {
   }
 
   smsSubmit = (num) => {
+    console.log("Submitting the text message")
     axios.get('api/text', {
       params: {
         q: num,
@@ -65,10 +66,8 @@ class ShoppingList extends Component {
             <Table characterData={foodItems} removeItem={this.removeItem} />
             <br />
             <Form handleSubmit={this.handleSubmit} />
-            
-
-             <br />
-             <SMSForm handleSubmit={this.smsSubmit}/>
+            <br />
+            <SMSForm handleSubmit={this.smsSubmit}/>
           </Card>
 
         </div>

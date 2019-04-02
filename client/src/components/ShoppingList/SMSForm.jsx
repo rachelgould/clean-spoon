@@ -4,10 +4,12 @@ import { Input, InputGroup, InputGroupAddon, Button } from 'reactstrap';
 class SMSForm extends Component {
   constructor(props) {
     super(props)
-    this.state = {
+    this.initialState = {
       number: '',
     }
+    this.state = this.initialState;
   }
+
 
   handleChange = event => {
     const { value } = event.target;
@@ -22,7 +24,8 @@ class SMSForm extends Component {
 
   submitForm = (event) => {
     event.preventDefault();
-    this.props.smsSubmit(this.formatPhoneNum(this.state.number));
+    event.stopPropagation();
+    this.props.handleSubmit(this.formatPhoneNum(this.state.number));
   }
 
   render() {
