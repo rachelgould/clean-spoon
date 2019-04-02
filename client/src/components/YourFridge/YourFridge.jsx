@@ -43,8 +43,8 @@ class YourFridge extends Component {
     const { foodItems } = this.state;
 
     return (
-      <div class="row" id="fridgeList">
-        <div class="col-md-4">
+      <div className="row" id="fridgeList">
+        <div className="col-md-4">
           <Card body >
             <CardTitle>This is your fridge</CardTitle>
 
