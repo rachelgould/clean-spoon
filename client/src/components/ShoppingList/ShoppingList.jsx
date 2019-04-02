@@ -47,9 +47,9 @@ class ShoppingList extends Component {
 
           <Card body >
             <CardTitle className="CardTitle">This is your Shopping List</CardTitle>
-
-            <Table characterData={foodItems} removeItem={this.removeItem} />
+            
             <Form handleSubmit={this.handleSubmit} />
+            <Table characterData={foodItems} removeItem={this.removeItem} />
             <br />
 
             <InputGroup>

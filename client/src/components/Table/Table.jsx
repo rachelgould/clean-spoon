@@ -3,7 +3,6 @@ import {Button} from 'reactstrap';
 
 //For Shopping List and Your Fridge 
 
-
 // Removed this for the time being, not necessery
 // const TableHeader = () => {
 //   return (
