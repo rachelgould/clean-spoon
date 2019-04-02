@@ -1,0 +1,66 @@
+@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+
+.dashboard {
+  .block {
+    display: block;
+    width: 100%;
+    border: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  #topMargin {
+    margin-top:20px;
+  }
+}
+
+.navigation {
+  .title {
+    color: rgb(255, 255, 255);
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+    font-style: italic;
+
+  }
+  .navbar {
+    background: rgb(220, 53, 69);
+  }
+  
+  .links {
+    color: rgb(255, 255, 255);
+    font-family: 'Trebuchet MS';
+    margin-top: 20px;
+  }
+  
+  .loginBtn {
+    margin-top: 20px;
+    margin-right: 5px;
+  }
+}
+
+.quicksearch {
+  .search {
+    margin-top: 120px;
+    margin-left: 500px;
+    margin-right: 500px;
+    position: absolute;
+  }
+  
+  .CardTitle {
+    text-align: center;
+  }
+}
+
+#shoppingList {
+  padding-left: 250px;
+  padding-right: 250px;
+  position: relative;
+}
+
+#fridgeList {
+  padding-left: 250px;
+  padding-right: 250px;
+  position: relative;
+}

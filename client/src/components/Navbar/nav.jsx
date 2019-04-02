@@ -1,5 +1,4 @@
 import React from 'react';
-import './nav.css';
 import {
   Button,
   Collapse,
@@ -39,9 +38,9 @@ class nav extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="navigation">
         <Navbar expand="md">
-          <NavbarBrand href="/"><img src={require('./logo.png')} /></NavbarBrand>
+          <NavbarBrand href="/"><img src={require('./logo.png')} width="200" /></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>

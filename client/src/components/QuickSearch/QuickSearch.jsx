@@ -1,10 +1,9 @@
 import React from 'react';
-import './QuickSearch.css';
 import { Card, Button, CardTitle, Row, Col } from 'reactstrap';
 
 const QuickSearch = (props) => {
     return (
-      <Row>
+      <Row className="quicksearch">
         <Col sm="4" className="search">
           <Card body >
             <CardTitle className="CardTitle">Quick Search</CardTitle>
