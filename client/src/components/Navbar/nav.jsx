@@ -9,7 +9,6 @@ import {
   NavItem,
   NavLink,
   Modal,
-  prevState,
   ModalHeader, 
   ModalBody,
   ModalFooter
@@ -29,12 +28,12 @@ class nav extends React.Component {
     };
     this.toggle = this.toggle.bind(this);
   }
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen,
-       modal: !prevState.modal
-    });
-  }
+  // toggle() {
+  //   this.setState({
+  //     isOpen: !this.state.isOpen,
+  //      modal: !prevState.modal
+  //   });
+  // }
 
   render() {
     return (

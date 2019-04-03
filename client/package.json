@@ -4,13 +4,13 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "devDependencies": {
-    "enzyme": "2.4.1",
-    "react-addons-test-utils": "15.4.0",
-    "react-scripts": "0.8.5"
+    "enzyme": "3.9.0",
+    "react-addons-test-utils": "15.6.2",
+    "react-scripts": "2.1.8"
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "babel-plugin-transform-class-properties": "6.22.0",
+    "babel-plugin-transform-class-properties": "6.24.1",
     "bootstrap": "^4.3.1",
     "react": "^16.8.6",
     "react-bootstrap-table": "^4.3.1",
@@ -18,8 +18,8 @@
     "react-datepicker": "^2.3.0",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
-    "reactstrap": "^7.1.0",
-    "semantic-ui": "2.2.10"
+    "reactstrap": "^8.0.0",
+    "semantic-ui": "2.4.2"
   },
   "scripts": {
     "start": "react-scripts start",
