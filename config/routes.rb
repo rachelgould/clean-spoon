@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   scope '/api' do
 
+    # TWILIO
+    get :text, to: 'text#index'
+
     # USERS
     get '/users/user[:id]', to: 'users#show'
     post '/users/user[:id]', to: 'users#update'
