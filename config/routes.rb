@@ -19,6 +19,12 @@ Rails.application.routes.draw do
 
     # SHOPPING LIST
     get '/lists/user[:id]', to: 'list_ingredients#index'
+    post '/lists/user[:id]', to: 'list_ingredients#create'
+    delete '/lists/user[:id]', to: 'list_ingredients#destroy'
+
+    # Allergies
+    post '/allergies/user[:id]', to: 'allergies#create'
+    delete '/allergies/user[:id]', to: 'users#destroy'
 
   end
 end
