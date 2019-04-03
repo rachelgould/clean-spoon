@@ -5,7 +5,6 @@
   "proxy": "http://localhost:3001/",
   "devDependencies": {
     "enzyme": "3.9.0",
-    "react-addons-test-utils": "15.6.2",
     "react-scripts": "2.1.8"
   },
   "dependencies": {

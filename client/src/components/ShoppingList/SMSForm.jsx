@@ -20,14 +20,14 @@ class SMSForm extends Component {
     });
   }
 
-  formatPhoneNum = number => {
-    return number.toString()
+  formatPhoneNum = () => {
+    return this.state.number.toString()
   }
 
   submitForm = (event) => {
     event.preventDefault();
     event.stopPropagation();
-    submitSMS(this.formatPhoneNum(this.state.number), useCookies(['id']));
+    submitSMS(this.formatPhoneNum(), useCookies(['id']));
   }
 
   render() {
