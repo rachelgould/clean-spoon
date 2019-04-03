@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     put '/users/:userId', to: 'users#update'
     post '/users/', to: 'users#create'
     # Creates a user token
-    post '/users/token' to: 'user_token#create'
+    post '/user_token', to: 
 
     # RECIPES
     get '/favRecipes/:userId', to: 'fav_recipes#index'
