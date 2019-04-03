@@ -153,10 +153,6 @@ Shopping List:
 * Add to your shopping list: `POST /api/lists/user[:id]`
 * Delete from your shopping list: `DELETE /api/lists/user[:id]`
 
-Allergies:
-* Create a new allergy: `POST /api/allergies/user[:id]`
-* Delete from your allergies: `DELETE /api/allergies/allergy[:name]/`
-
 ---
 ---
 
