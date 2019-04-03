@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class ListIngredientsController < ApplicationController
 
   def index
 
