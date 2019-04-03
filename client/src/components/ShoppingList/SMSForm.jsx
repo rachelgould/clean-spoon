@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Input, InputGroup, InputGroupAddon, Button } from 'reactstrap';
+import { submitSMS } from '../../api.js';
 
 class SMSForm extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class SMSForm extends Component {
   submitForm = (event) => {
     event.preventDefault();
     event.stopPropagation();
-    this.props.handleSubmit(this.formatPhoneNum(this.state.number));
+    submitSMS(this.formatPhoneNum(this.state.number));
   }
 
   render() {

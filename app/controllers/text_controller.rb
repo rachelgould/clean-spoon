@@ -1,7 +1,7 @@
 class TextController < ApplicationController
   def index
     q = params[:q]
-    list = params[:list]
+    list = params[:id]
     if q.blank?
       render status: 400, json: { error: 'Missing a phone number!'}
     else
