@@ -139,9 +139,9 @@ Users:
 
 Recipes:
 * Get user's saved recipes: `GET /api/fav_recipes/user[:id]`
-* Get recipes based on fridge items: `GET /api/recipes/user[:id]`
-* Add a saved recipe: `POST /api/users/user[:id]/recipes/recipe[:id]`
+* Add a saved recipe: `POST /fav_recipes/user[:id]`
 * Delete a saved recipe: `DELETE /api/fav_recipes/fav_recipe[:id]`
+* Get recipes based on fridge items: `GET /api/recipes/user[:id]`
 
 Fridge:
 * Browse what's in your fridge: `GET /api/fridges/user[:id]`
