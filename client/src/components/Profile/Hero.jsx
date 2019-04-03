@@ -5,7 +5,7 @@ function Hero(props) {
   return (
     <div className="hero">
       <div className="profile-box">
-        <h1>{name}'s Profile</h1>
+        <h1>Name's Profile</h1>
         <Form>
         <FormGroup>
           <Label for="examnamepleEmail" className="label">Name</Label>

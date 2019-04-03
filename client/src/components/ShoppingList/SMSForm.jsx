@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Input, InputGroup, InputGroupAddon, Button } from 'reactstrap';
 import { submitSMS } from '../../api.js';
+import { useCookies } from 'react-cookie';
 
 class SMSForm extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class SMSForm extends Component {
   submitForm = (event) => {
     event.preventDefault();
     event.stopPropagation();
-    submitSMS(this.formatPhoneNum(this.state.number));
+    submitSMS(this.formatPhoneNum(this.state.number), useCookies(['id']));
   }
 
   render() {

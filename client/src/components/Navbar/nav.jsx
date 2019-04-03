@@ -21,12 +21,12 @@ class nav extends React.Component {
   constructor(props) {
     super(props);
 
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      isOpen: false,
-      modal: false
-    };
-    this.toggle = this.toggle.bind(this);
+    // this.toggle = this.toggle.bind(this);
+    // this.state = {
+    //   isOpen: false,
+    //   modal: false
+    // };
+    // this.toggle = this.toggle.bind(this);
   }
   // toggle() {
   //   this.setState({
@@ -40,8 +40,8 @@ class nav extends React.Component {
       <div className="navigation">
         <Navbar expand="md">
           <NavbarBrand href="/"><img src={require('./logo.png')} width="200" /></NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
+          {/* <NavbarToggler onClick={this.toggle} /> */}
+          {/* <Collapse isOpen={this.state.isOpen} navbar> */}
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink href="/fridge"><p className="links">Fridge</p></NavLink>
@@ -56,8 +56,8 @@ class nav extends React.Component {
               color="primary" className="loginBtn recipe-search" href="/search">Recipe Search</Button>
               </NavItem>
             </Nav>
-          </Collapse>
-        </Navbar>
+          {/* </Collapse> */}
+        </Navbar> 
       </div>
     );
   }
