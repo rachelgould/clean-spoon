@@ -60,22 +60,19 @@ class ShoppingList extends Component {
     const { foodItems } = this.state;
 
     return (
-      <div className="row" id="shoppingList">
-        <div className="col-md-4">
-
+      <div id="itemList">
+        
           <Card body >
             <CardTitle className="CardTitle">This is your Shopping List</CardTitle>
-            
-        
+            <hr />  
             <Table characterData={foodItems} removeItem={this.removeItem} />
             <br />
             <Form handleSubmit={this.handleSubmit} />
             <br />
             <SMSForm handleSubmit={this.smsSubmit}/>
           </Card>
-
         </div>
-      </div>
+    
     );
   }
 }

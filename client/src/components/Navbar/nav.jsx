@@ -54,7 +54,7 @@ class nav extends React.Component {
                 <NavLink href="/profile"><p className="links">Profile</p></NavLink>
               </NavItem>
               <NavItem> <Button 
-              color="primary" className="loginBtn recipe-search" href="/recipes">Recipe Search</Button>
+              color="primary" className="loginBtn recipe-search" href="/search">Recipe Search</Button>
               </NavItem>
             </Nav>
           </Collapse>

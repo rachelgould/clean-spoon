@@ -7,6 +7,7 @@ import Login from './components/Login/Login.jsx';
 import SignUp from './components/SignUp/SignUp.jsx';
 import Profile from './components/Profile/Profile.jsx';
 import Dashboard from './components/Dashboard/Dashboard.jsx';
+import RecipeSearch from './components/RecipeSearch/RecipeSearch.jsx';
 const API = require('./lib/API.js');
 
 
@@ -23,6 +24,7 @@ class Routes extends React.Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/profile" component={Profile} />
+          <Route exact path="/search" component={RecipeSearch} />
           <Route 
             exact path="/recipes"
             render={(routeProps) => (

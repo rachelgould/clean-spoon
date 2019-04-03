@@ -5,31 +5,31 @@ Rails.application.routes.draw do
     get :text, to: 'text#index'
 
     # USERS
-    get '/users/user[:id]', to: 'users#show'
-    post '/users/user[:id]', to: 'users#update'
+    get '/users/:userId', to: 'users#show'
+    put '/users/:userId', to: 'users#update'
     post '/users/', to: 'users#create'
     # Creates a user token
     post '/users/token' to: 'user_token#create'
 
-    # RECIPES
-    get '/fav_recipes/user[:id]', to: 'fav_recipes#index'
-    post '/fav_recipes/user[:id]', to: 'fav_recipes#create'
-    delete '/fav_recipes/fav_recipe[:id]', to: 'fav_recipes#destroy'
-    get '/recipes/user[:id]', to: 'recipes#search'
+    # # RECIPES
+    # get '/favRecipes/:userId', to: 'favRecipes#index'
+    # post '/favRecipes/:userId', to: 'favRecipes#create'
+    # delete '/favRecipes/:favRecipeId', to: 'favRecipes#destroy'
+    # get '/recipes/:userId', to: 'recipes#search'
 
-    # FRIDGE
-    get '/fridges/user[:id]', to: 'fridge_ingredients#index'
-    post '/fridges/user[:id]', to: 'fridge_ingredients#create'
-    delete '/fridges/fridge_ingredient[:id]', to: 'fridge_ingredients#destroy'
+    # # FRIDGE
+    # get '/fridges/:userId', to: 'fridgeIngredients#index'
+    # post '/fridges/:userId', to: 'fridgeIngredients#create'
+    # delete '/fridges/:fridgeIngredientId', to: 'fridgeIngredients#destroy'
 
-    # SHOPPING LIST
-    get '/lists/user[:id]', to: 'list_ingredients#index'
-    post '/lists/user[:id]', to: 'list_ingredients#create'
-    delete '/lists/user[:id]', to: 'list_ingredients#destroy'
+    # # SHOPPING LIST
+    # get '/lists/:userId', to: 'listIngredients#index'
+    # post '/lists/:userId', to: 'listIngredients#create'
+    # delete '/lists/:userId', to: 'listIngredients#destroy'
 
-    # Allergies
-    post '/allergies/user[:id]', to: 'allergies#create'
-    delete '/allergies/user[:id]', to: 'users#destroy'
+    # # Allergies
+    # post '/allergies/:userId', to: 'allergies#create'
+    # delete '/allergies/:userId', to: 'allergies#destroy'
 
   end
 end
