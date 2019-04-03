@@ -11,8 +11,8 @@ Rails.application.routes.draw do
     # Creates a user token
     post '/users/token' to: 'user_token#create'
 
-    # # RECIPES
-    # get '/favRecipes/:userId', to: 'favRecipes#index'
+    # RECIPES
+    get '/favRecipes/:userId', to: 'fav_recipes#index'
     # post '/favRecipes/:userId', to: 'favRecipes#create'
     # delete '/favRecipes/:favRecipeId', to: 'favRecipes#destroy'
     # get '/recipes/:userId', to: 'recipes#search'
@@ -26,10 +26,6 @@ Rails.application.routes.draw do
     # get '/lists/:userId', to: 'listIngredients#index'
     # post '/lists/:userId', to: 'listIngredients#create'
     # delete '/lists/:userId', to: 'listIngredients#destroy'
-
-    # # Allergies
-    # post '/allergies/:userId', to: 'allergies#create'
-    # delete '/allergies/:userId', to: 'allergies#destroy'
 
   end
 end
