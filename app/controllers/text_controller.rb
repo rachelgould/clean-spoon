@@ -2,7 +2,7 @@ class TextController < ApplicationController
   def index
     q = params[:q]
     list = []
-    List_Ingredient.where(user_id: params[:id]).find_each do |item|
+    ListIngredient.where(user_id: params[:id]).find_each do |item|
       list.push(item)
     end
     if q.blank?
