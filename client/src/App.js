@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import  Routes from './routes';
+import { CookiesProvider } from 'react-cookie';
 
 class App extends Component {
   constructor(props) {
@@ -8,7 +9,9 @@ class App extends Component {
   render() {
     return ( 
     <div>
-      <Routes />
+      <CookiesProvider>
+        <Routes />
+      </CookiesProvider>
     </div>
     );
   }
