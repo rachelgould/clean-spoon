@@ -5,12 +5,14 @@ function DietAllergies(props) {
   return (
     <div className="diet-allergies">
       <Form>
-        <div>
+        <div className="form-group">
           <h2>Add Allergies</h2>
-          <Input type="text" name="allergies" placeholder="Add Allergies" />
-          <Button>Add</Button>
+          <InputGroup>
+            <Input type="text" name="allergies" placeholder="Start typing ingredients" />
+            <InputGroupAddon addonType="append"><Button>Add</Button></InputGroupAddon>
+          </InputGroup>
         </div>
-        <div>
+        <div className="form-group">
         <h2>Your Diet</h2>
           <FormGroup check>
             <Label check>
@@ -29,7 +31,7 @@ function DietAllergies(props) {
             </Label>
           </FormGroup>
         </div>
-        <Button type="submit">Save</Button>
+        <Button type="submit">Save Preferences</Button>
       </Form>
     </div>
   )

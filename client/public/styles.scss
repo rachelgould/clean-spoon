@@ -12,6 +12,18 @@ h1, h2, h3, h4 {
   color: $main-bright;
 }
 
+button.btn {
+  border: 0;
+  border-radius: 0;
+  background-color: $main-bright;
+  font-weight: bold;
+}
+button.btn:hover {
+  border: 0;
+  border-radius: 0;
+  background-color: $main-bright-btn-hover;
+}
+
 .dashboard {
   .block {
     display: block;
@@ -229,6 +241,22 @@ img.bg {
         background-color: $main-bright-btn-hover;
       }
       background-color: white;
+    }
+  }
+  .diet-allergies {
+    padding: 20px;
+    form {
+      display: flex;
+      flex-wrap: wrap;
+
+      .form-group {
+        width: 45%;
+        padding: 20px;
+
+        h2 {
+          text-align: center;
+        }
+      }
     }
   }
 }

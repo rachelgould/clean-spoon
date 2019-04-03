@@ -7,6 +7,19 @@ h1, h2, h3, h4 {
   color: #bb3535;
 }
 
+button.btn {
+  border: 0;
+  border-radius: 0;
+  background-color: #bb3535;
+  font-weight: bold;
+}
+
+button.btn:hover {
+  border: 0;
+  border-radius: 0;
+  background-color: #962c2c;
+}
+
 .dashboard .block {
   display: block;
   width: 100%;
@@ -232,5 +245,26 @@ img.bg {
   border: 0;
   border-radius: 0;
   background-color: #962c2c;
+}
+
+.profile .diet-allergies {
+  padding: 20px;
+}
+
+.profile .diet-allergies form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.profile .diet-allergies form .form-group {
+  width: 45%;
+  padding: 20px;
+}
+
+.profile .diet-allergies form .form-group h2 {
+  text-align: center;
 }
 /*# sourceMappingURL=styles.css.map */
