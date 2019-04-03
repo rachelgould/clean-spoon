@@ -20,11 +20,12 @@ class Routes extends Component {
       id: cookies.get('id') || '0'
     }
   }
-  giveIdCookie() {
+  componentDidMount() {
     if (this.state.id === '0') {
+      let id = 1; // Changes when there are multiple users
       const { cookies } = this.props;
    
-      cookies.set('id', '1', { path: '/' });
+      cookies.set('id', id, { path: '/' });
       this.setState({ id });
     }
   }
