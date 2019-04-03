@@ -2,7 +2,7 @@
   "name": "lookup-client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001/",
+  "proxy": "http://localhost:3001/api",
   "devDependencies": {
     "enzyme": "3.9.0",
     "react-scripts": "2.1.8"

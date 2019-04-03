@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Input, InputGroup, InputGroupAddon, Button } from 'reactstrap';
-import { submitSMS } from '../../api.js';
-import { useCookies } from 'react-cookie';
+import axios from 'axios';
 
 class SMSForm extends Component {
   constructor(props) {
@@ -27,7 +26,17 @@ class SMSForm extends Component {
   submitForm = (event) => {
     event.preventDefault();
     event.stopPropagation();
-    submitSMS(this.formatPhoneNum(), useCookies(['id']));
+    let id = this.props.cookies.get('id')
+    let phoneNum = this.state.number
+    console.log(`Submitting the text message for user id ${id} to this phone number: ${phoneNum}`)
+    axios.get('/text', {
+      params: {
+        q: phoneNum,
+        id: id
+      }
+    }).then(response => {
+      console.log(response)
+    }).catch(error => console.log(error))
   }
 
   render() {

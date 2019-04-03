@@ -52,7 +52,7 @@ class ShoppingList extends Component {
             <br />
             <Form handleSubmit={this.handleSubmit} />
             <br />
-            <SMSForm />
+            <SMSForm cookies={this.props.cookies} />
           </Card>
         </div>
     

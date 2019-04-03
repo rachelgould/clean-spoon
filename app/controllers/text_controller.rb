@@ -1,7 +1,10 @@
 class TextController < ApplicationController
   def index
     q = params[:q]
-    list = params[:id]
+    list = []
+    List_Ingredient.where(user_id: params[:id]).find_each do |item|
+      list.push(item)
+    end
     if q.blank?
       render status: 400, json: { error: 'Missing a phone number!'}
     else
