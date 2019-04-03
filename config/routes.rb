@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'user_token' => 'user_token#create'
   scope '/api' do
 
     # TWILIO
@@ -8,8 +9,8 @@ Rails.application.routes.draw do
     get '/users/:userId', to: 'users#show'
     put '/users/:userId', to: 'users#update'
     post '/users/', to: 'users#create'
-    # Creates a user token
-    post '/user_token', to: 
+    # Generates a token for the specified user ID (used in client 'handsake' with rails API to validate user)
+    # post '/user_token/' => 'user_token#create'
 
     # RECIPES
     get '/favRecipes/:userId', to: 'fav_recipes#index'
