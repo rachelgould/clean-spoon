@@ -8,4 +8,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true
 
+  def authenticate
+    self # this authentication method is replaced by has_secure_password for the non-demo app
+  end
+
 end
