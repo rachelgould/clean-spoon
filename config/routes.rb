@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
     # USERS
     get '/users/user[:id]', to: 'users#show'
-    post '/users/user[:id]', to: 'users#update'
+    put '/users/user[:id]', to: 'users#update'
     post '/users/', to: 'users#create'
 
     # RECIPES
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
     # Allergies
     post '/allergies/user[:id]', to: 'allergies#create'
-    delete '/allergies/user[:id]', to: 'users#destroy'
+    delete '/allergies/user[:id]', to: 'allergies#destroy'
 
   end
 end
