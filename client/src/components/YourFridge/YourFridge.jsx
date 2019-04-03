@@ -43,18 +43,15 @@ class YourFridge extends Component {
     const { foodItems } = this.state;
 
     return (
-      <div className="row" id="fridgeList">
-        <div className="col-md-4">
+      <div id="itemList">
           <Card body >
             <CardTitle>This is your fridge</CardTitle>
-
+            <hr />
             <Table characterData={foodItems} removeItem={this.removeItem} />
             <br />
             <Form handleSubmit={this.handleSubmit} />
-
           </Card>
         </div>
-      </div>
     );
   }
 }
