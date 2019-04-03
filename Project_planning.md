@@ -132,7 +132,7 @@ Allergies:
 
 Users:
 * Get user details: `GET /api/users/user[:id]`
-* Edit user profile: `POST /api/users/user[:id]`
+* Edit user profile: `PUT /api/users/user[:id]`
 * Create account: `POST /api/users/`
 
 (Login and logout routes are not MVP)
