@@ -7,6 +7,9 @@ import DietAllergies from './DietAllergies.jsx'
 class Profile extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      
+    }
   }
 
   render() {
