@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     get '/users/user[:id]', to: 'users#show'
     post '/users/user[:id]', to: 'users#update'
     post '/users/', to: 'users#create'
+    # Creates a user token
+    post '/users/token' to: 'user_token#create'
 
     # RECIPES
     get '/fav_recipes/user[:id]', to: 'fav_recipes#index'
