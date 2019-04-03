@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Input, InputGroup, InputGroupAddon, Card, Button, CardTitle } from 'reactstrap';
 import Table from './Table.jsx'
 import Form from './Form.jsx'
+import SMSForm from './SMSForm.jsx'
+import axios from 'axios';
 
 class ShoppingList extends Component {
 
@@ -37,13 +39,29 @@ class ShoppingList extends Component {
     this.setState({ foodItems: [...this.state.foodItems, item] })
   }
 
+  smsSubmit = (num) => {
+    console.log("Submitting the text message")
+    let parsedList = [];
+    this.state.foodItems.forEach(entry => {
+      parsedList.push(entry.item)
+    });
+    axios.get('api/text', {
+      params: {
+        q: num,
+        list: parsedList
+      }
+    }).then(response => {
+      console.log(response)
+    }).catch(error => console.log(error))
+  }
+
   render() {
 
     const { foodItems } = this.state;
 
     return (
-      <div class="row" id="shoppingList">
-        <div class="col-md-4">
+      <div className="row" id="shoppingList">
+        <div className="col-md-4">
 
           <Card body >
             <CardTitle className="CardTitle">This is your Shopping List</CardTitle>
@@ -52,20 +70,8 @@ class ShoppingList extends Component {
             <Table characterData={foodItems} removeItem={this.removeItem} />
             <br />
             <Form handleSubmit={this.handleSubmit} />
-            
-
-             <br />
-             <div id="smsParent">
-             <div id="sms">
-            <InputGroup size="lg">
-              <Input />
-              <InputGroupAddon addonType="append">
-                <Button color="danger">Send to SMS</Button>
-              </InputGroupAddon>
-            </InputGroup>
-            </div>
-            </div>
-
+            <br />
+            <SMSForm handleSubmit={this.smsSubmit}/>
           </Card>
 
         </div>

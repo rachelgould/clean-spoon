@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
 import './Login.css';
 import Navbar from '../Navbar/nav.jsx';
 import {Card,Button} from 'reactstrap';
