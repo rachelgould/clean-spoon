@@ -163,17 +163,15 @@ button.btn:hover {
   text-align: center;
 }
 
-#shoppingList {
-  padding-left: 250px;
-  padding-right: 250px;
-  position: relative;
+#itemList {
+  width: 50%;
+  display: inline-block;
 }
 
-#fridgeList {
-  padding-left: 250px;
-  padding-right: 250px;
-  position: relative;
+div#recipeSearch {
+  margin-top: 50px;
 }
+
 
 img.bg {
   /* Set rules to fill background */
@@ -268,3 +266,67 @@ img.bg {
   text-align: center;
 }
 /*# sourceMappingURL=styles.css.map */
+
+table {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: rgba(233, 233, 233, 0.562);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  margin: 1 auto;
+  position: relative;
+  
+}
+table * {
+  position: relative;
+
+}
+table td, table th {
+  padding-left: 8px;
+}
+table thead tr {
+  height: 60px;
+}
+table tbody tr {
+  height: 50px;
+}
+
+table td, table th {
+  text-align: left;
+
+}
+table td.l, table th.l {
+  text-align: right;
+}
+table td.c, table th.c {
+  text-align: center;
+}
+table td.r, table th.r {
+  text-align: center;
+}
+
+input#date {
+  padding: 6px;
+  margin: 2px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input#addFood {
+  padding: 15px;
+  width: 50%;
+  margin: 2px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+div#smsParent {
+  text-align: center
+}
+div#sms{
+  width: 50%;
+  display: inline-block;
+}
