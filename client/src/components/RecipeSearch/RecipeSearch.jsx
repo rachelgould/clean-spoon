@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from '../Navbar/nav.jsx';
 import {
-  Card, CardImg, CardText, CardBody,
+  Container, Row, Col, Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button
 } from 'reactstrap';
 
@@ -10,18 +10,20 @@ class RecipeSearch extends Component {
     super(props);
   }
   render() {
-    return (
+    return (    
       <div>
-        <Navbar />
-        <Card>
-          <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-          <CardBody width="50%">
-            <CardTitle>Card title</CardTitle>
-            <CardSubtitle>Card subtitle</CardSubtitle>
-            <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-            <Button>Button</Button>
-          </CardBody>
-        </Card>
+      <Navbar />
+        <Container>
+          <div id="recipeSearch">
+            <Card body>
+              <CardTitle><h1>Find Recipes Now!</h1></CardTitle>
+              <CardText><b>Includes: </b> Peppers, Chicken, Spinach and 5 other items in your <a href="/fridge">fridge</a></CardText>
+              <input />
+              <br />
+              <Button>Click Here to Search</Button>
+            </Card>
+          </div>
+        </Container>
       </div>
     );
   }

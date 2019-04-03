@@ -163,15 +163,13 @@ button.btn:hover {
   text-align: center;
 }
 
-#shoppingList {
-  padding-left: 250px;
-  padding-right: 250px;
-  position: relative;
-}
-
 #itemList {
   width: 50%;
   display: inline-block;
+}
+
+div#recipeSearch {
+  margin-top: 50px;
 }
 
 
