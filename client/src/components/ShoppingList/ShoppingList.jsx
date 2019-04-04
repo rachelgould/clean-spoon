@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Input, InputGroup, InputGroupAddon, Card, Button, CardTitle } from 'reactstrap';
-import Table from './Table.jsx'
-import Form from './Form.jsx'
-import SMSForm from './SMSForm.jsx'
-import axios from 'axios';
+import Table from './Table.jsx';
+import Form from './Form.jsx';
+import SMSForm from './SMSForm.jsx';
 
 class ShoppingList extends Component {
 
@@ -39,22 +38,6 @@ class ShoppingList extends Component {
     this.setState({ foodItems: [...this.state.foodItems, item] })
   }
 
-  smsSubmit = (num) => {
-    console.log("Submitting the text message")
-    let parsedList = [];
-    this.state.foodItems.forEach(entry => {
-      parsedList.push(entry.item)
-    });
-    axios.get('api/text', {
-      params: {
-        q: num,
-        list: parsedList
-      }
-    }).then(response => {
-      console.log(response)
-    }).catch(error => console.log(error))
-  }
-
   render() {
 
     const { foodItems } = this.state;
@@ -69,7 +52,7 @@ class ShoppingList extends Component {
             <br />
             <Form handleSubmit={this.handleSubmit} />
             <br />
-            <SMSForm handleSubmit={this.smsSubmit}/>
+            <SMSForm cookies={this.props.cookies} />
           </Card>
         </div>
     

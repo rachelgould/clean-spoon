@@ -21,10 +21,10 @@ class Dashboard extends Component {
 
   _renderSubComp() {
     switch (this.state.render) {
-      case 'savedRecipes': return <SavedRecipes />
-      case 'yourFridge': return <YourFridge />
-      case 'shoppingList': return <ShoppingList />
-      default : return <YourFridge />
+      case 'savedRecipes': return <SavedRecipes cookies={this.props.cookies} />
+      case 'yourFridge': return <YourFridge cookies={this.props.cookies} />
+      case 'shoppingList': return <ShoppingList cookies={this.props.cookies} />
+      default : return <YourFridge cookies={this.props.cookies} />
     }
   }
 

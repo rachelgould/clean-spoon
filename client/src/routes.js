@@ -43,19 +43,19 @@ class Routes extends Component {
             <Route 
               exact path="/recipes"
               render={(routeProps) => (
-              <Dashboard {...routeProps} view="savedRecipes" />
+              <Dashboard {...routeProps} view="savedRecipes" cookies={this.props.cookies} />
               )}
             />
             <Route 
               exact path="/fridge"
               render={(routeProps) => (
-              <Dashboard {...routeProps} view="yourFridge" />
+              <Dashboard {...routeProps} view="yourFridge" cookies={this.props.cookies} />
               )}
             />
             <Route 
               exact path="/list"
               render={(routeProps) => (
-              <Dashboard {...routeProps} view="shoppingList" />
+              <Dashboard {...routeProps} view="shoppingList" cookies={this.props.cookies} />
               )}
             />
         </Switch>   

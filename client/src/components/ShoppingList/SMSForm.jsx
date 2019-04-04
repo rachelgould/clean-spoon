@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Input, InputGroup, InputGroupAddon, Button } from 'reactstrap';
+import { sendSMS } from '../../lib/api.js'
 
 class SMSForm extends Component {
   constructor(props) {
@@ -18,14 +19,16 @@ class SMSForm extends Component {
     });
   }
 
-  formatPhoneNum = number => {
-    return number.toString()
+  formatPhoneNum = () => {
+    return this.state.number.toString()
   }
 
   submitForm = (event) => {
     event.preventDefault();
     event.stopPropagation();
-    this.props.handleSubmit(this.formatPhoneNum(this.state.number));
+    let id = this.props.cookies.get('id')
+    let phoneNum = this.state.number
+    sendSMS(id, phoneNum);
   }
 
   render() {
