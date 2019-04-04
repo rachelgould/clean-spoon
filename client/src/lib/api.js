@@ -25,23 +25,39 @@ function sendSMS(id, number) {
 function getShoppingList(id, cb) {
   let url = 'api/lists/' + id
   axios.get(url).then(response => {
-    console.log('Received shopping list from server')
-    console.log('The response was::::::', response)
-    return response
-  })
-  .then(checkStatus)
-  .then(cb)
+      console.log('Received shopping list from server')
+      console.log('The response was::::::', response)
+      return response
+    })
+    .then(checkStatus)
+    .then(cb)
 }
 
 function getFridge(id, cb) {
   let url = 'api/fridges/' + id
   axios.get(url).then(response => {
-    console.log('Received fridge items from server')
-    console.log('The response was::::::', response)
+      console.log('Received fridge items from server')
+      console.log('The response was::::::', response)
+      return response
+    })
+    .then(checkStatus)
+    .then(cb)
+}
+
+function getProfile(id, cb) {
+  let url = 'api/users/' + id
+  axios.get(url).then(response => {
+    console.log('Received user details from server')
+    console.log('The response was::::::::', response)
     return response
   })
   .then(checkStatus)
   .then(cb)
 }
 
-export { sendSMS, getShoppingList, getFridge }
+export {
+  sendSMS,
+  getShoppingList,
+  getFridge,
+  getProfile
+}
