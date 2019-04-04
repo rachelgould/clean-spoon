@@ -1,16 +1,18 @@
 class TextController < ApplicationController
   def index
     q = params[:q]
-    list = []
-    ListIngredient.where(user_id: params[:id]).find_each do |item|
-      list.push(item)
-    end
     if q.blank?
       render status: 400, json: { error: 'Missing a phone number!'}
     else
+      @user = User.find(params[:id])
+      @list_ingredients = @user.list_ingredients
+      @ingredients = [];
+      @list_ingredients.each do |i|
+        @ingredients << [Ingredient.select("name").find(i)]
+      end
       from = '+16474925440' # Your Twilio number
-      to = q # Should be changed to destination for production
-      message = list.join(', ')
+      to = q
+      message = @ingredients.join(', ')
       TwilioTextMessenger.new(message, to, from).call
       render(
         status: 200,
