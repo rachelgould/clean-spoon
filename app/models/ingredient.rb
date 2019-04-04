@@ -9,9 +9,6 @@ class Ingredient < ApplicationRecord
   validates :name, presence: true
 
   def get_image
-    if image.nil?
-      puts "Finding picture for #{name}"
-      puts IngredientImage::GetImage.new(name).call
-    end
+    self.image = IngredientImage::GetImage.new(name).call
   end
 end
