@@ -2,7 +2,6 @@
   "name": "lookup-client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001/api",
   "devDependencies": {
     "enzyme": "3.9.0",
     "react-scripts": "2.1.8"
@@ -11,6 +10,7 @@
     "axios": "^0.18.0",
     "babel-plugin-transform-class-properties": "6.24.1",
     "bootstrap": "^4.3.1",
+    "http-proxy-middleware": "^0.19.1",
     "react": "^16.8.6",
     "react-bootstrap-table": "^4.3.1",
     "react-cookie": "^3.1.2",
