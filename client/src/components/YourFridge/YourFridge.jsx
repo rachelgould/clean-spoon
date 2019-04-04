@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import {Card, CardTitle} from 'reactstrap';
+import { Card, CardTitle, Container, Row, Col } from 'reactstrap';
 import Table from './Table.jsx';
 import Form from './Form.jsx';
+import IngredientCard from './IngredientCard.jsx';
 import { getFridge } from '../../lib/api.js';
 
 
@@ -27,39 +28,47 @@ class YourFridge extends Component {
       })
     })
   }
-
+  
   removeItem = index => {
+    // Must be edited to call DB
     const { foodItems } = this.state
-
+    
     this.setState({
       foodItems: foodItems.filter((character, i) => {
         return i !== index
       }),
     })
   }
-
+  
   handleSubmit = item => {
     this.setState({ foodItems: [...this.state.foodItems, item] })
   }
+  
+  makeRows = () => {
+    const { foodItems } = this.state
+    if (foodItems.length > 0) {
+      console.log('Food items has more than 0 things')
+      return foodItems.map((entry, index) => {
+        return (<IngredientCard name={entry.name} image={entry.image} key={index}/>)
+      });
+    } else {
+      return ''
+    }
+  }
 
   render() {
-
-    const { foodItems } = this.state;
+    const ingredients = this.makeRows();
 
     return (
-      <div id="itemList">
-          <Card body >
-            <CardTitle>This is your fridge</CardTitle>
-            <hr />
-            <Table characterData={foodItems} removeItem={this.removeItem} />
-            <br />
-            <Form handleSubmit={this.handleSubmit} />
-          </Card>
-        </div>
+      <Card body >
+        <CardTitle>This is your fridge</CardTitle>
+        <hr />
+        <div className="ingredient-list-container">{ingredients}</div>
+        {/* <Table characterData={foodItems} removeItem={this.removeItem} /> */}
+        <br />
+        <Form handleSubmit={this.handleSubmit} />
+      </Card>
     );
   }
 }
 export default YourFridge;
-
-
-
