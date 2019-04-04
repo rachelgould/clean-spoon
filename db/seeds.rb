@@ -3,12 +3,6 @@
 
 # Helper Functions
 
-# Images will be stored in the seed_images folder
-# Which can then be seeded by using> image: get_image('profile.jpg')
-def get_image file_name
-  File.open(Rails.root.join('db', 'seed_images', file_name))
-end
-
 
 # Delete all memory
 puts "Dropping all table data"
@@ -56,17 +50,14 @@ puts "Seeding ingredients"
 
 mustard = Ingredient.create!(
   name: "mustard",
-  image: get_image("mustard.jpg")
 )
 
 ketchup = Ingredient.create!(
   name: "ketchup",
-  image: get_image("mustard.jpg")
 )
 
 relish = Ingredient.create!(
   name: "relish",
-  image: get_image("mustard.jpg")
 )
 
 puts "Seeding list ingredients"
