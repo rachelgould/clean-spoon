@@ -94,40 +94,6 @@ Frontend: React App (Webpack) + Axios
 
 Use Yummly API
 
-# Routes
-
-* Homepage: `GET /`
-* Show user profile: `GET /users/user[:id]`
-* Edit user profile: `POST /users/user[:id]`
-* Create account: `POST /users/`
-
-(Login and logout routes are not MVP)
-
-Recipes:
-* Browse saved recipes: `GET /recipes`
-* Get recipes based on fridge items: `GET /recipes/search`
-  * It gets the user's ingredients from cookie and then sends them to the api
-* Add a saved recipe: `POST /recipes`
-* Delete a saved recipe: `DELETE /recipes/recipe[:id]`
-
-Fridge:
-* Browse what's in your fridge: `GET /fridges/`
-* Add to your fridge: `POST /fridges/`
-* Delete from your fridge: `PUT /fridges/`
-  * Must check if it's in the shopping list, and not delete the ingredient from DB if so
-
-Shopping List:
-* Browse what's in your shopping list: `GET /lists/`
-* Add to your shopping list: `POST /lists/`
-* Delete from your shopping list: `PUT /lists/`
-  * Must check if it's in the fridge, and not delete the ingredient from DB if so
-
-Allergies:
-* Create a new allergy: `POST /allergies/`
-* Delete from your allergies: `DELETE /allergies/allergy[:id]/`
----
----
-
 # API Routes
 
 Users:
