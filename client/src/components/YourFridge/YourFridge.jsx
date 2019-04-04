@@ -9,20 +9,7 @@ class YourFridge extends Component {
   
   //default values for the time being
   state = {
-    foodItems: [
-      {
-        item: 'Milk'
-      },
-      {
-        item: 'Cheese'
-      },
-      {
-        item: 'Strawberries'
-      },
-      {
-        item: 'Butter'
-      }
-    ]
+    foodItems: []
   };
 
   componentDidMount()  {
@@ -30,7 +17,10 @@ class YourFridge extends Component {
     getFridge(this.props.cookies.get('id'), (results) => {
       let newfoodItems = []
       results.data.forEach((entry) => {
-        newfoodItems.push({ item: entry.name })
+        newfoodItems.push({ 
+          item: entry.name, 
+          image: entry.image
+        })
       })
       this.setState({
         foodItems: newfoodItems
