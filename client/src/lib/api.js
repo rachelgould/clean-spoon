@@ -33,4 +33,15 @@ function getShoppingList(id, cb) {
   .then(cb)
 }
 
-export { sendSMS, getShoppingList }
+function getFridge(id, cb) {
+  let url = 'api/fridges/' + id
+  axios.get(url).then(response => {
+    console.log('Received fridge items from server')
+    console.log('The response was::::::', response)
+    return response
+  })
+  .then(checkStatus)
+  .then(cb)
+}
+
+export { sendSMS, getShoppingList, getFridge }
