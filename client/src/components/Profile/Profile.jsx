@@ -11,19 +11,23 @@ class Profile extends Component {
     this.state = {
       username: "",
       email: "",
-      allergies: ""
+      allergies: []
     }; 
   }
  
   componentDidMount() {
+    let userAllergies = []
     getProfile(this.props.cookies.get('id'), (res) => {
-      console.log("Users profile name is " + res.data.name);
-      console.log("Users email is " + res.data.email);
-      console.log("Allergies: " + res.data.allergies);
+      // console.log("Users profile name is " + res.data.name);
+      // console.log("Users email is " + res.data.email);
+      // console.log("Allergies: " + res.data.allergies);
+      res.data.allergies.forEach((entry) => {
+        userAllergies.push(entry)
+      })
       this.setState({
         username: res.data.name,
         email: res.data.email,
-        allergies: res.data.allergies
+        allergies: userAllergies
       }) 
     });
   }
