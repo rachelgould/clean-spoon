@@ -17,8 +17,7 @@
     "react-datepicker": "^2.3.0",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
-    "reactstrap": "^8.0.0",
-    "semantic-ui": "2.4.2"
+    "reactstrap": "^8.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
