@@ -83,3 +83,17 @@ tristan_cart.list_ingredients.create!(
 tristan_cart.list_ingredients.create!(
   ingredient_id: relish.id
 )
+
+puts "Seeding items into fridge"
+#-----------------------------------
+tristan.fridge_ingredients.create!(
+  ingredient_id: mustard.id
+)
+
+tristan.fridge_ingredients.create!(
+  ingredient_id: ketchup.id
+)
+
+tristan.fridge_ingredients.create!(
+  ingredient_id: relish.id
+)
