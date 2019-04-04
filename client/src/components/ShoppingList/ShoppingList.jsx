@@ -3,6 +3,7 @@ import { Input, InputGroup, InputGroupAddon, Card, Button, CardTitle } from 'rea
 import Table from './Table.jsx';
 import Form from './Form.jsx';
 import SMSForm from './SMSForm.jsx';
+import { getShoppingList } from '../../lib/api.js'
 
 class ShoppingList extends Component {
 
@@ -23,6 +24,19 @@ class ShoppingList extends Component {
       }
     ]
   };
+
+  componentDidMount()  {
+    // Get the shopping list from the server
+    getShoppingList(this.props.cookies.get('id'), (results) => {
+      let newfoodItems = []
+      results.data.forEach((entry) => {
+        newfoodItems.push({ item: entry.name })
+      })
+      this.setState({
+        foodItems: newfoodItems
+      })
+    })
+  }
 
   removeItem = index => {
     const { foodItems } = this.state

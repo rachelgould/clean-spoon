@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {Card, CardTitle} from 'reactstrap';
-import Table from './Table.jsx'
-import Form from './Form.jsx'
+import Table from './Table.jsx';
+import Form from './Form.jsx';
+import { getFridge } from '../../lib/api.js';
 
 
 class YourFridge extends Component {
@@ -23,6 +24,19 @@ class YourFridge extends Component {
       }
     ]
   };
+
+  componentDidMount()  {
+    // Get the fridge items from the server
+    getFridge(this.props.cookies.get('id'), (results) => {
+      let newfoodItems = []
+      results.data.forEach((entry) => {
+        newfoodItems.push({ item: entry.name })
+      })
+      this.setState({
+        foodItems: newfoodItems
+      })
+    })
+  }
 
   removeItem = index => {
     const { foodItems } = this.state
