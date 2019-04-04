@@ -9,8 +9,11 @@ function DietAllergies(props) {
           <h2>Add Allergies</h2>
           <InputGroup>
             <Input type="text" name="allergies" placeholder="Start typing ingredients" />
-            <InputGroupAddon addonType="append"><Button>Add</Button></InputGroupAddon>
+            <InputGroupAddon addonType="append"><Button>Add</Button></InputGroupAddon> 
           </InputGroup>
+          <br />
+          <h4>Here are your allergies:</h4>
+          <p>{props.allergies}</p>
         </div>
         <div className="form-group">
         <h2>Your Diet</h2>

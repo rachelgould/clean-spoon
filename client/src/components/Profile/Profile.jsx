@@ -8,12 +8,23 @@ import { getProfile } from '../../lib/api.js';
 class Profile extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      username: "",
+      email: "",
+      allergies: ""
+    }; 
   }
-
-
+ 
   componentDidMount() {
     getProfile(this.props.cookies.get('id'), (res) => {
-      // console.log(res);
+      console.log("Users profile name is " + res.data.name);
+      console.log("Users email is " + res.data.email);
+      console.log("Allergies: " + res.data.allergies);
+      this.setState({
+        username: res.data.name,
+        email: res.data.email,
+        allergies: res.data.allergies
+      }) 
     });
   }
 
@@ -21,8 +32,10 @@ class Profile extends Component {
     return (
       <div className="profile">
         <Navbar />
-        <Hero />
-        <DietAllergies />
+        <Hero username={this.state.username}
+              email={this.state.email}
+              />
+        <DietAllergies allergies={this.state.allergies} />
       </div>
     );
   }
