@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
     # USERS
     get '/users/:userId', to: 'users#show'
-    put '/users/:userId', to: 'users#update'
-    post '/users/', to: 'users#create'
+    #put '/users/:userId', to: 'users#update'
+    #post '/users/', to: 'users#create'
 
     # RECIPES
     get '/favRecipes/:userId', to: 'fav_recipes#index'
