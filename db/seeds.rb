@@ -19,6 +19,7 @@ FavRecipe.destroy_all
 Ingredient.destroy_all
 Recipe.destroy_all
 User.destroy_all
+Ingredient.destroy_all
 
 
 puts "Seeding recipes"
@@ -58,9 +59,27 @@ mustard = Ingredient.create!(
   image: get_image("mustard.jpg")
 )
 
+ketchup = Ingredient.create!(
+  name: "ketchup",
+  image: get_image("mustard.jpg")
+)
+
+relish = Ingredient.create!(
+  name: "relish",
+  image: get_image("mustard.jpg")
+)
+
 puts "Seeding list ingredients"
 #-----------------------------------
 
 tristan_cart.list_ingredients.create!(
   ingredient_id: mustard.id
+)
+
+tristan_cart.list_ingredients.create!(
+  ingredient_id: ketchup.id
+)
+
+tristan_cart.list_ingredients.create!(
+  ingredient_id: relish.id
 )
