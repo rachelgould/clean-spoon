@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { Card , CardTitle, Button } from 'reactstrap';
 
 function IngredientCard(props) {
-  let { image } = props
   return (
     <Card body className="ingredient-card" style={{
-      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${image})`,
+      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${props.image})`,
       backgroundPosition: 'center',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat'

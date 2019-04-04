@@ -49,7 +49,7 @@ class YourFridge extends Component {
     if (foodItems.length > 0) {
       console.log('Food items has more than 0 things')
       return foodItems.map((entry, index) => {
-        return (<IngredientCard name={entry.name} image={entry.image} key={index}/>)
+        return (<IngredientCard name={entry.item} image={entry.image} key={index}/>)
       });
     } else {
       return ''
