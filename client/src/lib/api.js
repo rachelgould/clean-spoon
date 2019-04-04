@@ -13,4 +13,28 @@ function sendSMS(id, number) {
   }).catch(error => console.log(error))
 }
 
-export { sendSMS }
+function getShoppingList(id, cb) {
+  let url = `api/lists/${id}`
+  axios.get(url).then(response => {
+    console.log('Received shopping list from server')
+  })
+  .then(checkStatus)
+  .then(parseJSON)
+  .then(cb)
+}
+
+function checkStatus(response) {
+  if (response.status >= 200 && response.status < 300) {
+    return response;
+  }
+  const error = new Error(`HTTP Error ${response.statusText}`);
+  error.status = response.statusText;
+  error.response = response;
+  console.log(error);
+}
+
+function parseJSON(response) {
+  return response.json();
+}
+
+export { sendSMS, getShoppingList }
