@@ -29,7 +29,7 @@ class ShoppingList extends Component {
     // Get the shopping list from the server
     getShoppingList(this.props.cookies.get('id'), (results) => {
       let newfoodItems = []
-      results.forEach((entry) => {
+      results.data.forEach((entry) => {
         newfoodItems.push({ item: entry.name })
       })
       this.setState({
