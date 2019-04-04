@@ -118,6 +118,21 @@ Shopping List:
 * Browse what's in your shopping list: `GET /api/lists/user[:id]`
 * Add to your shopping list: `POST /api/lists/user[:id]`
 * Delete from your shopping list: `DELETE /api/lists/user[:id]`
+---
+---
+# Front-end Request
+
+Parameters for search: (for get /api/recipes/user[:id])
+- extraAllergies: additional allergies
+- diet: if unchanged, just give user diet (vegetarian or vegan)
+- excludedCourses[]: courses that are excluded. Users can x off courses shown in side bar to add this.
+- excludeAllHolidays: boolean
+- maxResult: number of recipes given
+- start: of the array of results (eg: 10 items page 1: maxResult: 10, start: 0. Page 2, maxResult 10, start 10)
+
+Always
+- requirePictures
+
 
 ---
 ---
