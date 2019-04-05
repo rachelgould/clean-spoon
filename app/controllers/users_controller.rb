@@ -3,12 +3,16 @@ class UsersController < ApplicationController
   def show
     @user = User.select("id, name, email, vegan, vegetarian").find(params[:userId])
     @allergies = @user.allergies
+    allergyArray = []
+    @allergies.each do |object|
+      allergyArray << object.name
+    end
     data = {
       name: @user.name,
       email: @user.email,
       vegan: @user.vegan,
       vegetarian: @user.vegetarian,
-      allergies: @allergies
+      allergies: allergyArray
     }
     json_response(data)
   end
