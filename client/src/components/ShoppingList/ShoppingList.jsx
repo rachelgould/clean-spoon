@@ -26,16 +26,23 @@ class ShoppingList extends Component {
   };
 
   componentDidMount()  {
+    this._isMounted = true;
     // Get the shopping list from the server
     getShoppingList(this.props.cookies.get('id'), (results) => {
       let newfoodItems = []
       results.data.forEach((entry) => {
         newfoodItems.push({ item: entry.name })
       })
-      this.setState({
-        foodItems: newfoodItems
-      })
+      if (this._isMounted) {
+        this.setState({
+          foodItems: newfoodItems
+        })
+      }
     })
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   removeItem = index => {

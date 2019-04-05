@@ -260,3 +260,11 @@ img.bg {
     }
   }
 }
+
+.ingredient-list-container {
+  display: flex;
+  .ingredient-card {
+    font-size: 200%;
+    color: $text-color;
+  }
+}

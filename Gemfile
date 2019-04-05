@@ -27,6 +27,8 @@ gem 'pg', '~> 0.20.0'
 
 gem 'twilio-ruby'
 
+gem 'rest-client', '~> 1.8'
+
 group :development do
   gem 'web-console', '~> 2.0'
 end
