@@ -41,9 +41,13 @@ class YourFridge extends Component {
   }
   
   handleSubmit = item => {
-    console.log("Handle submit item: ", item.name)
     setFridgeItem(this.props.cookies.get('id'), item.name, (results) => {
-      console.log("Results from submitting form", results)
+      if (results.status === 200) {
+        alert("Success! Added this item to your fridge.")
+        
+      } else {
+        alert("There was a problem. Please try again.")
+      }
     })
   }
   
