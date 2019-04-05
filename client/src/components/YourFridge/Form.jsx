@@ -7,29 +7,22 @@ import "react-datepicker/dist/react-datepicker.css";
 class Form extends Component {
   constructor(props) {
     super(props)
-    this.initialState = {
-      item: '',
+    this.state = {
+      name: '',
     }
-    this.state = this.initialState;
   }
 
   handleChange = event => {
-    const { name, value } = event.target;
+    const { value } = event.target;
     this.setState({
-      [name]: value
+      name: value
     });
   }
 
   onFormSubmit = (event) => {
     event.preventDefault();
-
     this.props.handleSubmit(this.state);
-    this.setState(this.initialState);
-  }
-
-  submitForm = () => {
-    this.props.handleSubmit(this.state)
-    this.setState(this.initialState)
+    this.setState({name: ''});
   }
 
   render() {
@@ -42,10 +35,10 @@ class Form extends Component {
           id="addFood"
           type="text"
           name="item"
-          value={item}
+          value={this.state.name}
           placeholder="Enter food item here and hit enter"
           onChange={this.handleChange} />
-        {/* <Button color="danger">Add Item</Button> */}
+        <Button color="danger">Add Item</Button>
       </form>
       
     );

@@ -3,7 +3,7 @@ import { Card, CardTitle, Container, Row, Col } from 'reactstrap';
 import Table from './Table.jsx';
 import Form from './Form.jsx';
 import IngredientCard from './IngredientCard.jsx';
-import { getFridge } from '../../lib/api.js';
+import { getFridge, setFridgeItem } from '../../lib/api.js';
 
 
 class YourFridge extends Component {
@@ -41,7 +41,10 @@ class YourFridge extends Component {
   }
   
   handleSubmit = item => {
-    this.setState({ foodItems: [...this.state.foodItems, item] })
+    console.log("Handle submit item: ", item.name)
+    setFridgeItem(this.props.cookies.get('id'), item.name, (results) => {
+      console.log("Results from submitting form", results)
+    })
   }
   
   makeRows = () => {

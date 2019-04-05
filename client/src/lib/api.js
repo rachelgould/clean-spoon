@@ -55,9 +55,19 @@ function getProfile(id, cb) {
   .then(cb)
 }
 
+function setFridgeItem(id, itemName, cb) {
+  let url = 'api/fridges/' + id
+  axios.post(url, {
+    name: itemName
+  })
+  .then(checkStatus)
+  .then(cb)
+}
+
 export {
   sendSMS,
   getShoppingList,
   getFridge,
-  getProfile
+  getProfile,
+  setFridgeItem
 }
