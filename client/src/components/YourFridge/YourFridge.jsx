@@ -37,8 +37,14 @@ class YourFridge extends Component {
   removeItem = id => {
     deleteFridgeItem(id, (results) => {
       if (results.status === 200) {
-        alert("Success! Deleted this item from your fridge.")
-        this.refreshFridge()
+        let newState = this.state.foodItems;
+        let matchingIndex = newState.map((element) => element.id).indexOf(id)
+        if (matchingIndex !== -1) {
+          newState.splice(matchingIndex, 1)
+        }
+        this.setState({
+          foodItems: newState
+        })
       } else {
         alert("There was a problem. Please try again.")
       }
@@ -48,7 +54,6 @@ class YourFridge extends Component {
   handleSubmit = item => {
     setFridgeItem(this.props.cookies.get('id'), item.name, (results) => {
       if (results.status === 200) {
-        alert("Success! Added this item to your fridge.")
         this.refreshFridge()
       } else {
         alert("There was a problem. Please try again.")
@@ -59,9 +64,7 @@ class YourFridge extends Component {
   makeRows = () => {
     const { foodItems } = this.state
     if (foodItems.length > 0) {
-      console.log('Food items has more than 0 things')
       return foodItems.map((entry, index) => {
-        console.log("Making an ingredient card with this entry: ", entry)
         return (<IngredientCard 
           name={entry.item} 
           image={entry.image} 
