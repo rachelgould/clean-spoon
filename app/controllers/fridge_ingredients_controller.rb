@@ -15,9 +15,9 @@ class FridgeIngredientsController < ApplicationController
   end
 
   def create
-    @ingredient_name = params[:name]
-    @matching_ingredient = Ingredient.find_or_create_by(name: @ingredient_name)
-    @fridge_ingredient = @matching_ingredient.fridge_ingredient.create!(user_id: params[:userId])
+    user = User.find(params[:userId])
+    ingredient = Ingredient.find_or_create_by(name: params[:name])
+    fridge_ingredient = ingredient.fridge_ingredients.create!(fridge_id: user.fridge.id)
     json_response("Success": "Ingredient added to fridge")
   end
 

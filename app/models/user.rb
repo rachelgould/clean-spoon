@@ -1,9 +1,9 @@
 class User < ApplicationRecord
  
   has_many :fav_recipes
-  has_many :fridge_ingredients, :through => :fridges
+  has_many :fridge_ingredients, :through => :fridge
   has_many :list_ingredients
-  has_many :fridges
+  has_one :fridge
   has_many :user_allergies
   has_many :allergies, :through => :user_allergies
 
