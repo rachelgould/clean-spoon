@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def show
     @user = User.select("id, name, email, vegan, vegetarian").find(params[:userId])
     @allergies = @user.allergies;
-    json_response(@user << @allergies)
+    json_response(@user)
   end
 
   def update
