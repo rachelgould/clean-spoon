@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
 
   def show
-    @user = User.select("id, name, email, vegan, vegetarian, gf, allergies").find(params[:userId])
-    json_response(@user)
+    @user = User.select("id, name, email, vegan, vegetarian").find(params[:userId])
+    @allergies = @user.allergies;
+    json_response(@user << @allergies)
   end
 
   def update
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :vegan, :vegetarian, :gf, :allergies)
+    params.require(:user).permit(:name, :email, :vegan, :vegetarian)
   end
 
 end
