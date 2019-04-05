@@ -21,7 +21,8 @@ class FridgeIngredientsController < ApplicationController
   end
 
   def destroy
-
+    FridgeIngredient.destroy(params[:fridgeIngredientId])
+    json_response("Success": "Ingredient removed from fridge")
   end
 
 end
