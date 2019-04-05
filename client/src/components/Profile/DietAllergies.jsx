@@ -4,32 +4,17 @@ import Table from './Table.jsx';
 
 function DietAllergies(props) {
 
-   const allergyItems = props.allergies;
-
-  //  console.log(allergyItems);
-
-  return (
-    
+  return ( 
     <div className="diet-allergies">
       <Form>
         <div className="form-group">
-          <h2>Add Allergies</h2>
+          <h2>Allergies</h2>
           <InputGroup>
-            <Input type="text" name="allergies" placeholder="Start typing ingredients" />
+            <Input type="text" name="allergies" placeholder="Add allergies here" />
             <InputGroupAddon addonType="append"><Button>Add</Button></InputGroupAddon> 
           </InputGroup>
           <br />
-
-          <h4>Here are your allergies:</h4>
           <Table characterData={props.allergies}/>
-
-
-         {/* <p>{console.log(props.allergies)}</p> */}
-
-
-
-
-
         </div>
         <div className="form-group">
         <h2>Your Diet</h2>
