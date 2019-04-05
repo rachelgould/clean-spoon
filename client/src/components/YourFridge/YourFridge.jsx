@@ -8,7 +8,6 @@ import { getFridge, setFridgeItem, deleteFridgeItem } from '../../lib/api.js';
 
 class YourFridge extends Component {
   
-  //default values for the time being
   state = {
     foodItems: []
   };
@@ -23,15 +22,22 @@ class YourFridge extends Component {
           id: entry.id
         })
       })
-      this.setState({
-        foodItems: newfoodItems
-      })
+      if (this._isMounted) {
+        this.setState({
+          foodItems: newfoodItems
+        })
+      }
     })
   }
 
   componentDidMount()  {
+    this._isMounted = true;
     // Get the fridge items from the server
     this.refreshFridge()
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
   
   removeItem = id => {
@@ -82,10 +88,9 @@ class YourFridge extends Component {
 
     return (
       <Card body >
-        <CardTitle>This is your fridge</CardTitle>
+        <CardTitle>This is your Fridge</CardTitle>
         <hr />
         <div className="ingredient-list-container">{ingredients}</div>
-        {/* <Table characterData={foodItems} removeItem={this.removeItem} /> */}
         <br />
         <Form handleSubmit={this.handleSubmit} />
       </Card>
