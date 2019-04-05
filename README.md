@@ -9,9 +9,10 @@ npm i
 cd ..
 ```
 3. Create `config/database.yml` by copying `config/database.example.yml`
-3. Create `config/secrets.yml` by copying `config/secrets.example.yml` 
-4. Run `bin/rake db:reset` to create, load and seed db
-5. Start with `rake start`
+4. Create `config/secrets.yml` by copying `config/secrets.example.yml` 
+5. Create `.env` by copying `.env.example`
+6. Run `bin/rake db:reset` to create, load and seed db
+7. Start with `rake start`
 
 ## Overview
 
