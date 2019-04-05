@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     # SHOPPING LIST
     get '/lists/:userId', to: 'list_ingredients#index'
     post '/lists/:userId', to: 'list_ingredients#create'
-    delete '/lists/:userId', to: 'list_ingredients#destroy'
+    delete '/lists/:listIngredientId', to: 'list_ingredients#destroy'
 
     # TEST RESULTS
     get '/test', to: 'test#show'
