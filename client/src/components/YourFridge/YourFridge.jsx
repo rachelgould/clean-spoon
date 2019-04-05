@@ -3,12 +3,8 @@ import { Card, CardTitle, Container, Row, Col } from 'reactstrap';
 import Table from './Table.jsx';
 import Form from './Form.jsx';
 import IngredientCard from './IngredientCard.jsx';
-<<<<<<< HEAD
-import { getFridge } from '../../lib/api.js';
+import { getFridge, setFridgeItem } from '../../lib/api.js';
 import RecipeSearch from '../RecipeSearch/RecipeSearch.jsx';
-=======
-import { getFridge, setFridgeItem, deleteFridgeItem } from '../../lib/api.js';
->>>>>>> master
 
 
 class YourFridge extends Component {
@@ -45,7 +41,6 @@ class YourFridge extends Component {
     this._isMounted = false;
   }
   
-<<<<<<< HEAD
   removeItem = index => {
     // Must be edited to call DB
     const { foodItems } = this.state 
@@ -53,22 +48,6 @@ class YourFridge extends Component {
       foodItems: foodItems.filter((character, i) => {
         return i !== index
       }),
-=======
-  removeItem = id => {
-    deleteFridgeItem(id, (results) => {
-      if (results.status === 200) {
-        let newState = this.state.foodItems;
-        let matchingIndex = newState.map((element) => element.id).indexOf(id)
-        if (matchingIndex !== -1) {
-          newState.splice(matchingIndex, 1)
-        }
-        this.setState({
-          foodItems: newState
-        })
-      } else {
-        alert("There was a problem. Please try again.")
-      }
->>>>>>> master
     })
   }
   
