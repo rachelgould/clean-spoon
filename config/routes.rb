@@ -15,15 +15,15 @@ Rails.application.routes.draw do
     # delete '/favRecipes/:favRecipeId', to: 'fav_recipes#destroy'
     # get '/recipes/:userId', to: 'recipes#search'
 
-    # # FRIDGE
+    # FRIDGE
     get '/fridges/:userId', to: 'fridge_ingredients#index'
     post '/fridges/:userId', to: 'fridge_ingredients#create'
     delete '/fridges/:fridgeIngredientId', to: 'fridge_ingredients#destroy'
 
-    # # SHOPPING LIST
+    # SHOPPING LIST
     get '/lists/:userId', to: 'list_ingredients#index'
-    # post '/lists/:userId', to: 'list_ingredients#create'
-    # delete '/lists/:userId', to: 'list_ingredients#destroy'
+    post '/lists/:userId', to: 'list_ingredients#create'
+    delete '/lists/:userId', to: 'list_ingredients#destroy'
 
   end
 end
