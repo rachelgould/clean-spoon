@@ -11,7 +11,7 @@ function IngredientCard(props) {
     }}> 
       <CardTitle>{props.name}</CardTitle>
       {/* Edit remove item function! */}
-      <Button color="danger" onClick={() => this.props.removeItem(1)}> Remove </Button>
+      <Button color="danger" onClick={() => props.removeItem(props.id)}> Remove </Button>
     </Card>
   );
 }

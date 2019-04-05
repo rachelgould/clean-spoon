@@ -64,10 +64,19 @@ function setFridgeItem(id, itemName, cb) {
   .then(cb)
 }
 
+function deleteFridgeItem(id, cb) {
+  let url = 'api/fridges/' + id
+  console.log("About to make delete request to this URL: ", url)
+  axios.delete(url)
+  .then(checkStatus)
+  .then(cb)
+}
+
 export {
   sendSMS,
   getShoppingList,
   getFridge,
   getProfile,
-  setFridgeItem
+  setFridgeItem,
+  deleteFridgeItem
 }
