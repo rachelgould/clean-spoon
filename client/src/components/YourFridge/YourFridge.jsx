@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes, Children }  from 'react';
 import { Card, CardTitle, Container, Row, Col } from 'reactstrap';
 import Table from './Table.jsx';
 import Form from './Form.jsx';
 import IngredientCard from './IngredientCard.jsx';
 import { getFridge } from '../../lib/api.js';
+import RecipeSearch from '../RecipeSearch/RecipeSearch.jsx';
 
 
 class YourFridge extends Component {
@@ -31,8 +32,7 @@ class YourFridge extends Component {
   
   removeItem = index => {
     // Must be edited to call DB
-    const { foodItems } = this.state
-    
+    const { foodItems } = this.state 
     this.setState({
       foodItems: foodItems.filter((character, i) => {
         return i !== index
