@@ -6,5 +6,13 @@ class ApplicationController < ActionController::API
   def json_response(object, status = :ok)
     render json: object, status: status
   end
-    
+
+  def yummly_search(parameters)
+    url = "#{ENV["SEARCH_URL"]}#{ENV["YUMMLY_KEY"]}"
+    parameters.each do |parameter|
+      url = "#{url}#{parameter}"
+    end
+    return url
+  end
+  
 end

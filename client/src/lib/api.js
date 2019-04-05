@@ -72,9 +72,28 @@ function deleteFridgeItem(id, cb) {
   .then(cb)
 }
 
+function setShoppingListItem(id, itemName, cb) {
+  let url = 'api/lists/' + id
+  axios.post(url, {
+    name: itemName
+  })
+  .then(checkStatus)
+  .then(cb)
+}
+
+function deleteShoppingListItem(id, cb) {
+  let url = 'api/lists/' + id
+  console.log("About to make delete request to this URL: ", url)
+  axios.delete(url)
+  .then(checkStatus)
+  .then(cb)
+}
+
 export {
   sendSMS,
   getShoppingList,
+  setShoppingListItem,
+  deleteShoppingListItem,
   getFridge,
   getProfile,
   setFridgeItem,

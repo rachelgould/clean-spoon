@@ -29,6 +29,9 @@ gem 'twilio-ruby'
 
 gem 'rest-client', '~> 1.8'
 
+# Allows .env use
+gem 'dotenv-rails'
+
 group :development do
   gem 'web-console', '~> 2.0'
 end
