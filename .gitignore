@@ -17,3 +17,6 @@
 !/log/.keep
 /tmp
 node_modules
+
+# Ignore all secret files
+.env

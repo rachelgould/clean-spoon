@@ -130,6 +130,15 @@ Parameters for search: (for get /api/recipes/user[:id])
 - maxResult: number of recipes given
 - start: of the array of results (eg: 10 items page 1: maxResult: 10, start: 0. Page 2, maxResult 10, start 10)
 
+searchParameters: {
+  extraAllergies: [string],
+  diet: {vegetarian: boolean, vegan: boolean},
+  excludedCourses: [string],
+  excludeAllHolidays: boolean,
+  maxResult: number,
+  start: number
+}
+
 Always (for backend)
 - requirePictures
 
