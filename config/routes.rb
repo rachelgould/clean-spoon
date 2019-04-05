@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     #put '/users/:userId', to: 'users#update'
     #post '/users/', to: 'users#create'
 
+    # ALLERGIES
+    post '/allergies/:userId', to: 'allergies#create'
+    delete '/allergies/:userId', to: 'allergies#destroy'
+
     # RECIPES
     get '/favRecipes/:userId', to: 'fav_recipes#index'
     # post '/favRecipes/:userId', to: 'fav_recipes#create'
@@ -24,6 +28,9 @@ Rails.application.routes.draw do
     get '/lists/:userId', to: 'list_ingredients#index'
     post '/lists/:userId', to: 'list_ingredients#create'
     delete '/lists/:userId', to: 'list_ingredients#destroy'
+
+    # TEST RESULTS
+    get '/test', to: 'test#show'
 
   end
 end
