@@ -17,8 +17,8 @@ Rails.application.routes.draw do
 
     # # FRIDGE
     get '/fridges/:userId', to: 'fridge_ingredients#index'
-    # post '/fridges/:userId', to: 'fridge_ingredients#create'
-    # delete '/fridges/:fridgeIngredientId', to: 'fridge_ingredients#destroy'
+    post '/fridges/:userId', to: 'fridge_ingredients#create'
+    delete '/fridges/:fridgeIngredientId', to: 'fridge_ingredients#destroy'
 
     # # SHOPPING LIST
     get '/lists/:userId', to: 'list_ingredients#index'

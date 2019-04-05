@@ -1,16 +1,20 @@
 import React from 'react';
 import { Form, FormGroup, Label, Input, InputGroup, InputGroupAddon, Card, Button, CardTitle } from 'reactstrap';
+import Table from './Table.jsx';
 
 function DietAllergies(props) {
-  return (
+
+  return ( 
     <div className="diet-allergies">
       <Form>
         <div className="form-group">
-          <h2>Add Allergies</h2>
+          <h2>Allergies</h2>
           <InputGroup>
-            <Input type="text" name="allergies" placeholder="Start typing ingredients" />
-            <InputGroupAddon addonType="append"><Button>Add</Button></InputGroupAddon>
+            <Input type="text" name="allergies" placeholder="Add allergies here" />
+            <InputGroupAddon addonType="append"><Button>Add</Button></InputGroupAddon> 
           </InputGroup>
+          <br />
+          <Table characterData={props.allergies}/>
         </div>
         <div className="form-group">
         <h2>Your Diet</h2>
@@ -25,10 +29,6 @@ function DietAllergies(props) {
               Vegetarian
             </Label>
             <br />
-            <Label check>
-              <Input type="checkbox" />{' '}
-              Gluten Free
-            </Label>
           </FormGroup>
         </div>
         <Button type="submit">Save Preferences</Button>

@@ -37,8 +37,15 @@ class Routes extends Component {
         <Switch>
             <Route exact path="/" component={Welcome} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/signup" component={SignUp} /> 
+
+            <Route 
+              exact path="/profile"
+              render={(routeProps) => (
+              <Profile {...routeProps} cookies={this.props.cookies} />
+              )}
+            />
+
             <Route exact path="/search" component={RecipeSearch} />
             <Route 
               exact path="/recipes"
