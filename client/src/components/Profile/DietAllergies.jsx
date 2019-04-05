@@ -4,6 +4,11 @@ import Table from './Table.jsx';
 
 function DietAllergies(props) {
 
+  // updateUserPreferences= (event) => {
+  //   console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+  //   console.log(event.target)
+  // }
+
   return ( 
     <div className="diet-allergies">
       <Form>
@@ -31,7 +36,7 @@ function DietAllergies(props) {
             <br />
           </FormGroup>
         </div>
-        <Button type="submit">Save Preferences</Button>
+        <Button type="submit" /*onSubmit={(this.updateUserPreferences}*/ >Save Preferences</Button>
       </Form>
     </div>
   )

@@ -1,17 +1,17 @@
 class FridgeIngredientsController < ApplicationController
 
   def index #Expiry dates not added yet
-    @user = User.find(params[:userId])
-    @fridge_ingredients = @user.fridge_ingredients
-    @ingredients = []
-    @fridge_ingredients.each do |i|
-      @ingredients << {
+    user = User.find(params[:userId])
+    fridge_ingredients = user.fridge_ingredients
+    ingredients = []
+    fridge_ingredients.each do |i|
+      ingredients << {
         name: i.ingredient[:name],
         image: i.ingredient[:image],
         id: i[:ingredient_id]
       }
     end
-    json_response(@ingredients)
+    json_response(ingredients)
   end
 
   def create

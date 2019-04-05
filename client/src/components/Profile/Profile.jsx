@@ -13,7 +13,20 @@ class Profile extends Component {
       email: "",
       allergies: []
     }; 
+    //this.addAllergy = this.addAllergy.bind(this);
   }
+
+  // addAllergy(name) {
+  //     let url = 'api/allergies/' + this.props.cookies.get('id')
+  //     axios.post(url, {
+  //       name: name
+  //     })
+  //     .then(checkStatus)
+  //     .then(() => {
+  //       this.setState({ allergies: this.state.allergies.concat(name) })
+  //     })
+  //   }
+  // }
  
   componentDidMount() {
     let userAllergies = []
@@ -39,7 +52,7 @@ class Profile extends Component {
         <Hero username={this.state.username}
               email={this.state.email}
               />
-        <DietAllergies allergies={this.state.allergies} />
+        <DietAllergies /*addAllergy={this.addAllergy}*/ allergies={this.state.allergies} />
       </div>
     );
   }
