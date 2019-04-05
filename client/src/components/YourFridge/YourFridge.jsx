@@ -13,8 +13,7 @@ class YourFridge extends Component {
     foodItems: []
   };
 
-  componentDidMount()  {
-    // Get the fridge items from the server
+  refreshFridge = () => {
     getFridge(this.props.cookies.get('id'), (results) => {
       let newfoodItems = []
       results.data.forEach((entry) => {
@@ -27,6 +26,11 @@ class YourFridge extends Component {
         foodItems: newfoodItems
       })
     })
+  }
+
+  componentDidMount()  {
+    // Get the fridge items from the server
+    this.refreshFridge()
   }
   
   removeItem = index => {
@@ -44,18 +48,7 @@ class YourFridge extends Component {
     setFridgeItem(this.props.cookies.get('id'), item.name, (results) => {
       if (results.status === 200) {
         alert("Success! Added this item to your fridge.")
-        getFridge(this.props.cookies.get('id'), (results) => {
-          let newfoodItems = []
-          results.data.forEach((entry) => {
-            newfoodItems.push({ 
-              item: entry.name, 
-              image: entry.image
-            })
-          })
-          this.setState({
-            foodItems: newfoodItems
-          })
-        })
+        this.refreshFridge()
       } else {
         alert("There was a problem. Please try again.")
       }
