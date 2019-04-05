@@ -117,7 +117,7 @@ Fridge:
 Shopping List:
 * Browse what's in your shopping list: `GET /api/lists/user[:id]`
 * Add to your shopping list: `POST /api/lists/user[:id]`
-* Delete from your shopping list: `DELETE /api/lists/user[:id]`
+* Delete from your shopping list: `DELETE /api/lists/list_ingredient[:id]`
 ---
 ---
 # Front-end Request

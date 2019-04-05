@@ -24,7 +24,7 @@ class ListIngredientsController < ApplicationController
 
   def destroy
     ListIngredient.destroy(params[:listIngredientId])
-    json_response("Success": "Ingredient removed from fridge")
+    json_response("Success": "Ingredient removed from list")
   end
 
 end
