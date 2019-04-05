@@ -22,9 +22,11 @@ class YourFridge extends Component {
           id: entry.id
         })
       })
-      this.setState({
-        foodItems: newfoodItems
-      })
+      if (this._isMounted) {
+        this.setState({
+          foodItems: newfoodItems
+        })
+      }
     })
   }
 
@@ -86,10 +88,9 @@ class YourFridge extends Component {
 
     return (
       <Card body >
-        <CardTitle>This is your fridge</CardTitle>
+        <CardTitle>This is your Fridge</CardTitle>
         <hr />
         <div className="ingredient-list-container">{ingredients}</div>
-        {/* <Table characterData={foodItems} removeItem={this.removeItem} /> */}
         <br />
         <Form handleSubmit={this.handleSubmit} />
       </Card>

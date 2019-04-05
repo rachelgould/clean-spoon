@@ -16,9 +16,13 @@ class ListIngredientsController < ApplicationController
   end
 
   def create
-    user = User.find(params[:userId])
-    ingredient = Ingredient.find_or_create_by(name: params[:name])
-    list = ingredient.list.create!(fridge_id: user.fridge.id)
+    @user = User.find(params[:userId])
+    @ingredient = Ingredient.find_or_create_by(name: params[:name])
+    @list_ingredient = ListIngredient.create!(
+      ingredient_id: @ingredient.id,
+      user_id: params[:userId]
+    )
+    # @list = @ingredient.list.create!(fridge_id: user.fridge.id)
     json_response("Success": "Ingredient added to list")
   end
 
