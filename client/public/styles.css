@@ -295,4 +295,17 @@ img.bg {
           justify-content: space-between;
   margin: 5px;
 }
+
+.recipe-results .recipe-search-results-button {
+  padding: 20px 0;
+  position: fixed;
+  bottom: 0;
+}
+
+.recipe-results .recipes-results-container {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.75)), to(rgba(255, 255, 255, 0.75))), url("https://images.unsplash.com/photo-1531914082256-1b9047242426?ixlib=rb-1.2.1&auto=format&fit=crop&w=1349&q=80");
+  background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url("https://images.unsplash.com/photo-1531914082256-1b9047242426?ixlib=rb-1.2.1&auto=format&fit=crop&w=1349&q=80");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
 /*# sourceMappingURL=styles.css.map */
