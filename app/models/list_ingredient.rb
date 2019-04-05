@@ -1,9 +1,8 @@
 class ListIngredient < ApplicationRecord
  
-  belongs_to :fav_recipe
+  belongs_to :user
   belongs_to :ingredient
 
   validates :ingredient, presence: true
-  validates :fav_recipe, presence: true
-
+  validates :user, presence: true
 end

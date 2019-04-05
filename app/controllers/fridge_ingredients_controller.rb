@@ -8,6 +8,7 @@ class FridgeIngredientsController < ApplicationController
       @ingredients << {
         name: i.ingredient[:name],
         image: i.ingredient[:image],
+        id: i[:ingredient_id]
       }
     end
     json_response(@ingredients)
