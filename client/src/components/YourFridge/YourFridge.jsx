@@ -8,7 +8,6 @@ import { getFridge, setFridgeItem, deleteFridgeItem } from '../../lib/api.js';
 
 class YourFridge extends Component {
   
-  //default values for the time being
   state = {
     foodItems: []
   };
@@ -30,8 +29,13 @@ class YourFridge extends Component {
   }
 
   componentDidMount()  {
+    this._isMounted = true;
     // Get the fridge items from the server
     this.refreshFridge()
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
   
   removeItem = id => {

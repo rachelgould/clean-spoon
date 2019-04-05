@@ -7,22 +7,8 @@ import { getShoppingList } from '../../lib/api.js'
 
 class ShoppingList extends Component {
 
-  //default values for the time being
   state = {
-    foodItems: [
-      {
-        item: 'Chicken'
-      },
-      {
-        item: 'Lima Beans'
-      },
-      {
-        item: 'Rice'
-      },
-      {
-        item: 'Youghurt'
-      }
-    ]
+    foodItems: []
   };
 
   componentDidMount()  {
