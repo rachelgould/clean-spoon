@@ -25,5 +25,8 @@ Rails.application.routes.draw do
     post '/lists/:userId', to: 'list_ingredients#create'
     delete '/lists/:userId', to: 'list_ingredients#destroy'
 
+    # TEST RESULTS
+    get '/test', to: 'test#show'
+
   end
 end
