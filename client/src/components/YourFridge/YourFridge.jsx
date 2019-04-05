@@ -44,7 +44,18 @@ class YourFridge extends Component {
     setFridgeItem(this.props.cookies.get('id'), item.name, (results) => {
       if (results.status === 200) {
         alert("Success! Added this item to your fridge.")
-        
+        getFridge(this.props.cookies.get('id'), (results) => {
+          let newfoodItems = []
+          results.data.forEach((entry) => {
+            newfoodItems.push({ 
+              item: entry.name, 
+              image: entry.image
+            })
+          })
+          this.setState({
+            foodItems: newfoodItems
+          })
+        })
       } else {
         alert("There was a problem. Please try again.")
       }
