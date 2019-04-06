@@ -20,7 +20,8 @@ function RecipeResults(props) {
         ingredients: recipe.ingredients,
         rating: recipe.rating,
         source: recipe.sourceDisplayName,
-        image: recipe.imageUrlsBySize['90']
+        image: recipe.imageUrlsBySize['90'],
+        prepTime: recipe.totalTimeInSeconds
       })
     })
     return processed;

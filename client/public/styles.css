@@ -312,6 +312,7 @@ img.bg {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  padding: 10px 0;
 }
 
 .recipe-results .recipes-results-container .recipes-results-card {
@@ -323,5 +324,19 @@ img.bg {
       -ms-flex-positive: 0;
           flex-grow: 0;
   margin: 5px;
+  text-align: center;
+}
+
+.recipe-results .recipes-results-container .recipes-results-card .card-title {
+  color: #bb3535;
+  font-weight: bolder;
+}
+
+.recipe-results .recipes-results-container .recipes-results-card .small {
+  font-size: 75%;
+}
+
+.recipe-results .recipes-results-container .recipes-results-card a {
+  color: gray;
 }
 /*# sourceMappingURL=styles.css.map */
