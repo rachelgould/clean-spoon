@@ -8,6 +8,8 @@ import SignUp from './components/SignUp/SignUp.jsx';
 import Profile from './components/Profile/Profile.jsx';
 import Dashboard from './components/Dashboard/Dashboard.jsx';
 import RecipeSearch from './components/RecipeSearch/RecipeSearch.jsx';
+import RecipeResults from './components/RecipeResults/RecipeResults.jsx';
+
 
 class Routes extends Component {
   static propTypes = {
@@ -38,6 +40,12 @@ class Routes extends Component {
             <Route exact path="/" component={Welcome} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} /> 
+            <Route 
+              exact path="/results"
+              render={(routeProps) => (
+              <RecipeResults {...routeProps} cookies={this.props.cookies} />
+              )}
+            />
 
             <Route 
               exact path="/profile"
