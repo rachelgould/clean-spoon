@@ -307,5 +307,21 @@ img.bg {
   background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url("https://images.unsplash.com/photo-1531914082256-1b9047242426?ixlib=rb-1.2.1&auto=format&fit=crop&w=1349&q=80");
   background-repeat: no-repeat;
   background-size: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.recipe-results .recipes-results-container .recipes-results-card {
+  width: 250px;
+  word-wrap: normal;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  margin: 5px;
 }
 /*# sourceMappingURL=styles.css.map */
