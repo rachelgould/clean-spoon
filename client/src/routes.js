@@ -9,6 +9,7 @@ import Profile from './components/Profile/Profile.jsx';
 import Dashboard from './components/Dashboard/Dashboard.jsx';
 import RecipeSearch from './components/RecipeSearch/RecipeSearch.jsx';
 import RecipePage from './components/RecipePage/RecipePage.jsx';
+import RecipeResults from './components/RecipeResults/RecipeResults.jsx'
 
 class Routes extends Component {
   static propTypes = {
