@@ -46,7 +46,17 @@ class Routes extends Component {
               )}
             />
 
-            <Route exact path="/search" component={RecipeSearch} />
+            {/* <Route exact path="/search" component={RecipeSearch} /> */}
+
+            <Route 
+              exact path="/search"
+              render={(routeProps) => (
+              <RecipeSearch {...routeProps} cookies={this.props.cookies} />
+              )}
+            />
+
+
+            
             <Route 
               exact path="/recipes"
               render={(routeProps) => (

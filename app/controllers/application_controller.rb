@@ -41,5 +41,11 @@ class ApplicationController < ActionController::API
 
     return searchResults
   end
+
+    def yummly_get(recipeID)
+      url = "#{ENV["SHOW_URL"]}#{recipeID}?#{ENV["YUMMLY_KEY"]}"
+       return url
+    end
+
   
 end

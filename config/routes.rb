@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     # post '/favRecipes/:userId', to: 'fav_recipes#create'
     # delete '/favRecipes/:favRecipeId', to: 'fav_recipes#destroy'
     # get '/recipes/:userId', to: 'recipes#search'
+    get '/recipes/:recipeId', to: 'recipes#show'
 
     # FRIDGE
     get '/fridges/:userId', to: 'fridge_ingredients#index'
