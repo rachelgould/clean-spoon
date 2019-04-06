@@ -353,12 +353,12 @@ img.bg {
 }
 
 .recipe-results .hidden-filters-icon {
-  background: white;
+  background: #bb3535;
+  color: white;
   position: fixed;
   top: 100px;
   left: 0px;
   padding: 20px 10px;
-  border: 1px solid #a5a5a5;
 }
 
 .recipe-results .hidden-filters-icon .material-icons {
@@ -374,5 +374,11 @@ img.bg {
   position: fixed;
   background: white;
   top: 200px;
+}
+
+.recipe-results .sidebar .card {
+  height: 500px;
+  width: 400px;
+  font-size: 75%;
 }
 /*# sourceMappingURL=styles.css.map */

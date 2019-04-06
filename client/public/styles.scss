@@ -319,12 +319,12 @@ img.bg {
     }
   }
   .hidden-filters-icon {
-    background: white;
+    background: $main-bright;
+    color: white;
     position: fixed;
     top: 100px;
     left: 0px;
     padding: 20px 10px;
-    border: 1px solid rgb(165, 165, 165);
     .material-icons {
       position: relative;
       top: 5px;
@@ -337,5 +337,10 @@ img.bg {
     position: fixed;
     background: white;
     top: 200px;
+    .card {
+      height: 500px;
+      width: 400px;
+      font-size: 75%;
+    }
   }
 }
