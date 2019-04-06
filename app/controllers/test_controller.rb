@@ -1,16 +1,12 @@
 class TestController < ApplicationController
   def show
-    # user = User.find(1)
-    # searchParameters = {
-    #   extraAllergies: ["dairy", "eggs"]
-    # }
-    # searchResults = yummly_search(searchParameters, user)
-    # json_response(searchResults)
+    user = User.find(1)
+    searchParameters = {
+      extraAllergies: ["dairy", "eggs"]
+    }
+    searchResults = yummly_search(searchParameters, user)
+    json_response(searchResults)
     #-----------------------------------------------------------
-    #json_response(searchResults)
-    json_response(AllowedItems.instance.allowed_allergies)
-    #user = User.find(1)
-    
     #-----------------------------------------------------------
     # recipeID = "Hot-Dogs-with-Krautslaw-894904";
     # url = yummly_get(recipeID)

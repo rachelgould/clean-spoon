@@ -22,7 +22,7 @@ class ApplicationController < ActionController::API
       if (allergy.is_ingredient)
         url = "#{url}&excludedIngredient[]=#{allergy.name}"
       else
-        url = "#{url}&allowedAllergy[]=#{allergy.name}"
+        url = "#{url}&allowedAllergy[]=#{AllowedItems.instance.allowed_allergies[allergy.name.to_sym]}"
       end
     end
 
