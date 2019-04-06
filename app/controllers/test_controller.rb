@@ -1,13 +1,14 @@
 class TestController < ApplicationController
   def show
-    user = User.find(1)
-    searchParameters = {
-      extraAllergies: ["dairy", "eggs"]
-    }
-    url = yummly_search(searchParameters, user)
-    searchResults = Net::HTTP.get(URI.parse(url))
-    response = 
-    json_response(searchResults)
+    # user = User.find(1)
+    # searchParameters = {
+    #   extraAllergies: ["dairy", "eggs"]
+    # }
+    # searchResults = yummly_search(searchParameters, user)
+    # json_response(searchResults)
+    #-----------------------------------------------------------
+    #json_response(searchResults)
+    json_response(AllowedItems.instance.allowed_ingredients)
   end
 end
 

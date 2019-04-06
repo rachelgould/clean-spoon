@@ -8,15 +8,22 @@ class ApplicationController < ActionController::API
   end
 
   def yummly_search(searchParameters, user)
-
     #Make the url
     url = "#{ENV["SEARCH_URL"]}#{ENV["YUMMLY_KEY"]}&requirePictures=true"
 
-    if (!user.vegetarian)
+    #Add user preferences
+    if (user.vegetarian)
       url = "#{url}&allowedDiet[]=vegetarian"
     end
     if (user.vegan)
       url = "#{url}&allowedDiet[]=vegan"
+    end
+    user.allergies.each do |allergy|
+      if (allergy.is_ingredient)
+        url = "#{url}&excludedIngredient[]=#{allergy.name}"
+      else
+        url = "#{url}&allowedAllergy[]=#{allergy.name}"
+      end
     end
 
     parameters = [];
@@ -25,14 +32,14 @@ class ApplicationController < ActionController::API
       # when 'extraAllergies'
       # end
     #end
-
     
     parameters.each do |parameter|
       url = "#{url}#{parameter}"
     end
 
-    return url
+    searchResults = Net::HTTP.get(URI.parse(url))
 
+    return searchResults
   end
   
 end
