@@ -339,4 +339,13 @@ img.bg {
 .recipe-results .recipes-results-container .recipes-results-card a {
   color: gray;
 }
+
+.recipe-results .recipes-results-container .recipes-results-card .material-icons {
+  line-height: 0;
+  font-size: 52px;
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  color: #bb3535;
+}
 /*# sourceMappingURL=styles.css.map */
