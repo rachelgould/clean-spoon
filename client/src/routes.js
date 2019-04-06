@@ -39,6 +39,12 @@ class Routes extends Component {
             <Route exact path="/" component={Welcome} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} /> 
+            <Route 
+              exact path="/results"
+              render={(routeProps) => (
+              <RecipeResults {...routeProps} cookies={this.props.cookies} />
+              )}
+            />
 
             <Route 
              exact path="/recipe/:id"
