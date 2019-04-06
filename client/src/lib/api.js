@@ -55,6 +55,19 @@ function getProfile(id, cb) {
   .then(cb)
 }
 
+function getRecipeID(recipeID, cb) {
+
+console.log(recipeID)
+  let url = '/api/recipes/' + recipeID //'Hot-Dogs-with-Krautslaw-894904'
+  axios.get(url).then(response => {
+    console.log('Received recipe details from server')
+    console.log('The response was ------->>>>>', response)
+    return response
+  }) 
+  .then(checkStatus)
+  .then(cb)
+}
+
 function setFridgeItem(id, itemName, cb) {
   let url = 'api/fridges/' + id
   axios.post(url, {
@@ -97,5 +110,6 @@ export {
   getFridge,
   getProfile,
   setFridgeItem,
-  deleteFridgeItem
+  deleteFridgeItem, 
+  getRecipeID
 }

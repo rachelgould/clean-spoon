@@ -175,6 +175,23 @@ button.btn:hover {
   position: relative;
 }
 
+#savedRecipes {
+  padding-left: 250px;
+  padding-right: 250px;
+  position: relative;
+}
+
+#recipeImg {
+  width: 100%;
+  height: 400px;
+}
+
+.recipePage {
+  margin-left: 20px;
+  margin-right: 20px;
+
+}
+
 img.bg {
   /* Set rules to fill background */
   min-height: 100%;
