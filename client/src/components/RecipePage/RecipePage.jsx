@@ -48,7 +48,7 @@ class RecipePage extends Component {
       <h4>Ingredients Required:</h4>
       <p> {this.state.recipeIngredients}</p>
       <h4> Steps: </h4>
-      <p> Find the steps for this recipe <a href={this.state.recipeSteps}>here.</a></p>
+      <p> Find the steps for this recipe <a href={this.state.recipeSteps} target="_blank">here.</a></p>
       </div>
     )}
 
