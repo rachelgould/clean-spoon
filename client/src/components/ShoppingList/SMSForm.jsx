@@ -25,7 +25,7 @@ class SMSForm extends Component {
 
   submitForm = (event) => {
     event.preventDefault();
-    event.stopPropagation();
+    // event.stopPropagation();
     let id = this.props.cookies.get('id')
     let phoneNum = this.state.number
     sendSMS(id, phoneNum);
