@@ -352,6 +352,10 @@ img.bg {
   color: #bb3535;
 }
 
+.recipe-results .recipes-results-container .recipes-results-card .material-icons:hover {
+  cursor: pointer;
+}
+
 .recipe-results .hidden-filters-icon {
   background: #bb3535;
   color: white;
@@ -379,6 +383,24 @@ img.bg {
 .recipe-results .sidebar .card {
   height: 500px;
   width: 400px;
-  font-size: 75%;
+  font-size: 90%;
+}
+
+.recipe-results .sidebar .card-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.recipe-results .sidebar .card-header .material-icons {
+  color: gray;
+  line-height: 125%;
+}
+
+.recipe-results .sidebar .card-header .material-icons:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=styles.css.map */

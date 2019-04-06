@@ -316,6 +316,9 @@ img.bg {
         right: 10px;
         color: $main-bright;
       }
+      .material-icons:hover {
+        cursor: pointer;
+      }
     }
   }
   .hidden-filters-icon {
@@ -340,7 +343,18 @@ img.bg {
     .card {
       height: 500px;
       width: 400px;
-      font-size: 75%;
+      font-size: 90%;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      .material-icons {
+        color: gray;
+        line-height: 125%;
+      }
+      .material-icons:hover {
+        cursor: pointer;
+      }
     }
   }
 }
