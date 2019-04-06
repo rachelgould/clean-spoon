@@ -6,9 +6,25 @@ import SideBar from './SideBar';
 import recipeSample from './recipesample'; // This will be replaced with real data
 
 function RecipeResults(props) {
-  const recipesJSON = JSON.stringify(recipeSample)
+  // const recipesJSON = JSON.stringify(recipeSample)
   // Add hook for loading state
-  const [recipes, setRecipes] = useState(recipesJSON);
+  const [recipes, setRecipes] = useState(processRecipeData(recipeSample));
+
+  function processRecipeData(data) {
+    let processed = [];
+    data.matches.forEach((recipe) => {
+      processed.push({
+        recipeName: recipe.recipeName,
+        id: recipe.id,
+        course: recipe.attributes.course,
+        ingredients: recipe.ingredients,
+        rating: recipe.rating,
+        source: recipe.sourceDisplayName,
+        image: recipe.imageUrlsBySize['90']
+      })
+    })
+    return processed;
+  }
 
   return (
     <div className="recipe-results">

@@ -9,10 +9,10 @@ function RecipesContainer(props) {
     return recipes
   }
 
-  const cards = makeCards(recipes)
+  const cards = makeCards(recipes);
 
   return (
-    <div className="recipes-results-container">{cards}</div>
+    <div className="recipes-results-container">{JSON.stringify(cards)}</div>
   )
 }
 
