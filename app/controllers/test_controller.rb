@@ -2,7 +2,10 @@ class TestController < ApplicationController
   def show
     user = User.find(1)
     searchParameters = {
-      extraAllergies: ["dairy", "eggs"]
+      extraAllergies: ["dairy", "eggs"],
+      diet: { vegan: false, vegetarian: true},
+      maxResult: 10,
+      start: 0
     }
     searchResults = yummly_search(searchParameters, user)
     json_response(searchResults)
@@ -19,8 +22,8 @@ end
 # searchParameters: {
 #   extraAllergies: [string],
 #   diet: {vegetarian: boolean, vegan: boolean},
-#   excludedCourses: [string],
-#   excludeAllHolidays: boolean,
+#   excludedCourses: [string], NOT DONE YET
+#   excludeAllHolidays: boolean, NOT DONE YET
 #   maxResult: number,
 #   start: number
 # }

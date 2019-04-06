@@ -2,7 +2,15 @@ class RecipesController < ApplicationController
 
 
   def search
-
+    user = User.find(params[:userId])
+    searchParameters = {
+      extraAllergies: ["dairy", "eggs"],
+      diet: { vegan: false, vegetarian: true},
+      maxResult: 10,
+      start: 0
+    }
+    searchResults = yummly_search(searchParameters, user)
+    json_response(searchResults)
   end
 
   def show
