@@ -12,6 +12,7 @@ class RecipePage extends Component {
       recipeTitle: "",
       recipePrepTime: "",
       recipeCookTime: "",
+      recipeTotalTime: "",
       image: "",
       recipeIngredients: []
     }; 
@@ -19,12 +20,13 @@ class RecipePage extends Component {
   }
   componentDidMount() {
     getRecipeID(this.props.match.params.id, (res) => {
-      console.log("Here is the image: " + JSON.stringify(res.data.images["hostedLargeUrl"]))
+      //console.log("Here is the image: " + ))
       this.setState({
         recipeTitle: res.data.name,
         recipePrepTime: "Prep time: " + res.data.prepTime,
         recipeCookTime: "Cook time: " + res.data.cookTime,
-        image: JSON.stringify(res.data.images["hostedLargeUrl"]),
+        recipeTotalTime: "Total time: " + res.data.totalTime,
+        image: res.data.images[0].hostedLargeUrl,
         recipeIngredients: res.data.ingredientLines
       }) 
     });
@@ -36,8 +38,10 @@ class RecipePage extends Component {
       <Navbar />
       <br />
       <h1> {this.state.recipeTitle} </h1>
+      <img src= {this.state.image} />
       <p> {this.state.recipePrepTime} </p>
       <p> {this.state.recipeCookTime} </p>
+      <p> {this.state.recipeTotalTime} </p>
       <br />
       <h4>Ingredients Required:</h4>
       <p> {this.state.recipeIngredients}</p>
