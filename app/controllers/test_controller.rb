@@ -8,7 +8,7 @@ class TestController < ApplicationController
     # json_response(searchResults)
     #-----------------------------------------------------------
     #json_response(searchResults)
-    json_response(AllowedItems.instance.allowed_ingredients)
+    json_response(AllowedItems.instance.allowed_allergies)
   end
 end
 
