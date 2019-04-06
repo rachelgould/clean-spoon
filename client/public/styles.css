@@ -312,7 +312,10 @@ img.bg {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 10px 0;
+  padding: 10px 20px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .recipe-results .recipes-results-container .recipes-results-card {
@@ -347,5 +350,29 @@ img.bg {
   top: 30px;
   right: 10px;
   color: #bb3535;
+}
+
+.recipe-results .hidden-filters-icon {
+  background: white;
+  position: fixed;
+  top: 100px;
+  left: 0px;
+  padding: 20px 10px;
+  border: 1px solid #a5a5a5;
+}
+
+.recipe-results .hidden-filters-icon .material-icons {
+  position: relative;
+  top: 5px;
+}
+
+.recipe-results .hidden-filters-icon:hover {
+  cursor: pointer;
+}
+
+.recipe-results .sidebar {
+  position: fixed;
+  background: white;
+  top: 200px;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -289,7 +289,8 @@ img.bg {
     background-size: 100%;
     display: flex;
     flex-wrap: wrap;
-    padding: 10px 0;
+    padding: 10px 20px;
+    justify-content: center;
     .recipes-results-card {
       width: 250px;
       word-wrap: normal;
@@ -316,5 +317,25 @@ img.bg {
         color: $main-bright;
       }
     }
+  }
+  .hidden-filters-icon {
+    background: white;
+    position: fixed;
+    top: 100px;
+    left: 0px;
+    padding: 20px 10px;
+    border: 1px solid rgb(165, 165, 165);
+    .material-icons {
+      position: relative;
+      top: 5px;
+    }
+  }
+  .hidden-filters-icon:hover {
+    cursor: pointer;
+  }
+  .sidebar {
+    position: fixed;
+    background: white;
+    top: 200px;
   }
 }

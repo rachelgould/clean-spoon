@@ -32,7 +32,7 @@ function RecipeResults(props) {
       <Navbar />
       <RecipesContainer recipes={recipes} />
       <SearchAgain />
-      <SideBar show="false"/>
+      <SideBar />
     </div>
   )
 }
