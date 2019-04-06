@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
+import LikeButton from './LikeButton';
 
 function RecipeCard(props) {
   let { recipeName, id, course, ingredients, rating, source, image, prepTime } = props.recipe
@@ -18,6 +18,7 @@ function RecipeCard(props) {
             <a href="">See full recipe...</a>
           </CardText>
           <Button>Add to Shopping List</Button>
+          <LikeButton recipe={id}/>
         </CardBody>
       </Card>
     </div>
