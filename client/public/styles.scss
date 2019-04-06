@@ -303,6 +303,12 @@ img.bg {
         color: $main-bright;
         font-weight: bolder;
       }
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 280px;
+      }
       .small {
         font-size: 75%
       }

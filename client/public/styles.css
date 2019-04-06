@@ -335,6 +335,20 @@ img.bg {
   font-weight: bolder;
 }
 
+.recipe-results .recipes-results-container .recipes-results-card .card-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: 280px;
+}
+
 .recipe-results .recipes-results-container .recipes-results-card .small {
   font-size: 75%;
 }
