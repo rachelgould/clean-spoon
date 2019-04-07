@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import Navbar from '../Navbar/nav.jsx';
 import {
-  Container, Row, Col, Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button
-} from 'reactstrap';
+  Container, Card, CardText,
+  CardTitle, Button } from 'reactstrap';
 import { getFridge } from '../../lib/api.js';
 
 class RecipeSearch extends Component {
@@ -32,7 +31,7 @@ class RecipeSearch extends Component {
   render() {
     let arr = [];
     Object.keys(this.state.foodItems).map(key => {
-      arr.push(" " + this.state.foodItems[key].item);
+      return arr.push(" " + this.state.foodItems[key].item);
     })
 
     return (    
@@ -48,7 +47,6 @@ class RecipeSearch extends Component {
               <Button>Click Here to Search</Button>
               <br />
               <p><a href="#">Filter</a></p>
-
             </Card>
           </div>
         </Container>

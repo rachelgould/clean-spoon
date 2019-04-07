@@ -32,8 +32,6 @@ class Routes extends Component {
     }
   }
   render() {
-    const { id } = this.state;
-
     return (
       <BrowserRouter>
         <Switch>
@@ -51,8 +49,8 @@ class Routes extends Component {
              exact path="/recipe/:id"
              render={(routeProps) => (
              <RecipePage {...routeProps} cookies={this.props.cookies} />
-           )}
-           />
+              )}
+            />
            
             <Route 
               exact path="/profile"
@@ -86,8 +84,6 @@ class Routes extends Component {
               <Dashboard {...routeProps} view="shoppingList" cookies={this.props.cookies} />
               )}
             />
-                  
-                              
         </Switch>   
       </BrowserRouter>
     )

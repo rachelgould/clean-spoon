@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card , CardTitle, Button } from 'reactstrap';
 
 function IngredientCard(props) {

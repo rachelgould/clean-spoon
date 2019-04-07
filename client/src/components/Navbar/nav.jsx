@@ -1,17 +1,10 @@
 import React from 'react';
 import {
   Button,
-  Collapse,
   Navbar,
-  NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink,
-  Modal,
-  ModalHeader, 
-  ModalBody,
-  ModalFooter
 } from 'reactstrap';
 
 import './logo.png'
@@ -39,7 +32,7 @@ class nav extends React.Component {
     return (
       <div className="navigation">
         <Navbar expand="md">
-          <NavbarBrand href="/"><img src={require('./logo.png')} width="200" /></NavbarBrand>
+          <NavbarBrand href="/"><img src={require('./logo.png')} alt="Clean Spoon logo" width="200" /></NavbarBrand>
           {/* <NavbarToggler onClick={this.toggle} /> */}
           {/* <Collapse isOpen={this.state.isOpen} navbar> */}
             <Nav className="ml-auto" navbar>

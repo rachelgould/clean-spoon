@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Card, CardHeader, CardBody, CardText, CardFooter } from 'reactstrap';
+import { Button, Card, CardHeader, CardBody } from 'reactstrap';
 import FilterForm from './FilterForm';
 
 function SideBar(props) {

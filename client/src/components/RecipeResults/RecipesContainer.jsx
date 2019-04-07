@@ -3,7 +3,6 @@ import RecipeCard from './RecipeCard';
 
 function RecipesContainer(props) {
   const recipes = props.recipes
-  const [currentPage, setCurrentPage] = useState(1);
 
   const makeCards = (recipes) => {
     return recipes.map((recipe) => {

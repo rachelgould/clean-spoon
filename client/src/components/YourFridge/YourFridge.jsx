@@ -1,6 +1,5 @@
-import React, { Component, PropTypes, Children }  from 'react';
-import { Card, CardTitle, Container, Row, Col } from 'reactstrap';
-import Table from './Table.jsx';
+import React, { Component }  from 'react';
+import { Card, CardTitle } from 'reactstrap';
 import Form from './Form.jsx';
 import IngredientCard from './IngredientCard.jsx';
 import { getFridge, setFridgeItem } from '../../lib/api.js';
@@ -81,13 +80,16 @@ class YourFridge extends Component {
     const ingredients = this.makeRows();
 
     return (
-      <Card body >
-        <CardTitle>This is your Fridge</CardTitle>
-        <hr />
-        <div className="ingredient-list-container">{ingredients}</div>
-        <br />
-        <Form handleSubmit={this.handleSubmit} />
-      </Card>
+      <>
+        <RecipeSearch />
+        <Card body >
+          <CardTitle>This is your Fridge</CardTitle>
+          <hr />
+          <div className="ingredient-list-container">{ingredients}</div>
+          <br />
+          <Form handleSubmit={this.handleSubmit} />
+        </Card>
+      </>
     );
   }
 }
