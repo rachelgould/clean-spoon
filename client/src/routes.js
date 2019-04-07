@@ -7,7 +7,6 @@ import Login from './components/Login/Login.jsx';
 import SignUp from './components/SignUp/SignUp.jsx';
 import Profile from './components/Profile/Profile.jsx';
 import Dashboard from './components/Dashboard/Dashboard.jsx';
-import RecipeSearch from './components/RecipeSearch/RecipeSearch.jsx';
 import RecipePage from './components/RecipePage/RecipePage.jsx';
 import RecipeResults from './components/RecipeResults/RecipeResults.jsx'
 
