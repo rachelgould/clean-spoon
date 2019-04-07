@@ -4,6 +4,7 @@ import RecipesContainer from './RecipesContainer';
 import SearchAgain from './SearchAgain';
 import SideBar from './SideBar';
 import recipeSample from './recipesample'; // This will be replaced with real data
+import { getFridgeRecipe} from '../../lib/api.js';
 
 function RecipeResults(props) {
   // const recipesJSON = JSON.stringify(recipeSample)

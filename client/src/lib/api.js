@@ -68,6 +68,13 @@ console.log(recipeID)
   .then(cb)
 }
 
+const getFridgeRecipes = async(id, cb) => { // --------------------------REFACTOR ME----------------------------------------
+  let url = '/api/recipes/search/' + id;
+  axios.get(url).then(response => {
+    return response
+  }).then(checkStatus).then(cb)
+}
+
 function setFridgeItem(id, itemName, cb) {
   let url = 'api/fridges/' + id
   axios.post(url, {
@@ -111,5 +118,6 @@ export {
   getProfile,
   setFridgeItem,
   deleteFridgeItem, 
-  getRecipeID
+  getRecipeID,
+  getFridgeRecipes
 }

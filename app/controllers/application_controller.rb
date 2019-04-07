@@ -58,15 +58,17 @@ class ApplicationController < ActionController::API
     finalResult = { # the recipes to pass to the user
       "matches" => [],
       "ids" => {},
-      "names" => {},
-      "searches" => []
+      "ingredients" => {},
+      "searches" => 0
     } 
-
-    return searchFromFridge(fitems, fitems.length, url, finalResult, 1)
+    numberOfIngredientsStart = 6
+    if (fitems.length < 6)
+      numberOfIngredientsStart = fitems.length
+    end
+    return searchFromFridge(fitems, numberOfIngredientsStart, url, finalResult, 1)
   end 
 
   def searchFromFridge fitems, choose, baseUrl, finalResult, iteration
-    puts "choose is #{choose}"
     # Get all users's fridge ingredients and find recipes based off of them
     # ----------------------------------------
     # PsuedoCode:
@@ -84,13 +86,13 @@ class ApplicationController < ActionController::API
 
     # make url For all fridge ingredients we want
     ingredients.each do |ingredient|
-      url = "#{url}&allowedIngredient=#{ingredient.split(" ").join("+")}"
+      url = "#{url}&q=#{ingredient.split(" ").join("+")}"
     end
 
     #make api request and parse into hash For evaluation
     searchResults = Net::HTTP.get(URI.parse(url))
     searchResults = JSON.parse searchResults
-    finalResult["searches"] << url
+    finalResult["searches"] = finalResult["searches"] + 1
 
     # If there are matches, save them in the array Until we have 20 saved
     if (searchResults["totalMatchCount"] > 0)
@@ -98,14 +100,17 @@ class ApplicationController < ActionController::API
       while (finalResult["matches"].length < 20 && index < searchResults["matches"].length) do
         #check If the recipe is already in results, If not add to results
         recipe = searchResults["matches"][index]
-        if (finalResult["ids"][recipe["id"]] == nil && finalResult["names"][recipe["recipeName"]] == nil)
+        if (finalResult["ids"][recipe["id"]] == nil && finalResult["ingredients"][recipe["recipeName"]] == nil)
           finalResult["matches"] << recipe
           finalResult["ids"][recipe["id"]] = recipe["id"]
-          finalResult["names"][recipe["recipeName"]] = recipe["recipeName"]
+          finalResult["ingredients"][recipe["recipeName"]] = ingredients
         end
         index = index + 1
       end
     end
+
+    p "Looking at #{choose} ingredients"
+    puts "We have found #{finalResult["matches"].length} recipes in #{finalResult["searches"]} searches so far"
     # done If we have our results
     if (finalResult["matches"].length == 20)
       return finalResult 
