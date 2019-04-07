@@ -32,8 +32,9 @@ gem 'rest-client', '~> 1.8'
 # Allows .env use
 gem 'dotenv-rails'
 
-# For combinatorics, https://rubygems.org/gems/math_probability
-gem 'math_probability', '~> 1.0'
+# For combinatorics
+gem 'combination_generator' #https://www.rubydoc.info/gems/combination_generator/0.1.2
+gem 'combinatorics'
 
 group :development do
   gem 'web-console', '~> 2.0'

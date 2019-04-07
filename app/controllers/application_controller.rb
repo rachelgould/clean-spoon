@@ -58,6 +58,7 @@ class ApplicationController < ActionController::API
     finalResult = { # the recipes to pass to the user
       "matches" => [],
       "ids" => {},
+      "names" => {},
       "searches" => []
     } 
 
@@ -65,7 +66,7 @@ class ApplicationController < ActionController::API
   end 
 
   def searchFromFridge fitems, choose, baseUrl, finalResult, iteration
-    prob = MathProbability::Probability
+    puts "choose is #{choose}"
     # Get all users's fridge ingredients and find recipes based off of them
     # ----------------------------------------
     # PsuedoCode:
@@ -74,9 +75,16 @@ class ApplicationController < ActionController::API
     # ----------------------------------------
     url = baseUrl
 
+    # Get the correct iteration of n Choose r where n is the number of fridge ingredients and r is n, n-1, ..., 1 
+    filter = []
+    CombinationGenerator.new(choose - 2, fitems).each do |element|
+      filter << element
+    end 
+    ingredients = filter[iteration - 1]
+
     # make url For all fridge ingredients we want
-    fitems.each do |i|
-      url = "#{url}&allowedIngredient=#{i.split(" ").join("+")}"
+    ingredients.each do |ingredient|
+      url = "#{url}&allowedIngredient=#{ingredient.split(" ").join("+")}"
     end
 
     #make api request and parse into hash For evaluation
@@ -90,14 +98,14 @@ class ApplicationController < ActionController::API
       while (finalResult["matches"].length < 20 && index < searchResults["matches"].length) do
         #check If the recipe is already in results, If not add to results
         recipe = searchResults["matches"][index]
-        if (finalResult["ids"][recipe["id"]] == nil)
+        if (finalResult["ids"][recipe["id"]] == nil && finalResult["names"][recipe["recipeName"]] == nil)
           finalResult["matches"] << recipe
           finalResult["ids"][recipe["id"]] = recipe["id"]
+          finalResult["names"][recipe["recipeName"]] = recipe["recipeName"]
         end
         index = index + 1
       end
     end
-
     # done If we have our results
     if (finalResult["matches"].length == 20)
       return finalResult 
@@ -110,7 +118,7 @@ class ApplicationController < ActionController::API
       choose = choose - 1
       iteration = 1
     # If all the iterations have been completed
-    elsif (iteration == prob.combinations(fitems.length, choose))
+    elsif (iteration == Combinatorics::Choose.cardinality(fitems.length, choose))
       choose = choose - 1
       iteration = 1
     end
