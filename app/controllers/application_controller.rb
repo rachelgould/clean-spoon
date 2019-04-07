@@ -7,9 +7,10 @@ class ApplicationController < ActionController::API
     render json: object, status: status
   end
 
-  def yummly_get(recipeID)
-    url = "#{ENV["SHOW_URL"]}#{recipeID}?#{ENV["YUMMLY_KEY"]}"
-      return url
+  def yummly_get(recipeId)
+    url = "#{ENV["SHOW_URL"]}#{recipeId}?#{ENV["YUMMLY_KEY"]}"
+    puts "Getting recipe with id #{recipeId}"
+      return Net::HTTP.get(URI.parse(url))
   end
 
   def yummly_search(searchParameters, user) #user object, searchParameters object as seen in project_planning
@@ -61,8 +62,8 @@ class ApplicationController < ActionController::API
       "ingredients" => {},
       "searches" => 0
     } 
-    numberOfIngredientsStart = 5
-    if (fitems.length < 5)
+    numberOfIngredientsStart = 1
+    if (fitems.length < 1)
       numberOfIngredientsStart = fitems.length
     end
     return searchFromFridge(fitems, numberOfIngredientsStart, url, finalResult, 1)
