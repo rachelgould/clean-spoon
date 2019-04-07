@@ -4,6 +4,30 @@ $main-bright: #bb3535;
 $main-bright-btn-hover: #962c2c;
 $text-color: white;
 
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (max-device-width : 767px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    .navbar-nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      line-height: 1em;
+      li {
+        padding: 0 15px;
+      }
+      .loginBtn {
+        margin: 10px;
+      }
+    }
+  }
+}
+
 * {
   font-family: 'Poppins', sans-serif;
 }
@@ -124,6 +148,8 @@ button.btn:hover {
 
   }
   .navbar {
+    display: flex;
+    justify-content: space-between;
     background: $main-bright;
   }
   
