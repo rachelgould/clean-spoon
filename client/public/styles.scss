@@ -5,7 +5,7 @@ $main-bright-btn-hover: #962c2c;
 $text-color: white;
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (max-device-width : 767px) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px) {
   .navbar {
     display: flex;
     flex-direction: column;
@@ -22,7 +22,7 @@ $text-color: white;
         padding: 0 15px;
       }
       .loginBtn {
-        margin: 10px;
+        margin-top: 20px;
       }
     }
   }
@@ -34,6 +34,10 @@ $text-color: white;
 
 h1, h2, h3, h4 {
   color: $main-bright;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 button.btn {
