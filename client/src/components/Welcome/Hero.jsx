@@ -6,7 +6,7 @@ function Hero(props) {
     <div className="hero">
       <div className="quicksearch">
         <h1>Quick Search</h1>
-        <Button className="search-button" color="primary">Find Recipes Now</Button>
+        <Button className="search-button" color="primary" href="/search">Find Recipes Now</Button>
       </div>
     </div>
   )

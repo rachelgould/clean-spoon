@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Navbar from '../Navbar/nav.jsx';
-import { Container, Row, Col, Card, Form, Button, Input, Label, FormGroup, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { getRecipeID} from '../../lib/api.js';
 
 
