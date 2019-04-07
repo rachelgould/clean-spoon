@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Card, CardHeader, CardBody, CardText, CardFooter } from 'reactstrap';
+import FilterForm from './FilterForm';
 
 function SideBar(props) {
   const [show, setShow] = useState(false);
@@ -17,9 +18,7 @@ function SideBar(props) {
         <i className="material-icons md-48" onClick={toggleShow}>close</i>
         </CardHeader>
         <CardBody>
-          slkfj
-          <hr />
-          <Button color="danger">Go somewhere</Button>
+          <FilterForm />
         </CardBody>
       </Card>
     </div>
