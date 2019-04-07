@@ -5,6 +5,7 @@ import {
   Nav,
   NavItem,
   NavLink,
+  NavbarBrand
 } from 'reactstrap';
 
 import './logo.png'
