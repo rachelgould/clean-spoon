@@ -81,7 +81,7 @@ class YourFridge extends Component {
 
     return (
       <>
-        <RecipeSearch />
+        <RecipeSearch cookies={this.props.cookies}/>
         <Card body >
           <CardTitle>This is your Fridge</CardTitle>
           <hr />
