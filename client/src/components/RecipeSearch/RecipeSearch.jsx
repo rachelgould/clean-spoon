@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Navbar from '../Navbar/nav.jsx';
 import {
   Container, Card, CardText,
   CardTitle, Button } from 'reactstrap';
@@ -36,22 +35,19 @@ class RecipeSearch extends Component {
     })
 
     return (    
-      <div>
-      <Navbar />
-        <Container>
-          <div id="recipeSearch">
-            <Card body>
-              <CardTitle><h1>Find Recipes Now!</h1></CardTitle>
-              <CardText><b>Includes: </b> {arr + "  "} from your <a href="/fridge">fridge</a></CardText>
-              <input />
-              <br />
-              <Button>Click Here to Search</Button>
-              <br />
-              <p><a href="#">Filter</a></p>
-            </Card>
-          </div>
-        </Container>
-      </div>
+      <Container>
+        <div id="recipeSearch">
+          <Card body>
+            <CardTitle><h1>Find Recipes Now!</h1></CardTitle>
+            <CardText><b>Includes: </b> {arr + "  "} from your <a href="/fridge">fridge</a></CardText>
+            <input />
+            <br />
+            <Button>Click Here to Search</Button>
+            <br />
+            <p><a href="#">Filter</a></p>
+          </Card>
+        </div>
+      </Container>
     );
   }
 }

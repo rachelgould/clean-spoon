@@ -4,6 +4,7 @@ import Form from './Form.jsx';
 import SMSForm from './SMSForm.jsx';
 import IngredientCard from './IngredientCard.jsx';
 import { getShoppingList, setShoppingListItem, deleteShoppingListItem } from '../../lib/api.js'
+import RecipeSearch from '../RecipeSearch/RecipeSearch.jsx';
 
 class ShoppingList extends Component {
 
@@ -85,6 +86,7 @@ class ShoppingList extends Component {
     const ingredients = this.makeRows();
 
     return (
+      <RecipeSearch cookies={this.props.cookies}/>
       <Card body >
         <CardTitle className="CardTitle">This is your Shopping List</CardTitle>
         <hr />  
