@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
-  Container, Card, CardText,
-  CardTitle, Button } from 'reactstrap';
+  Card, CardText, CardTitle, Button, Jumbotron, Form, Input 
+  } from 'reactstrap';
 import { getFridge } from '../../lib/api.js';
 
 class RecipeSearch extends Component {
@@ -35,19 +35,21 @@ class RecipeSearch extends Component {
     })
 
     return (    
-      <Container>
-        <div id="recipeSearch">
+      <Jumbotron className="recipe-search-container" fluid>
+        <div id="recipeSearch" className="search-card">
           <Card body>
             <CardTitle><h1>Find Recipes Now!</h1></CardTitle>
             <CardText><b>Includes: </b> {arr + "  "} from your <a href="/fridge">fridge</a></CardText>
-            <input />
+            <Form>
+            <Input />
             <br />
-            <Button>Click Here to Search</Button>
+            <Button type="submit">Click Here to Search</Button>
+            </Form>
             <br />
-            <p><a href="#">Filter</a></p>
+            {/* <p><a href="#">Filter</a></p> */}
           </Card>
         </div>
-      </Container>
+      </Jumbotron>
     );
   }
 }
