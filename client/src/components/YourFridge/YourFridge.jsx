@@ -3,8 +3,6 @@ import { Card, CardTitle } from 'reactstrap';
 import Form from './Form.jsx';
 import IngredientCard from './IngredientCard.jsx';
 import { getFridge, setFridgeItem } from '../../lib/api.js';
-import RecipeSearch from '../RecipeSearch/RecipeSearch.jsx';
-
 
 class YourFridge extends Component {
   
@@ -80,16 +78,13 @@ class YourFridge extends Component {
     const ingredients = this.makeRows();
 
     return (
-      <>
-        <RecipeSearch cookies={this.props.cookies}/>
-        <Card body >
-          <CardTitle>This is your Fridge</CardTitle>
-          <hr />
-          <div className="ingredient-list-container">{ingredients}</div>
-          <br />
-          <Form handleSubmit={this.handleSubmit} />
-        </Card>
-      </>
+      <Card body >
+        <CardTitle>This is your Fridge</CardTitle>
+        <hr />
+        <div className="ingredient-list-container">{ingredients}</div>
+        <br />
+        <Form handleSubmit={this.handleSubmit} />
+      </Card>
     );
   }
 }

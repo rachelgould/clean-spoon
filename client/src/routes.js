@@ -63,7 +63,7 @@ class Routes extends Component {
               exact path="/search"
               render={(routeProps) => (
                 <Dashboard {...routeProps} view="savedRecipes" cookies={this.props.cookies} />
-                )}
+              )}
             />
             
             <Route 
