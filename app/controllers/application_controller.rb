@@ -62,8 +62,8 @@ class ApplicationController < ActionController::API
       "ingredients" => {},
       "searches" => 0
     } 
-    numberOfIngredientsStart = 1
-    if (fitems.length < 1)
+    numberOfIngredientsStart = 5
+    if (fitems.length < 5)
       numberOfIngredientsStart = fitems.length
     end
     return searchFromFridge(fitems, numberOfIngredientsStart, url, finalResult, 1)
