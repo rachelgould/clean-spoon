@@ -486,4 +486,9 @@ img.bg {
   margin: auto;
   width: 500px;
 }
-/*# sourceMappingURL=styles.css.map */
+
+
+.modal-header {
+  background-color: #bb3535;
+  color: white;
+}
