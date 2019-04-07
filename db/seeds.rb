@@ -57,7 +57,7 @@ puts "Seeding ingredients"
 #-----------------------------------
 
 hotMustard = Ingredient.create!(
-  name: "hot mustard"
+  name: "mustard"
 )
 
 ketchup = Ingredient.create!(
@@ -65,7 +65,7 @@ ketchup = Ingredient.create!(
 )
 
 sauerkraut = Ingredient.create!(
-  name: "sauerkraut"
+  name: "apples"
 )
 
 
