@@ -2,12 +2,13 @@ import React, { Component }  from 'react';
 import { Card, CardTitle } from 'reactstrap';
 import Form from './Form.jsx';
 import IngredientCard from './IngredientCard.jsx';
+import LoadingIndicator from '../Loading/LoadingIndicator';
 import { getFridge, setFridgeItem } from '../../lib/api.js';
 
 class YourFridge extends Component {
-  
   state = {
-    foodItems: []
+    foodItems: [],
+    isLoading: true
   };
 
   refreshFridge = () => {
@@ -76,6 +77,10 @@ class YourFridge extends Component {
 
   render() {
     const ingredients = this.makeRows();
+
+    if (this.state.isLoading) {
+      return (<LoadingIndicator page="your fridge" />)
+    }
 
     return (
       <Card body >
