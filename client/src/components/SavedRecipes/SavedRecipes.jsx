@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, ButtonGroup, Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText} from 'reactstrap';
+import {Button, Card, CardBody, CardTitle, CardSubtitle, CardText} from 'reactstrap';
 
 class SavedRecipes extends Component {
  

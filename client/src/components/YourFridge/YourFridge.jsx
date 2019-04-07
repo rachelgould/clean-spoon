@@ -1,11 +1,8 @@
-import React, { Component, PropTypes, Children }  from 'react';
-import { Card, CardTitle, Container, Row, Col } from 'reactstrap';
-import Table from './Table.jsx';
+import React, { Component }  from 'react';
+import { Card, CardTitle } from 'reactstrap';
 import Form from './Form.jsx';
 import IngredientCard from './IngredientCard.jsx';
 import { getFridge, setFridgeItem } from '../../lib/api.js';
-import RecipeSearch from '../RecipeSearch/RecipeSearch.jsx';
-
 
 class YourFridge extends Component {
   

@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import { Input, InputGroup, InputGroupAddon, Card, Button, CardTitle } from 'reactstrap';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { Button } from 'reactstrap';
+
+// If we add in expiry dates:
+// import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
+
 //For Shopping List and Your Fridge 
 
 class Form extends Component {
@@ -21,14 +24,12 @@ class Form extends Component {
 
   onFormSubmit = (event) => {
     event.preventDefault();
-    // event.stopPropogation();
     this.props.handleSubmit(this.state);
     this.setState({name: ''});
   }
 
   render() {
-    const { item } = this.state;
-
+    
     return (
       <form onSubmit={this.onFormSubmit}>
       

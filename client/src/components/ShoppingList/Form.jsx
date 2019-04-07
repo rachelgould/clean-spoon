@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input, InputGroup, InputGroupAddon, Card, Button, CardTitle } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 //For Shopping List
 
@@ -26,7 +26,6 @@ class Form extends Component {
   }
 
   render() {
-    const { item } = this.state;
 
     return (
       <form onSubmit={this.onFormSubmit}>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Input, InputGroup, InputGroupAddon, Card, Button, CardTitle } from 'reactstrap';
-import Table from './Table.jsx';
+import { Card, CardTitle } from 'reactstrap';
 import Form from './Form.jsx';
 import SMSForm from './SMSForm.jsx';
 import IngredientCard from './IngredientCard.jsx';
@@ -95,7 +94,6 @@ class ShoppingList extends Component {
         <br />
         <SMSForm cookies={this.props.cookies} />
       </Card>
-    
     );
   }
 }

@@ -7,7 +7,6 @@ import Login from './components/Login/Login.jsx';
 import SignUp from './components/SignUp/SignUp.jsx';
 import Profile from './components/Profile/Profile.jsx';
 import Dashboard from './components/Dashboard/Dashboard.jsx';
-import RecipeSearch from './components/RecipeSearch/RecipeSearch.jsx';
 import RecipePage from './components/RecipePage/RecipePage.jsx';
 import RecipeResults from './components/RecipeResults/RecipeResults.jsx'
 
@@ -32,8 +31,6 @@ class Routes extends Component {
     }
   }
   render() {
-    const { id } = this.state;
-
     return (
       <BrowserRouter>
         <Switch>
@@ -51,8 +48,8 @@ class Routes extends Component {
              exact path="/recipe/:id"
              render={(routeProps) => (
              <RecipePage {...routeProps} cookies={this.props.cookies} />
-           )}
-           />
+              )}
+            />
            
             <Route 
               exact path="/profile"
@@ -64,7 +61,7 @@ class Routes extends Component {
             <Route 
               exact path="/search"
               render={(routeProps) => (
-              <RecipeSearch {...routeProps} cookies={this.props.cookies} />
+                <Dashboard {...routeProps} view="savedRecipes" cookies={this.props.cookies} />
               )}
             />
             
@@ -86,8 +83,6 @@ class Routes extends Component {
               <Dashboard {...routeProps} view="shoppingList" cookies={this.props.cookies} />
               )}
             />
-                  
-                              
         </Switch>   
       </BrowserRouter>
     )

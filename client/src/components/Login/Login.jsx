@@ -4,9 +4,7 @@ import Navbar from '../Navbar/nav.jsx';
 import {Card,Button} from 'reactstrap';
 
 class Login extends Component {
-  constructor(props) {
-    super(props);
-  }
+
   render() {
     return (
       <div>

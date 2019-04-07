@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, FormGroup, Label, Input, InputGroup, InputGroupAddon, Card, Button, CardTitle } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 function Hero(props){
 

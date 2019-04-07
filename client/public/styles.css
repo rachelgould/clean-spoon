@@ -1,10 +1,51 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600");
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .navbar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .navbar .navbar-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    line-height: 1em;
+  }
+  .navbar .navbar-nav li {
+    padding: 0 15px;
+  }
+  .navbar .navbar-nav .loginBtn {
+    margin-top: 20px;
+  }
+}
+
 * {
   font-family: 'Poppins', sans-serif;
 }
 
 h1, h2, h3, h4 {
   color: #bb3535;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 button.btn {
@@ -126,6 +167,12 @@ button.btn:hover {
 }
 
 .navigation .navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   background: #bb3535;
 }
 
@@ -173,23 +220,6 @@ button.btn:hover {
   padding-left: 250px;
   padding-right: 250px;
   position: relative;
-}
-
-#savedRecipes {
-  padding-left: 250px;
-  padding-right: 250px;
-  position: relative;
-}
-
-#recipeImg {
-  width: 100%;
-  height: 400px;
-}
-
-.recipePage {
-  margin-left: 20px;
-  margin-right: 20px;
-
 }
 
 img.bg {
@@ -408,7 +438,7 @@ img.bg {
 .recipe-results .sidebar {
   position: fixed;
   background: white;
-  top: 200px;
+  top: 100px;
 }
 
 .recipe-results .sidebar .card {
@@ -433,5 +463,27 @@ img.bg {
 
 .recipe-results .sidebar .card-header .material-icons:hover {
   cursor: pointer;
+}
+
+.recipe-results .sidebar .form-check {
+  margin-bottom: 8px;
+}
+
+.recipe-results .sidebar .form-check .form-check-label {
+  margin: 0px 30px 0px 0px;
+}
+
+.recipe-search-container {
+  background-image: url("https://images.unsplash.com/photo-1448935852404-7a38bb46f5b3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80");
+  padding: 0;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100%;
+}
+
+.recipe-search-container .search-card {
+  margin: auto;
+  width: 500px;
 }
 /*# sourceMappingURL=styles.css.map */

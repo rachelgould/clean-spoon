@@ -4,7 +4,7 @@ import ShoppingList from '../ShoppingList/ShoppingList.jsx';
 import SavedRecipes from '../SavedRecipes/SavedRecipes.jsx';
 import YourFridge from '../YourFridge/YourFridge.jsx';
 import {Button, ButtonGroup} from 'reactstrap';
-
+import RecipeSearch from '../RecipeSearch/RecipeSearch.jsx';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -32,6 +32,7 @@ class Dashboard extends Component {
     return (
       <div className="dashboard">
         <Navbar />
+        <RecipeSearch cookies={this.props.cookies}/>
         <div className="text-center" id="topMargin">
           <ButtonGroup size="lg" className="block">
             <Button color="danger" onClick={this.handleKeyPress.bind(this, 'savedRecipes')}>Saved Recipes</Button>
