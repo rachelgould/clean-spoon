@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
   def search
     user = User.find(params[:userId])
     searchParameters = {
-      extraAllergies: ["dairy", "eggs"],
+      extraAllergies: ["eggs"],
       diet: { vegan: false, vegetarian: true},
       maxResult: 10,
       start: 0
