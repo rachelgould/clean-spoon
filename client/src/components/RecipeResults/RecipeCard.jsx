@@ -14,8 +14,13 @@ function RecipeCard(props) {
   
   let prepTimeInMins = Math.ceil(prepTime/60);
   let prepTimeInHrs = null;
-  if (prepTimeInMins >= 60) {
-    prepTimeInHrs = Math.floor(prepTimeInMins / 60) + " hours and " + (prepTimeInMins % 60) + " mins"
+  if (prepTimeInMins > 60) {
+    let hours = Math.floor(prepTimeInMins / 60)
+    let text = " hour and "
+    if (hours > 1) {
+      text = " hours and "
+    }
+    prepTimeInHrs = hours + text + (prepTimeInMins % 60) + " mins"
   }
   
   const listMatchingIngredients = () => {
