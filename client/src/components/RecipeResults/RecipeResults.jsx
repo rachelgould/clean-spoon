@@ -3,22 +3,19 @@ import Navbar from '../Navbar/nav.jsx';
 import RecipesContainer from './RecipesContainer';
 import SearchAgain from './SearchAgain';
 import SideBar from './SideBar';
-// import recipeSample from './recipesample'; // This will be replaced with real data
 import { getFridgeRecipe} from '../../lib/api.js';
 
 function RecipeResults(props) {
-  // const recipesJSON = JSON.stringify(recipeSample)
+
   // Add hook for loading state
-  // const [recipes, setRecipes] = useState(processRecipeData(recipeSample));
 
   let [recipes, setRecipes] = useState(props.location.state.searchResults);
 
-  console.log("RECIPES: ", recipes)
+  console.log("recipes::::::::>", recipes)
 
-  console.log("props: ", props)
-  function processRecipeData(data) {
+  function processRecipeData(recipes) {
     let processed = [];
-    data.matches.forEach((recipe) => {
+    recipes.data.matches.forEach((recipe) => {
       processed.push({
         recipeName: recipe.recipeName,
         id: recipe.id,
@@ -33,10 +30,12 @@ function RecipeResults(props) {
     return processed;
   }
 
+  let processedRecipes = processRecipeData(recipes)
+
   return (
     <div className="recipe-results">
       <Navbar />
-      {/* <RecipesContainer recipes={recipes} /> */}
+      <RecipesContainer recipes={processedRecipes} />
       <SearchAgain />
       <SideBar />
     </div>
