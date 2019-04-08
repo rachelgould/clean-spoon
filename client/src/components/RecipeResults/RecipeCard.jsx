@@ -6,7 +6,7 @@ function RecipeCard(props) {
   let { recipeName, id, course, ingredients, rating, source, image, prepTime } = props.recipe
   let prepTimeInMins = Math.ceil(prepTime/60)
   if (prepTimeInMins >= 60) {
-    let prepTimeInHrs = prepTimeInMins/60 + 'hours'
+    let prepTimeInHrs = prepTimeInMins/60 + "hours"
   }
   return (
     <div className="recipes-results-card">
