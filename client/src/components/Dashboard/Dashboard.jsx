@@ -35,7 +35,8 @@ class Dashboard extends Component {
     getYummlyResults(this.props.cookies.get('id'), null, (results) => {
       console.log("Results fro mthe search are back!")
       console.log("RESULTS = ", results)
-      this.setState({searchResults: [JSON.stringify(results)]})
+      let jsonResults = JSON.parse(results)
+      this.setState({searchResults: {jsonResults}})
     })
   }
 
