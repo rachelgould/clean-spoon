@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../Navbar/nav.jsx';
 import RecipesContainer from './RecipesContainer';
 import SearchAgain from './SearchAgain';
@@ -6,19 +6,22 @@ import SideBar from './SideBar';
 import { getFridge, getFridgeRecipe} from '../../lib/api.js';
 
 function RecipeResults(props) {
-  // Add hook for loading state
+  // Todo: Add hook for loading state
+
   let [recipes, setRecipes] = useState(props.location.state.searchResults);
 
   let [fridge, setFridge] = useState(null);
 
-  // Get the fridge items and set them so that the recipe cards can reference ingredients that the user already has
-  getFridge(props.cookies.get('id'), (results) => {
-    console.log("Results: ", results)
+  // Get the fridge items and set them so that the recipe cards can reference ingredients that the user already has. This only happens on first render.
+
+  useEffect(() => {
+    console.log("Inside useEffect for reciperesults.jsx")
+    getFridge(props.cookies.get('id'), (results) => {
+    console.log("Results from useEffect: ", results)
     let newfoodItems = []
     results.data.forEach((entry) => {
       newfoodItems.push({ 
         item: entry.name, 
-        image: entry.image,
         id: entry.id
       })
     })
@@ -29,6 +32,7 @@ function RecipeResults(props) {
       foodItems: newfoodItems
     })
   })
+  }, [])
 
   function processRecipeData(recipes) {
     let processed = [];

@@ -3,12 +3,40 @@ import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } fr
 import LikeButton from './LikeButton';
 
 function RecipeCard(props) {
-  let { recipeName, id, course, ingredients, rating, source, image, prepTime } = props.recipe
+  let { recipeName, id, course, ingredients, rating, source, image, prepTime } = props.recipe;
+
+  let fridge = null;
+
+  // There might be a delay before the fridge items get passed in
+  if (props.currentFridge) {
+    fridge = props.currentFridge.foodItems;
+  }
+  
   let prepTimeInMins = Math.ceil(prepTime/60);
   let prepTimeInHrs = null;
   if (prepTimeInMins >= 60) {
     prepTimeInHrs = Math.floor(prepTimeInMins / 60) + " hours and " + (prepTimeInMins % 60) + " mins"
   }
+  
+  const listMatchingIngredients = () => {
+    let ingredients = [];
+    return ingredients;
+
+  }
+  const listNewIngredients = () => {
+    let ingredients = [];
+    return ingredients;
+  }
+
+  const ingredientsText = () => {
+    return (
+    <>
+      <p><strong>Your Ingredients:</strong>{listMatchingIngredients}</p>
+      <p><strong>Not in Fridge:</strong>{listNewIngredients}</p>
+    </>
+    )
+  }
+
   return (
     <div className="recipes-results-card">
       <Card>
@@ -17,8 +45,7 @@ function RecipeCard(props) {
           <CardTitle>{recipeName}</CardTitle>
           <CardSubtitle className="small"><p>Prep Time: {prepTimeInHrs ? prepTimeInHrs : prepTimeInMins + " mins"}</p></CardSubtitle>
           <CardText className="small">
-            <p><strong>Your Ingredients:</strong> Placeholder</p>
-            <p><strong>Not in Fridge:</strong> Placeholder</p>
+            {fridge ? ingredientsText : "Loading Ingredients..."}
             <a href="">See full recipe...</a>
           </CardText>
           <Button>Add to Shopping List</Button>
