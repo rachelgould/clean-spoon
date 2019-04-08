@@ -55,8 +55,21 @@ function getProfile(id, cb) {
   .then(cb)
 }
 
-function getRecipeID(recipeID, cb) {
+function updateProfile(id, userObj, cb) {
+  //console.log("These are the user details: " + username['name']);
+  let url ='/api/users/' + id 
+  axios.put(url, {
+    name: userObj['name'],
+    email: userObj['email'],
+    vegan: userObj['vegetarian'], 
+    vegetarian: userObj['vegan'], 
+  }).then(checkStatus)
+  .then(cb).catch(error => {
+    console.log(error.message);
+  })
+}
 
+function getRecipeID(recipeID, cb) {
 console.log(recipeID)
   let url = '/api/recipes/' + recipeID //'Hot-Dogs-with-Krautslaw-894904'
   axios.get(url).then(response => {
@@ -119,5 +132,6 @@ export {
   setFridgeItem,
   deleteFridgeItem, 
   getRecipeID,
-  getFridgeRecipes
+  getFridgeRecipes,
+  updateProfile
 }

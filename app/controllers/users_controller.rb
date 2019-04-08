@@ -18,13 +18,21 @@ class UsersController < ApplicationController
   end
 
   def update
-    User.update!(user_params)
-    #if (@user != params[:user])
-    # if @user.save
-    #   json_response(@user)
-    # else
-    #   json_response({error: "Could not find user"}, :)
-    # end
+     #@user = User.update!(user_params)
+    #  json_response(params)
+
+    #json_response(params)
+
+    @user = User.update(params[:userId], {
+     name: params[:name],
+     email: params[:email],
+     vegan: params[:vegan],
+     vegetarian: params[:vegetarian],
+    })
+
+    json_response(@user)
+
+  
   end
 
   def create

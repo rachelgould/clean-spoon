@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from '../Navbar/nav.jsx';
-<<<<<<< HEAD
-import { getRecipeID} from '../../lib/api.js';
-=======
 import { Container, Row, Col, Card, Form, Button, Input, Label, FormGroup, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { getRecipeID } from '../../lib/api.js';
->>>>>>> master
 
 
 class RecipePage extends Component {
