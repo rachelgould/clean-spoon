@@ -15,9 +15,7 @@ function RecipeResults(props) {
   // Get the fridge items and set them so that the recipe cards can reference ingredients that the user already has. This only happens on first render.
 
   useEffect(() => {
-    console.log("Inside useEffect for reciperesults.jsx")
     getFridge(props.cookies.get('id'), (results) => {
-    console.log("Results from useEffect: ", results)
     let newfoodItems = []
     results.data.forEach((entry) => {
       newfoodItems.push({ 

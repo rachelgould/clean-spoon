@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
 import LikeButton from './LikeButton';
 
 function RecipeCard(props) {
   let { recipeName, id, course, ingredients, rating, source, image, prepTime } = props.recipe;
 
-  let fridge = null;
+  let [fridge, setFridge] = useState(false);
 
-  // There might be a delay before the fridge items get passed in
-  if (props.currentFridge) {
-    fridge = props.currentFridge.foodItems;
-  }
+  useEffect(() => {
+    if (props.currentFridge) {
+      setFridge({fridge: props.currentFridge.foodItems});
+    }
+  }, [props.currentFridge])
   
   let prepTimeInMins = Math.ceil(prepTime/60);
   let prepTimeInHrs = null;
@@ -23,23 +24,27 @@ function RecipeCard(props) {
     prepTimeInHrs = hours + text + (prepTimeInMins % 60) + " mins"
   }
   
-  const listMatchingIngredients = () => {
-    let ingredients = [];
-    return ingredients;
-
-  }
-  const listNewIngredients = () => {
+  const matchingIngredients = () => {
     let ingredients = [];
     return ingredients;
   }
+  const newIngredients = () => {
+    let ingredients = [];
+    return ingredients;
+  }
 
-  const ingredientsText = () => {
-    return (
-    <>
-      <p><strong>Your Ingredients:</strong>{listMatchingIngredients}</p>
-      <p><strong>Not in Fridge:</strong>{listNewIngredients}</p>
-    </>
-    )
+  const writeIngredientsText = () => {
+    if (fridge) {
+      let listMatchingIngredients = matchingIngredients();
+      let listNewIngredients = newIngredients();
+      return (
+      <>
+        <p><strong>Your Ingredients:</strong>{listMatchingIngredients}</p>
+        <p><strong>Not in Fridge:</strong>{listNewIngredients}</p>
+      </>
+      )
+    }
+    return (<p>Loading ingredients...</p>)
   }
 
   return (
@@ -50,7 +55,7 @@ function RecipeCard(props) {
           <CardTitle>{recipeName}</CardTitle>
           <CardSubtitle className="small"><p>Prep Time: {prepTimeInHrs ? prepTimeInHrs : prepTimeInMins + " mins"}</p></CardSubtitle>
           <CardText className="small">
-            {fridge ? ingredientsText : "Loading Ingredients..."}
+            {writeIngredientsText()}
             <a href="">See full recipe...</a>
           </CardText>
           <Button>Add to Shopping List</Button>
