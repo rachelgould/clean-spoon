@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import {
   Card, CardText, CardTitle, Button, Jumbotron, Form, Input 
   } from 'reactstrap';
-import { getFridge } from '../../lib/api.js';
+import { getFridge, getYummlyResults } from '../../lib/api.js';
 
 class RecipeSearch extends Component {
-
    //default values for the time being
    state = {
     foodItems: []
@@ -28,6 +27,17 @@ class RecipeSearch extends Component {
     })
   }
 
+  performSearch = (event) => {
+    event.persist();
+    event.preventDefault();
+    getYummlyResults(this.props.cookies.get('id'), null, (results) => {
+      <Redirect to={{
+        pathname: '/results',
+        state: {results: results}
+      }} />
+    })
+  }
+
   render() {
     let arr = [];
     Object.keys(this.state.foodItems).map(key => {
@@ -40,7 +50,7 @@ class RecipeSearch extends Component {
           <Card body>
             <CardTitle><h1>Find Recipes Now!</h1></CardTitle>
             <CardText><b>Includes: </b> {arr + "  "} from your <a href="/fridge">fridge</a></CardText>
-            <Form>
+            <Form onSubmit={this.performSearch}>
             <Input />
             <br />
             <Button type="submit">Click Here to Search</Button>

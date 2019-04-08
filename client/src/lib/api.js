@@ -109,6 +109,15 @@ function deleteShoppingListItem(id, cb) {
   .then(cb)
 }
 
+const getYummlyResults = (id, params, cb) => {
+  let url = 'api/recipes/search' + id
+  axios.get(url).then(response => {
+    return response
+  })
+  .then(checkStatus)
+  .then(cb)
+}
+
 export {
   sendSMS,
   getShoppingList,
@@ -119,5 +128,6 @@ export {
   setFridgeItem,
   deleteFridgeItem, 
   getRecipeID,
-  getFridgeRecipes
+  getFridgeRecipes, 
+  getYummlyResults
 }
