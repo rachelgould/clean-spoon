@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router';
 import {
   Card, CardText, CardTitle, Button, Jumbotron, Form, Input 
   } from 'reactstrap';
-import { getFridge, getYummlyResults } from '../../lib/api.js';
+import { getFridge } from '../../lib/api.js';
 
 class RecipeSearch extends Component {
    //default values for the time being
    state = {
-    foodItems: []
+    foodItems: [],
   };
 
   componentDidMount()  {
@@ -32,16 +31,7 @@ class RecipeSearch extends Component {
     event.persist();
     event.preventDefault();
     console.log("About to submit search!")
-    getYummlyResults(this.props.cookies.get('id'), null, (results) => {
-      console.log("Results fro mthe search are back!")
-      console.log("RESULTS = ", results)
-      // return(
-      //   <Redirect to={{
-      //     pathname: '/results',
-      //     state: {results: results}
-      //   }} />
-      // )
-    })
+    this.props.onSubmit(event);
   }
 
   render() {
@@ -50,7 +40,7 @@ class RecipeSearch extends Component {
       return arr.push(" " + this.state.foodItems[key].item);
     })
 
-    return (    
+    return (
       <Jumbotron className="recipe-search-container" fluid>
         <div id="recipeSearch" className="search-card">
           <Card body>
