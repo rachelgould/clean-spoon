@@ -35,12 +35,21 @@ class Dashboard extends Component {
     getYummlyResults(this.props.cookies.get('id'), null, (results) => {
       console.log("Results fro mthe search are back!")
       console.log("RESULTS = ", results)
-      this.setState({searchResults: results})
+      this.setState({searchResults: [JSON.stringify(results)]})
     })
   }
 
-  render() {
-    let view = (
+  render() { 
+    if (this.state.searchResults) {
+      return(
+        <Redirect push 
+          to={{
+            pathname: "/results",
+            state: { searchResults: this.state.searchResults }
+        }} />
+      )
+    }
+    return (
       <div className="dashboard">
         <Navbar />
         <RecipeSearch cookies={this.props.cookies} onSubmit={this.yummlySearch}/>
@@ -53,19 +62,7 @@ class Dashboard extends Component {
           {this._renderSubComp()}
         </div>
       </div>
-    )
-    if (this.state.searchResults) {
-      view = (
-        <Redirect to={{
-          pathname: '/results',
-          state: {
-            results: this.state.searchResults
-          }
-        }} />
-      )
-    }
-    
-    return (view);
+    );
   }
 }
 export default Dashboard;
