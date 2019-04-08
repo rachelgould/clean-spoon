@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
 import {
   Card, CardText, CardTitle, Button, Jumbotron, Form, Input 
   } from 'reactstrap';
@@ -30,11 +31,16 @@ class RecipeSearch extends Component {
   performSearch = (event) => {
     event.persist();
     event.preventDefault();
+    console.log("About to submit search!")
     getYummlyResults(this.props.cookies.get('id'), null, (results) => {
-      <Redirect to={{
-        pathname: '/results',
-        state: {results: results}
-      }} />
+      console.log("Results fro mthe search are back!")
+      console.log("RESULTS = ", results)
+      // return(
+      //   <Redirect to={{
+      //     pathname: '/results',
+      //     state: {results: results}
+      //   }} />
+      // )
     })
   }
 
