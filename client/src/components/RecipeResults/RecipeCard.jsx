@@ -57,12 +57,26 @@ function RecipeCard(props) {
     return (<p>Loading ingredients...</p>)
   }
 
+  const shortenRecipeName = () => {
+    if (recipeName.length > 40) {
+      let splitName = recipeName.split(' ')
+      let finalString = ''
+      for (let i = 0; i < splitName.length; i++) {
+        if ((finalString + ' ' + splitName[i]).length <= 40) {
+          finalString += ' ' + splitName[i]
+        }
+      }
+      return finalString + '...'
+    }
+    return recipeName
+  }
+
   return (
     <div className="recipes-results-card">
       <Card>
         <CardImg top width="100%" src={image || imagePlaceholder} alt={recipeName} />
         <CardBody>
-          <CardTitle>{recipeName}</CardTitle>
+          <CardTitle>{shortenRecipeName()}</CardTitle>
           <CardSubtitle className="small"><p>Prep Time: {prepTimeInHrs ? prepTimeInHrs : prepTimeInMins + " mins"}</p></CardSubtitle>
           <CardText className="small">
             {writeIngredientsText()}
