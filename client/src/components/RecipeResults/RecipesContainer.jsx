@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import RecipeCard from './RecipeCard';
 
 function RecipesContainer(props) {
-  const recipes = props.recipes
+  const { recipes, currentFridge } = props
 
   const makeCards = (recipes) => {
     return recipes.map((recipe) => {
       return (
-        <RecipeCard recipe={recipe} key={recipe.id} />
+        <RecipeCard recipe={recipe} key={recipe.id} currentFridge={currentFridge} />
       )
     })
   }
+
+  console.log("This is the current fridge: ", currentFridge)
 
   const cards = makeCards(recipes);
 
