@@ -54,7 +54,7 @@ function RecipeResults(props) {
   return (
     <div className="recipe-results">
       <Navbar />
-      <RecipesContainer recipes={processedRecipes} currentFridge={fridge}/>
+      <RecipesContainer recipes={processedRecipes} currentFridge={fridge} cookies={props.cookies}/>
       <SearchAgain />
       <SideBar />
     </div>

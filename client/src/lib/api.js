@@ -11,7 +11,6 @@ function checkStatus(response) {
 }
 
 function sendSMS(id, number) {
-  console.log(`Submitting the text message for user id ${id} to this phone number: ${number}`)
   axios.get('api/text', {
     params: {
       q: number,
@@ -25,8 +24,6 @@ function sendSMS(id, number) {
 function getShoppingList(id, cb) {
   let url = 'api/lists/' + id
   axios.get(url).then(response => {
-      console.log('Received shopping list from server')
-      console.log('The response was::::::', response)
       return response
     })
     .then(checkStatus)
@@ -36,8 +33,6 @@ function getShoppingList(id, cb) {
 function getFridge(id, cb) {
   let url = 'api/fridges/' + id
   axios.get(url).then(response => {
-      console.log('Received fridge items from server')
-      console.log('The response was::::::', response)
       return response
     })
     .then(checkStatus)
@@ -47,8 +42,11 @@ function getFridge(id, cb) {
 function getProfile(id, cb) {
   let url = 'api/users/' + id
   axios.get(url).then(response => {
+<<<<<<< HEAD
     // console.log('Received user details from server')
     // console.log('The response was::::::::', response)
+=======
+>>>>>>> 6f6cc93ae6c14b55117c5022d61ccca1ae7fe045
     return response
   })
   .then(checkStatus)
@@ -72,10 +70,8 @@ function updateProfile(id, userObj, cb) {
 
 function getRecipeID(recipeID, cb) {
 console.log(recipeID)
-  let url = '/api/recipes/' + recipeID //'Hot-Dogs-with-Krautslaw-894904'
+  let url = '/api/recipes/' + recipeID
   axios.get(url).then(response => {
-    console.log('Received recipe details from server')
-    console.log('The response was ------->>>>>', response)
     return response
   }) 
   .then(checkStatus)
@@ -100,7 +96,6 @@ function setFridgeItem(id, itemName, cb) {
 
 function deleteFridgeItem(id) {
   let url = 'api/fridges/' + id
-  console.log("About to make delete request to this URL: ", url)
   axios.delete(url)
   .then(checkStatus)
   // .then(cb)
@@ -115,18 +110,32 @@ function setShoppingListItem(id, itemName, cb) {
   .then(cb)
 }
 
+function bulkSetShoppingListItem(id, itemArray, cb) {
+  let url = 'api/lists/' + id
+  let sendData = new Promise(function(resolve, reject) {
+    let numSent = 0;
+    let numToSend = itemArray.length
+    for (let item of itemArray) {
+      let paramObject = {name: item}
+      axios.post(url, paramObject).then(numSent++)
+    }
+    if (numSent === numToSend) {
+      resolve('Added to shopping list')
+    }
+  })
+  sendData.then(checkStatus)
+  .then(cb)
+}
+
 function deleteShoppingListItem(id) {
   let url = 'api/lists/' + id
-  console.log("About to make delete request to this URL: ", url)
   axios.delete(url)
   .then(checkStatus)
 }
 
 const getYummlyResults = (id, params, cb) => {
-  console.log("Running the yummly search")
   let url = 'api/recipes/search/' + id
   axios.get(url).then(response => {
-    console.log("In response block of api.js")
     return response
   })
   .then(checkStatus)
@@ -137,6 +146,7 @@ export {
   sendSMS,
   getShoppingList,
   setShoppingListItem,
+  bulkSetShoppingListItem,
   deleteShoppingListItem,
   getFridge,
   getProfile,
