@@ -25,9 +25,7 @@ function RecipeCard(props) {
   }
   
   const matchingIngredients = () => {
-    console.log("About to compare these two things: ")
     let fridgeItems = fridge.fridge.map(elem => elem.name)
-    console.log(fridgeItems, ingredients)
     let matching = fridgeItems.filter(item =>  ingredients.includes(item))
     return matching
   }
@@ -38,13 +36,21 @@ function RecipeCard(props) {
   } 
 
   const writeIngredientsText = () => {
+    const shortenList = (array) => {
+      if (array.length > 7) {
+        let firstPart = array.slice(0,6).join(', ')
+        let secondPart = array.slice(6).length
+        return firstPart + ' and ' + secondPart + ' more.'
+      }
+      return array.join(', ') + '.'
+    }
     if (fridge) {
-      let listMatchingIngredients = matchingIngredients();
-      let listNewIngredients = newIngredients(listMatchingIngredients);
+      let listMatchingIngredients = shortenList(matchingIngredients());
+      let listNewIngredients = shortenList(newIngredients(listMatchingIngredients));
       return (
       <>
-        <p><strong>Your Ingredients: </strong>{listMatchingIngredients.join(", ")}</p>
-        <p><strong>Not in Fridge: </strong>{listNewIngredients.join(", ")}</p>
+        <p><strong>Your Ingredients: </strong>{listMatchingIngredients}</p>
+        <p><strong>Not in Your Fridge: </strong>{listNewIngredients}</p>
       </>
       )
     }
