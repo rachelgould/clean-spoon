@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import {Button} from 'reactstrap';
 
-//For Shopping List and Your Fridge 
-
-// Removed this for the time being, not necessery
 const TableHeader = () => {
   return (
     <thead>
@@ -16,11 +13,15 @@ const TableHeader = () => {
 }
 
 const TableBody = props => {
+
+  // console.log(this.props.characterData)
+  
   const rows = props.characterData.map((row, index) => {
+    console.log("TEST" + row)
     return (
       <tr key={index}>
         <td>{row}</td>
-        <td><Button color="danger"> Remove </Button></td>
+        <td><Button color="danger" onClick={() => props.removeItem(index)}> Remove </Button></td>    
       </tr>
     )
   })
@@ -28,8 +29,12 @@ const TableBody = props => {
 }
 
 class Table extends Component {
+  constructor(props){
+    super(props);
+    
+  }
   render() {
-
+    console.log(this.props.characterData)
     const { characterData, removeItem } = this.props
 
     return (
@@ -40,5 +45,4 @@ class Table extends Component {
     )
   }
 }
-
 export default Table

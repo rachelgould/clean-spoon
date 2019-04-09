@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import RecipeCard from './RecipeCard';
 
 function RecipesContainer(props) {
@@ -11,8 +11,6 @@ function RecipesContainer(props) {
       )
     })
   }
-
-  console.log("This is the current fridge: ", currentFridge)
 
   const cards = makeCards(recipes);
 
