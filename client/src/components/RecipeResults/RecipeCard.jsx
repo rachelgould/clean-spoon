@@ -4,8 +4,8 @@ import LikeButton from './LikeButton';
 
 function RecipeCard(props) {
   let { recipeName, id, course, ingredients, rating, source, image, prepTime } = props.recipe;
-
   let [fridge, setFridge] = useState(false);
+  let imagePlaceholder = 'https://images.unsplash.com/photo-1527756898251-203e9ce0d9c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1654&q=80';
 
   useEffect(() => {
     if (props.currentFridge) {
@@ -60,7 +60,7 @@ function RecipeCard(props) {
   return (
     <div className="recipes-results-card">
       <Card>
-        <CardImg top width="100%" src={image} alt={recipeName} />
+        <CardImg top width="100%" src={image || imagePlaceholder} alt={recipeName} />
         <CardBody>
           <CardTitle>{recipeName}</CardTitle>
           <CardSubtitle className="small"><p>Prep Time: {prepTimeInHrs ? prepTimeInHrs : prepTimeInMins + " mins"}</p></CardSubtitle>

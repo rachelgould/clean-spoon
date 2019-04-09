@@ -322,13 +322,18 @@ img.bg {
     flex-wrap: wrap;
     padding: 20px 20px 70px 20px;
     justify-content: center;
+    .recipe-results, .recipes-results-card, .card-body {
+      flex-grow: 1;
+    }
     .recipes-results-card {
       width: 250px;
       word-wrap: normal;
       flex-shrink: 0;
-      flex-grow: 0;
       margin: 5px;
       text-align: center;
+      .card-img-top {
+        margin-bottom: 10px;
+      }
       .card-title {
         color: $main-bright;
         font-weight: bolder;
@@ -355,6 +360,9 @@ img.bg {
       }
       .material-icons:hover {
         cursor: pointer;
+      }
+      .btn {
+        margin-bottom: 10px;
       }
     }
   }
