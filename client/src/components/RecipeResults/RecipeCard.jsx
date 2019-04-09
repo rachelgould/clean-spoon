@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
 import LikeButton from './LikeButton';
+import { calcPrepTime } from './recipeAnalysis.js';
 
 function RecipeCard(props) {
   let { recipeName, id, course, ingredients, rating, source, image, prepTime } = props.recipe;
@@ -13,30 +14,43 @@ function RecipeCard(props) {
     }
   }, [props.currentFridge])
   
-  let prepTimeInMins = Math.ceil(prepTime/60);
-  let prepTimeInHrs = null;
-  if (prepTimeInMins > 60) {
-    let hours = Math.floor(prepTimeInMins / 60)
-    let text = " hour and "
-    if (hours > 1) {
-      text = " hours and "
-    }
-    prepTimeInHrs = hours + text + (prepTimeInMins % 60) + " mins"
-  }
-  
+  const fuzzyMatch = (str, pattern) => {
+    return (new RegExp('\\b('+pattern+')\\b', 'i')).test(str);
+  };
+
   const matchingIngredients = () => {
     let fridgeItems = fridge.fridge.map(elem => elem.name)
-    let matching = fridgeItems.filter(item =>  ingredients.includes(item))
+    let matching = fridgeItems.filter(item =>
+      { 
+        for (let thing of ingredients) {
+          if (fuzzyMatch(thing, item)) {
+            return true
+          }
+        }
+      }
+    )
     return matching
   }
 
-  const newIngredients = (matchingFoods) => {
-    let newFoods = ingredients.filter(item => !matchingFoods.includes(item))
+  const newIngredients = (matchingIngredients) => {
+    let newFoods = ingredients.filter(item =>
+      { 
+        for (let thing of matchingIngredients) {
+          if (fuzzyMatch(item, thing)) {
+            return false
+          }
+        }
+        return true
+      }
+    )
     return newFoods
   } 
 
   const writeIngredientsText = () => {
     const shortenList = (array) => {
+      if (array.length === 0) {
+        return 'none.'
+      }
       if (array.length > 7) {
         let firstPart = array.slice(0,6).join(', ')
         let secondPart = array.slice(6).length
@@ -46,7 +60,7 @@ function RecipeCard(props) {
     }
     if (fridge) {
       let listMatchingIngredients = shortenList(matchingIngredients());
-      let listNewIngredients = shortenList(newIngredients(listMatchingIngredients));
+      let listNewIngredients = shortenList(newIngredients(matchingIngredients()));
       return (
       <>
         <p><strong>Your Ingredients: </strong>{listMatchingIngredients}</p>
@@ -77,7 +91,7 @@ function RecipeCard(props) {
         <CardImg top width="100%" src={image || imagePlaceholder} alt={recipeName} />
         <CardBody>
           <CardTitle>{shortenRecipeName()}</CardTitle>
-          <CardSubtitle className="small"><p>Prep Time: {prepTimeInHrs ? prepTimeInHrs : prepTimeInMins + " mins"}</p></CardSubtitle>
+          <CardSubtitle className="small"><p>Prep Time: {calcPrepTime(prepTime)}</p></CardSubtitle>
           <CardText className="small">
             {writeIngredientsText()}
             <a href="">See full recipe...</a>
