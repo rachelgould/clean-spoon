@@ -18,11 +18,19 @@ class UsersController < ApplicationController
   end
 
   def update
+
+    receivedAllergies = params[:allergies]
+    allergyArray = []
+    receivedAllergies.each do |object|
+      allergyArray << object
+    end
+
     @user = User.update(params[:userId], {
       name: params[:name],
       email: params[:email],
       vegan: params[:vegan],
-      vegetarian: params[:vegetarian]
+      vegetarian: params[:vegetarian],
+      #allergies: allergyArray
      })
      json_response(@user)
   end
