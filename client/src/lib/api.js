@@ -47,8 +47,8 @@ function getFridge(id, cb) {
 function getProfile(id, cb) {
   let url = 'api/users/' + id
   axios.get(url).then(response => {
-    console.log('Received user details from server')
-    console.log('The response was::::::::', response)
+    // console.log('Received user details from server')
+    // console.log('The response was::::::::', response)
     return response
   })
   .then(checkStatus)
@@ -56,13 +56,14 @@ function getProfile(id, cb) {
 }
 
 function updateProfile(id, userObj, cb) {
-  //console.log("These are the user details: " + username['name']);
+  console.log("These are the allergy details: " + userObj['allergies']);
   let url ='/api/users/' + id 
   axios.put(url, {
     name: userObj['name'],
     email: userObj['email'],
     vegan: userObj['vegetarian'], 
     vegetarian: userObj['vegan'], 
+    allergies: userObj['allergies']
   }).then(checkStatus)
   .then(cb).catch(error => {
     console.log(error.message);

@@ -17,7 +17,7 @@ const TableBody = props => {
   // console.log(this.props.characterData)
   
   const rows = props.characterData.map((row, index) => {
-    console.log("TEST" + row)
+    // console.log("TEST" + row)
     return (
       <tr key={index}>
         <td>{row}</td>
@@ -34,7 +34,7 @@ class Table extends Component {
     
   }
   render() {
-    console.log(this.props.characterData)
+    // console.log(this.props.characterData)
     const { characterData, removeItem } = this.props
 
     return (

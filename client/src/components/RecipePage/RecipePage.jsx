@@ -6,8 +6,6 @@ import { getRecipeID } from '../../lib/api.js';
 
 class RecipePage extends Component {
 
-
-
   constructor(props) {
     super(props);
     this.state = {
@@ -51,8 +49,9 @@ class RecipePage extends Component {
       <div>
         <Navbar />
         <br />
+        <div class="recipePage">
         <h1> {this.state.recipeTitle} </h1>
-        <img src={this.state.image} />
+        <div id="recipeImg"> <img src={this.state.image} /></div>
         <p> {this.state.recipePrepTime} </p>
         <p> {this.state.recipeCookTime} </p>
         <p> {this.state.recipeTotalTime} </p>
@@ -62,11 +61,8 @@ class RecipePage extends Component {
         <h4> Steps: </h4>
         <p> Find the steps for this recipe <a href={this.state.recipeSteps} target="_blank">here.</a></p>
 
-
-
-
-        <button onClick={this.toggle}> View Modal Version</button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+       <button onClick={this.toggle}> View Modal Version</button>
+       <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader id="modalHeader" toggle={this.toggle}>{this.state.recipeTitle} </ModalHeader>
           <ModalBody>
             <center><img src={this.state.image} /> </center>
@@ -86,7 +82,7 @@ class RecipePage extends Component {
           </ModalFooter>
 
         </Modal>
-
+        </div>
       </div>
     )
   }

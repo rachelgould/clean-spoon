@@ -513,6 +513,22 @@ img.bg {
   margin: auto;
   width: 500px;
 }
+<<<<<<< HEAD
+/*# sourceMappingURL=styles.css.map */
+
+.recipePage {
+  margin-left:20px;
+}
+
+.recipePage h1 {
+  text-align: center;
+}
+
+
+.recipePage #recipeImg {
+  text-align: center;
+}
+=======
 
 .loading-indicator {
   width: 100%;
@@ -599,3 +615,4 @@ img.bg {
   }
 }
 /*# sourceMappingURL=styles.css.map */
+>>>>>>> master
