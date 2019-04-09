@@ -25,22 +25,23 @@ function RecipeCard(props) {
   }
   
   const matchingIngredients = () => {
-    let ingredients = [];
-    return ingredients;
+    let matching = fridge.fridge.filter(item =>  ingredients.includes(item))
+    return matching
   }
-  const newIngredients = () => {
-    let ingredients = [];
-    return ingredients;
-  }
+
+  const newIngredients = (matchingFoods) => {
+    let newFoods = ingredients.filter(item => !matchingFoods.includes(item))
+    return newFoods
+  } 
 
   const writeIngredientsText = () => {
     if (fridge) {
       let listMatchingIngredients = matchingIngredients();
-      let listNewIngredients = newIngredients();
+      let listNewIngredients = newIngredients(listMatchingIngredients);
       return (
       <>
-        <p><strong>Your Ingredients:</strong>{listMatchingIngredients}</p>
-        <p><strong>Not in Fridge:</strong>{listNewIngredients}</p>
+        <p><strong>Your Ingredients:</strong>{listMatchingIngredients.join(", ")}</p>
+        <p><strong>Not in Fridge:</strong>{listNewIngredients.join(", ")}</p>
       </>
       )
     }

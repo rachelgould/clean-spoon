@@ -19,7 +19,7 @@ function RecipeResults(props) {
     let newfoodItems = []
     results.data.forEach((entry) => {
       newfoodItems.push({ 
-        item: entry.name, 
+        name: entry.name, 
         id: entry.id
       })
     })
@@ -42,7 +42,7 @@ function RecipeResults(props) {
         ingredients: recipe.ingredients,
         rating: recipe.rating,
         source: recipe.sourceDisplayName,
-        image: recipe.imageUrlsBySize['90'],
+        image: recipe.bigImage,
         prepTime: recipe.totalTimeInSeconds
       })
     })
