@@ -62,14 +62,27 @@ class ApplicationController < ActionController::API
       "ingredients" => {},
       "searches" => 0
     } 
-    numberOfIngredientsStart = 5
-    if (fitems.length < 5)
+    numberOfIngredientsStart = 4
+    if (fitems.length < 4)
       numberOfIngredientsStart = fitems.length
     end
-    return searchFromFridge(fitems, numberOfIngredientsStart, url, finalResult, 1)
+    
+    numberOfIngredientsStart.downto(2) do |choose|
+      CombinationGenerator.new(choose, fitems).each do |element|
+        # done If we have our results
+        p element
+        STDOUT.flush
+        if finalResult["matches"].length >= 20
+          return finalResult
+        end
+        searchFromFridge(element, url, finalResult)
+        STDOUT.flush
+      end
+    end
+    return finalResult
   end 
 
-  def searchFromFridge fitems, choose, baseUrl, finalResult, iteration
+  def searchFromFridge ingredients, baseUrl, finalResult
     # Get all users's fridge ingredients and find recipes based off of them
     # ----------------------------------------
     # PsuedoCode:
@@ -78,16 +91,9 @@ class ApplicationController < ActionController::API
     # ----------------------------------------
     url = baseUrl
 
-    # Get the correct iteration of n Choose r where n is the number of fridge ingredients and r is n, n-1, ..., 1 
-    filter = []
-    CombinationGenerator.new(choose, fitems).each do |element|
-      filter << element
-    end 
-    ingredients = filter[iteration - 1]
-
     # make url For all fridge ingredients we want
     ingredients.each do |ingredient|
-      url = "#{url}&q=#{ingredient.split(" ").join("+")}"
+      url = "#{url}&allowedIngredient=#{ingredient.split(" ").join("+")}"
     end
 
     #make api request and parse into hash For evaluation
@@ -110,25 +116,7 @@ class ApplicationController < ActionController::API
       end
     end
 
-    p "Looking at #{choose} ingredients"
     puts "We have found #{finalResult["matches"].length} recipes in #{finalResult["searches"]} searches so far"
-    # done If we have our results
-    if (finalResult["matches"].length == 20)
-      return finalResult 
-    end
-
-    # otherwise set up For next iteration
-    # -----------------------------------------
-
-    if (choose == fitems.length)
-      choose = choose - 1
-      iteration = 1
-    # If all the iterations have been completed
-    elsif (iteration == Combinatorics::Choose.cardinality(fitems.length, choose))
-      choose = choose - 1
-      iteration = 1
-    end
-    return searchFromFridge(fitems, choose, baseUrl, finalResult, iteration + 1)
   end
 
 end

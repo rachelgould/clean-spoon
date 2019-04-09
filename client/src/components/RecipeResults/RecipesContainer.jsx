@@ -12,8 +12,6 @@ function RecipesContainer(props) {
     })
   }
 
-  console.log("This is the current fridge: ", currentFridge)
-
   const cards = makeCards(recipes);
 
   return (

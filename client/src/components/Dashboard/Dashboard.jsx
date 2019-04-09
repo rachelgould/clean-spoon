@@ -6,6 +6,7 @@ import ShoppingList from '../ShoppingList/ShoppingList.jsx';
 import SavedRecipes from '../SavedRecipes/SavedRecipes.jsx';
 import YourFridge from '../YourFridge/YourFridge.jsx';
 import RecipeSearch from '../RecipeSearch/RecipeSearch.jsx';
+import LoadingIndicator from '../Loading/LoadingIndicator';
 import { getYummlyResults } from '../../lib/api.js';
 
 class Dashboard extends Component {
@@ -13,12 +14,12 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       render: this.props.view,
-      searchResults: null
+      searchResults: null,
+      isLoading: false
     };
   }
 
   handleKeyPress = (compName, event) => {
-    console.log(compName);
     this.setState({ render: compName });
   }
 
@@ -32,9 +33,10 @@ class Dashboard extends Component {
   }
 
   yummlySearch = (event) => {
+    this.setState({
+      isLoading: true
+    })
     getYummlyResults(this.props.cookies.get('id'), null, (results) => {
-      console.log("Results fro mthe search are back!")
-      console.log("RESULTS = ", results)
       let jsonResults = JSON.parse(JSON.stringify(results))
       this.setState({searchResults: jsonResults})
     })
@@ -48,6 +50,11 @@ class Dashboard extends Component {
             pathname: "/results",
             state: { searchResults: this.state.searchResults }
         }} />
+      )
+    }
+    if (this.state.isLoading) {
+      return (
+        <LoadingIndicator />
       )
     }
     return (
