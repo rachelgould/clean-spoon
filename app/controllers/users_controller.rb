@@ -18,21 +18,13 @@ class UsersController < ApplicationController
   end
 
   def update
-     #@user = User.update!(user_params)
-    #  json_response(params)
-
-    #json_response(params)
-
     @user = User.update(params[:userId], {
-     name: params[:name],
-     email: params[:email],
-     vegan: params[:vegan],
-     vegetarian: params[:vegetarian],
-    })
-
-    json_response(@user)
-
-  
+      name: params[:name],
+      email: params[:email],
+      vegan: params[:vegan],
+      vegetarian: params[:vegetarian]
+     })
+     json_response(@user)
   end
 
   def create
