@@ -25,7 +25,10 @@ function RecipeCard(props) {
   }
   
   const matchingIngredients = () => {
-    let matching = fridge.fridge.filter(item =>  ingredients.includes(item))
+    console.log("About to compare these two things: ")
+    let fridgeItems = fridge.fridge.map(elem => elem.name)
+    console.log(fridgeItems, ingredients)
+    let matching = fridgeItems.filter(item =>  ingredients.includes(item))
     return matching
   }
 
@@ -40,8 +43,8 @@ function RecipeCard(props) {
       let listNewIngredients = newIngredients(listMatchingIngredients);
       return (
       <>
-        <p><strong>Your Ingredients:</strong>{listMatchingIngredients.join(", ")}</p>
-        <p><strong>Not in Fridge:</strong>{listNewIngredients.join(", ")}</p>
+        <p><strong>Your Ingredients: </strong>{listMatchingIngredients.join(", ")}</p>
+        <p><strong>Not in Fridge: </strong>{listNewIngredients.join(", ")}</p>
       </>
       )
     }
