@@ -6,6 +6,7 @@ class FavRecipesController < ApplicationController
     user.fav_recipes.each do |i|
       result = JSON.parse(yummly_get(i.yummly_id))
       result.delete("nutritionEstimates")
+      result["fav_id"] = i.id
       recipes << result
     end
     json_response(recipes)

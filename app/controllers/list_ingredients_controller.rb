@@ -8,7 +8,7 @@ class ListIngredientsController < ApplicationController
       @ingredients << {
         name: i.ingredient[:name],
         image: i.ingredient[:image],
-        id: i[:ingredient_id],
+        id: i[:id]
         # recipe_name: i.fav_recipe.recipe[:name]
       }
     end
@@ -27,8 +27,7 @@ class ListIngredientsController < ApplicationController
   end
 
   def destroy
-    ListIngredient.destroy(params[:listIngredientId])
-    json_response("Success": "Ingredient removed from list")
+    ListIngredient.destroy(params[:listIngredientId]) ? json_response("Success, Ingredient removed from list") : json_response("Failure to delete from list ingredient")
   end
 
 end

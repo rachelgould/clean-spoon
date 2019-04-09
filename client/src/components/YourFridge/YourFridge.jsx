@@ -40,13 +40,8 @@ class YourFridge extends Component {
   
   removeItem = fridgeIngredientId => {
     deleteFridgeItem(fridgeIngredientId)
-    let index
-    this.state.foodItems.forEach((item, i) => {
-      if (item.id === fridgeIngredientId) {
-        index = i
-      }
-    })
     let newItems = this.state.foodItems.slice(0)
+    let index = newItems.findIndex((item) => fridgeIngredientId === item.id)
     newItems.splice(index, 1)
     console.log(newItems)
     this.setState({

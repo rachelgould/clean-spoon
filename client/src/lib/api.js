@@ -101,12 +101,11 @@ function setShoppingListItem(id, itemName, cb) {
   .then(cb)
 }
 
-function deleteShoppingListItem(id, cb) {
+function deleteShoppingListItem(id) {
   let url = 'api/lists/' + id
   console.log("About to make delete request to this URL: ", url)
   axios.delete(url)
   .then(checkStatus)
-  .then(cb)
 }
 
 const getYummlyResults = (id, params, cb) => {
