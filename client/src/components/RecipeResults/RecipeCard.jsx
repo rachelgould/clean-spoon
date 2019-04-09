@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
 import LikeButton from './LikeButton';
 import { calcPrepTime, getMatchingIngredients, getNewIngredients } from './recipeAnalysis.js';
+import { bulkSetShoppingListItem } from '../../lib/api.js';
 
 function RecipeCard(props) {
   let { recipeName, id, course, ingredients, rating, source, image, prepTime } = props.recipe;
@@ -59,6 +60,12 @@ function RecipeCard(props) {
     return recipeName
   }
 
+  const addRecipeToShoppingList = () => {
+    bulkSetShoppingListItem(props.cookies, [...ingredientLists.new], (res) => {
+      console.log("ADDED ITEMS TO FRIDGE, results: ", res)
+    })
+  }
+
   return (
     <div className="recipes-results-card">
       <Card>
@@ -70,7 +77,7 @@ function RecipeCard(props) {
             {writeIngredientsText()}
             <a href="">See full recipe...</a>
           </CardText>
-          <Button>Add to Shopping List</Button>
+          <Button onClick={addRecipeToShoppingList}>Add to Shopping List</Button>
           <LikeButton recipe={id}/>
         </CardBody>
       </Card>

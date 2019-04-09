@@ -37,7 +37,9 @@ class Dashboard extends Component {
       isLoading: true
     })
     getYummlyResults(this.props.cookies.get('id'), null, (results) => {
+      console.log("About to make json out of this: ", results)
       let jsonResults = JSON.parse(JSON.stringify(results))
+      console.log("About to put this into state: ", jsonResults)
       this.setState({searchResults: jsonResults})
     })
   }
@@ -48,9 +50,11 @@ class Dashboard extends Component {
         <Redirect push 
           to={{
             pathname: "/results",
-            state: { searchResults: this.state.searchResults }
-        }} />
-      )
+            state: { 
+              searchResults: this.state.searchResults
+            }
+          }}
+        />)
     }
     if (this.state.isLoading) {
       return (

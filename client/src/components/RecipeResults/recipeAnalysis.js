@@ -16,7 +16,6 @@ const calcPrepTime = (prepTime) => {
 }
 
 const getMatchingIngredients = (fridge, ingredients) => {
-  console.log("The fridge object we're trying to map is this: ", fridge)
   let fridgeItems = fridge.map(elem => elem.name)
   let matching = fridgeItems.filter(item =>
     { 
