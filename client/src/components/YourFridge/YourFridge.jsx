@@ -2,16 +2,19 @@ import React, { Component }  from 'react';
 import { Card, CardTitle } from 'reactstrap';
 import Form from './Form.jsx';
 import IngredientCard from './IngredientCard.jsx';
-import LoadingIndicator from '../Loading/LoadingIndicator';
+import SmallLoader from '../Loading/SmallLoader';
 import { getFridge, setFridgeItem, deleteFridgeItem } from '../../lib/api.js';
 
 class YourFridge extends Component {
   state = {
     foodItems: [],
-    isLoading: true
+    isLoading: false
   };
 
   refreshFridge = () => {
+    this.setState({
+      isLoading: true
+    })
     getFridge(this.props.cookies.get('id'), (results) => {
       let newfoodItems = []
       results.data.forEach((entry) => {
@@ -23,7 +26,8 @@ class YourFridge extends Component {
       })
       if (this._isMounted) {
         this.setState({
-          foodItems: newfoodItems
+          foodItems: newfoodItems,
+          isLoading: false
         })
       }
     })
@@ -79,15 +83,11 @@ class YourFridge extends Component {
   render() {
     const ingredients = this.makeRows();
 
-    if (this.state.isLoading) {
-      return (<LoadingIndicator page="your fridge" />)
-    }
-
     return (
       <Card body >
         <CardTitle>This is your Fridge</CardTitle>
         <hr />
-        <div className="ingredient-list-container">{ingredients}</div>
+        {this.state.isLoading ? <SmallLoader /> : <div className="ingredient-list-container">{ingredients}</div>}
         <br />
         <Form handleSubmit={this.handleSubmit} />
       </Card>
