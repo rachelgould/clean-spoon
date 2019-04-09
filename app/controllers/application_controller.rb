@@ -58,8 +58,7 @@ class ApplicationController < ActionController::API
 
     finalResult = { # the recipes to pass to the user
       "matches" => [],
-      "ids" => {},
-      "ingredients" => {},
+      "names" => {},
       "searches" => 0
     } 
     numberOfIngredientsStart = 4
@@ -107,10 +106,10 @@ class ApplicationController < ActionController::API
       while (finalResult["matches"].length < 20 && index < searchResults["matches"].length) do
         #check If the recipe is already in results, If not add to results
         recipe = searchResults["matches"][index]
-        if (finalResult["ids"][recipe["id"]] == nil && finalResult["ingredients"][recipe["recipeName"]] == nil)
+        if (finalResult["names"][recipe["recipeName"]] == nil)
+          recipe["matchedIngredients"] = ingredients
           finalResult["matches"] << recipe
-          finalResult["ids"][recipe["id"]] = recipe["id"]
-          finalResult["ingredients"][recipe["recipeName"]] = ingredients
+          finalResult["names"][recipe["recipeName"]] = url
         end
         index = index + 1
       end
