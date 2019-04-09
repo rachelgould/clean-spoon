@@ -61,8 +61,8 @@ function RecipeCard(props) {
   }
 
   const addRecipeToShoppingList = () => {
-    bulkSetShoppingListItem(props.cookies, [...ingredientLists.new], (res) => {
-      console.log("ADDED ITEMS TO FRIDGE, results: ", res)
+    bulkSetShoppingListItem(props.cookies.get('id'), [...ingredientLists.new], (res) => {
+      console.log("Added items to the shopping list")
     })
   }
 
