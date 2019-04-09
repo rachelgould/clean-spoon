@@ -1,3 +1,7 @@
+const fuzzyMatch = (str, pattern) => {
+  return (new RegExp('\\b('+pattern+')\\b', 'i')).test(str);
+};
+
 const calcPrepTime = (prepTime) => {
   let prepTimeInMins = Math.ceil(prepTime/60);
   if (prepTimeInMins > 60) {
@@ -11,6 +15,41 @@ const calcPrepTime = (prepTime) => {
   return prepTimeInMins + " mins"
 }
 
+const getMatchingIngredients = (fridge, ingredients) => {
+  console.log("The fridge object we're trying to map is this: ", fridge)
+  let fridgeItems = fridge.map(elem => elem.name)
+  let matching = fridgeItems.filter(item =>
+    { 
+      for (let thing of ingredients) {
+        if (fuzzyMatch(thing, item)) {
+          return true
+        }
+      }
+    }
+  )
+  return matching
+}
+
+const getNewIngredients = (fridge, ingredients) => {
+  let matchingIngredients = getMatchingIngredients(fridge, ingredients);
+  let newFoods = ingredients.filter(item =>
+    { 
+      if (item === 'water') {
+        return false
+      }
+      for (let thing of matchingIngredients) {
+        if (fuzzyMatch(item, thing)) {
+          return false
+        }
+      }
+      return true
+    }
+  )
+  return newFoods
+}
+
 export {
-  calcPrepTime
+  calcPrepTime,
+  getMatchingIngredients,
+  getNewIngredients
 }
