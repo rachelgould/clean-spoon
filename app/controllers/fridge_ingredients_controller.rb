@@ -8,7 +8,7 @@ class FridgeIngredientsController < ApplicationController
       ingredients << {
         name: i.ingredient[:name],
         image: i.ingredient[:image],
-        id: i[:ingredient_id]
+        id: i[:id]
       }
     end
     json_response(ingredients)
@@ -26,7 +26,10 @@ class FridgeIngredientsController < ApplicationController
   end
 
   def destroy
-    FridgeIngredient.destroy(params[:fridgeIngredientId])
+    target = FridgeIngredient.find(params[:fridgeIngredientId])
+    puts "DESTROYED THE TARGET:"
+    puts target.inspect
+    FridgeIngredient.destroy(target.id)
     json_response("Success": "Ingredient removed from fridge")
   end
 

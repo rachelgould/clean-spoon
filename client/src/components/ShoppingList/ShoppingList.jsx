@@ -14,6 +14,7 @@ class ShoppingList extends Component {
   refreshShoppingList = () => {
     getShoppingList(this.props.cookies.get('id'), (results) => {
       let newfoodItems = []
+      console.log(results.data)
       results.data.forEach((entry) => {
         newfoodItems.push({ 
           item: entry.name, 
@@ -39,19 +40,12 @@ class ShoppingList extends Component {
   }
 
   removeItem = id => {
-    deleteShoppingListItem(id, (results) => {
-      if (results.status === 200) {
-        let newState = this.state.foodItems;
-        let matchingIndex = newState.map((element) => element.id).indexOf(id)
-        if (matchingIndex !== -1) {
-          newState.splice(matchingIndex, 1)
-        }
-        this.setState({
-          foodItems: newState
-        })
-      } else {
-        alert("There was a problem. Please try again.")
-      }
+    deleteShoppingListItem(id)
+    let newState = this.state.foodItems.slice(0);
+    let index = newState.findIndex((item) => id === item.id)
+    newState.splice(index, 1)
+    this.setState({
+      foodItems: newState
     })
   }
 

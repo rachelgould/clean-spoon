@@ -1,14 +1,11 @@
 import React from 'react';
-import { Button } from 'reactstrap';
+import { Jumbotron } from 'reactstrap';
 
 function Hero(props) {
   return (
-    <div className="hero">
-      <div className="quicksearch">
-        <h1>Quick Search</h1>
-        <Button className="search-button" color="primary" href="/search">Find Recipes Now</Button>
-      </div>
-    </div>
+    <Jumbotron className="hero" fluid>
+    <h1 className="big-title">DINNER IS IN YOUR FRIDGE.</h1>
+    </Jumbotron>
   )
 }
 
