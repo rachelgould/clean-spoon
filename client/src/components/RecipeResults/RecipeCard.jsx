@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
 import LikeButton from './LikeButton';
+import { getRecipeID } from '../../lib/api.js';
+import RecipePage from '../RecipePage/RecipePage.jsx';
 
 function RecipeCard(props) {
   let { recipeName, id, course, ingredients, rating, source, image, prepTime } = props.recipe;
   let [fridge, setFridge] = useState(false);
   let imagePlaceholder = 'https://images.unsplash.com/photo-1527756898251-203e9ce0d9c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1654&q=80';
+
+
 
   useEffect(() => {
     if (props.currentFridge) {
@@ -57,6 +61,9 @@ function RecipeCard(props) {
     return (<p>Loading ingredients...</p>)
   }
 
+
+
+
   return (
     <div className="recipes-results-card">
       <Card>
@@ -66,7 +73,7 @@ function RecipeCard(props) {
           <CardSubtitle className="small"><p>Prep Time: {prepTimeInHrs ? prepTimeInHrs : prepTimeInMins + " mins"}</p></CardSubtitle>
           <CardText className="small">
             {writeIngredientsText()}
-            <a href="">See full recipe...</a>
+            <a href={`/recipe/${id}`}>See full recipe...</a>
           </CardText>
           <Button>Add to Shopping List</Button>
           <LikeButton recipe={id}/>

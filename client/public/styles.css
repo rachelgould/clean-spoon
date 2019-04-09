@@ -514,3 +514,16 @@ img.bg {
   width: 500px;
 }
 /*# sourceMappingURL=styles.css.map */
+
+.recipePage {
+  margin-left:20px;
+}
+
+.recipePage h1 {
+  text-align: center;
+}
+
+
+.recipePage #recipeImg {
+  text-align: center;
+}
