@@ -54,12 +54,12 @@ class Profile extends Component {
   }
 
   handleUserSubmit = event => {
-   // console.log(this.state.inputValue)
    let user = {
      name: this.state.username,
      email: this.state.email,
      vegetarian: this.state.vegetarian, 
-     vegan: this.state.vegan
+     vegan: this.state.vegan, 
+     allergies: this.state.allergies
    }
     event.preventDefault();
     updateProfile(this.props.cookies.get('id'), user, (results) => {
@@ -108,6 +108,7 @@ class Profile extends Component {
   handleAllergySubmit = allergy => {
    // const { allergies } = this.state 
     this.setState({ allergies: [...this.state.allergies, allergy] })
+    //console.log(this.state.allergies)
   }
 
   render() {
