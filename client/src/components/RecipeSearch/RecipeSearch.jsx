@@ -47,12 +47,9 @@ class RecipeSearch extends Component {
             <CardTitle><h1>Find Recipes Now!</h1></CardTitle>
             <CardText><b>Includes: </b> {arr + "  "} from your <a href="/fridge">fridge</a></CardText>
             <Form onSubmit={this.performSearch}>
-            <Input />
-            <br />
             <Button type="submit">Click Here to Search</Button>
             </Form>
             <br />
-            {/* <p><a href="#">Filter</a></p> */}
           </Card>
         </div>
       </Jumbotron>
