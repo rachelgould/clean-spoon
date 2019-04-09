@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import Navbar from '../Navbar/nav.jsx';
-import { Col, Card, Form, Button, Input, Label, FormGroup, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { ButtonGroup, InputGroup, InputGroupAddon,  Col, Card, Form, Button, Input, Label, FormGroup, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Hero from './Hero.jsx'
 import DietAllergies from './DietAllergies.jsx'
 import { getProfile, updateProfile } from '../../lib/api.js';
 import { resetWarningCache } from 'prop-types';
+import Table from './Table.jsx';
+import AllergyForm from './AllergyForm.jsx'
 
 class Profile extends Component {
   constructor(props) {
@@ -16,7 +18,8 @@ class Profile extends Component {
       vagan: "",
       allergies: []
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleUserSubmit = this.handleUserSubmit.bind(this);
+    this.handleAllergySubmit = this.handleAllergySubmit.bind(this);
   }
 
 
@@ -50,7 +53,7 @@ class Profile extends Component {
     });
   }
 
-  handleSubmit = event => {
+  handleUserSubmit = event => {
    // console.log(this.state.inputValue)
    let user = {
      name: this.state.username,
@@ -92,17 +95,31 @@ class Profile extends Component {
     });
   }
 
+  removeItem = index => {
+    // Must be edited to call DB
+    const { allergies } = this.state 
+    this.setState({
+      allergies: allergies.filter((character, i) => {
+        return i !== index
+      }),
+    })
+  }
+
+  handleAllergySubmit = allergy => {
+   // const { allergies } = this.state 
+    this.setState({ allergies: [...this.state.allergies, allergy] })
+  }
 
   render() {
     return (
       <div className="profile">
         <Navbar />
-        {/* <Hero username={this.state.username} email={this.state.email} handleSubmit={this.handleSubmit}/>
-        <DietAllergies allergies={this.state.allergies} /> */}
+        {/* <Hero username={this.state.username} email={this.state.email} handleSubmit={this.handleSubmit}/> */}
+        {/* <DietAllergies allergies={this.state.allergies} /> */}
 
 
-        <h1>{this.state.username}'s Profile</h1>
-        <Form onSubmit={this.handleSubmit}>
+        <h1>Edit Profile</h1>
+        <Form onSubmit={this.handleUserSubmit}>
           <FormGroup>
             <Label for="name" className="label">Name</Label>
             <Input type="text" name="name" id="name" placeholder={this.state.username} onChange={this.updateNameValue} />
@@ -112,15 +129,25 @@ class Profile extends Component {
             <Input type="email" name="email" id="email" placeholder={this.state.email} onChange={this.updateEmailValue} />
           </FormGroup>
           <FormGroup>
-            <Label for="vegetarian" className="label">Vegetarian</Label>
+            <Label for="vegetarian" className="label">Vegetarian?</Label>
             <Input type="text" name="vegetarian" id="vegetarian" onChange={this.updateVegetarianValue} />
           </FormGroup>
           <FormGroup>
-          <Label for="vegan" className="label">Vegan</Label>
-            <Input type="text" name="vegan" id="vegan" onChange={this.updateVeganValue} />
+          <Label for="vegan" className="label">Vegan? </Label>        
+            <Input type="text" name="vegan" id="vegan" onChange={this.updateVeganValue} />  
           </FormGroup>
-          <Button className="search-button" color="primary" type="submit">Save</Button>
-        </Form>
+        <br />
+          <Button className="search-button" color="primary" type="submit">Save</Button> 
+          </Form>
+
+
+
+          <br/><br/>
+          <h4>Allergies</h4>
+          <Table characterData={this.state.allergies} removeItem={this.removeItem}/>
+          <AllergyForm handleSubmit={this.handleAllergySubmit}/>
+
+
 
       </div>
     );
