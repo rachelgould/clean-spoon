@@ -70,11 +70,22 @@ button.btn:hover {
 
 .welcome {
   .hero {
-    background-image: url('https://images.unsplash.com/photo-1516685018646-549198525c1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1530062845289-9109b2c9c868?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2852&q=80');
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 500px;
     background-repeat: no-repeat;
     background-size: 100%;
-    height: 400px;
-    margin: 0;
+    margin: 0 0 40px 0;
+    
+    .big-title {
+      font-size: 500%;
+      text-shadow: 1px 1px 2px black;
+      margin: 30px;
+      color: white;
+    }
+    
 
     .quicksearch {
       width: 300px;
@@ -322,13 +333,18 @@ img.bg {
     flex-wrap: wrap;
     padding: 20px 20px 70px 20px;
     justify-content: center;
+    .recipe-results, .recipes-results-card, .card-body {
+      flex-grow: 1;
+    }
     .recipes-results-card {
       width: 250px;
       word-wrap: normal;
       flex-shrink: 0;
-      flex-grow: 0;
       margin: 5px;
       text-align: center;
+      .card-img-top {
+        margin-bottom: 10px;
+      }
       .card-title {
         color: $main-bright;
         font-weight: bolder;
@@ -355,6 +371,9 @@ img.bg {
       }
       .material-icons:hover {
         cursor: pointer;
+      }
+      .btn {
+        margin-bottom: 10px;
       }
     }
   }

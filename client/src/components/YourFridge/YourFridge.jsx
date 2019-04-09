@@ -3,7 +3,7 @@ import { Card, CardTitle } from 'reactstrap';
 import Form from './Form.jsx';
 import IngredientCard from './IngredientCard.jsx';
 import LoadingIndicator from '../Loading/LoadingIndicator';
-import { getFridge, setFridgeItem } from '../../lib/api.js';
+import { getFridge, setFridgeItem, deleteFridgeItem } from '../../lib/api.js';
 
 class YourFridge extends Component {
   state = {
@@ -39,13 +39,14 @@ class YourFridge extends Component {
     this._isMounted = false;
   }
   
-  removeItem = index => {
-    // Must be edited to call DB
-    const { foodItems } = this.state 
+  removeItem = fridgeIngredientId => {
+    deleteFridgeItem(fridgeIngredientId)
+    let newItems = this.state.foodItems.slice(0)
+    let index = newItems.findIndex((item) => fridgeIngredientId === item.id)
+    newItems.splice(index, 1)
+    console.log(newItems)
     this.setState({
-      foodItems: foodItems.filter((character, i) => {
-        return i !== index
-      }),
+      foodItems: newItems
     })
   }
   

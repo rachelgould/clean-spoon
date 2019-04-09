@@ -76,11 +76,27 @@ button.btn:hover {
 }
 
 .welcome .hero {
-  background-image: url("https://images.unsplash.com/photo-1516685018646-549198525c1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.4))), url("https://images.unsplash.com/photo-1530062845289-9109b2c9c868?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2852&q=80");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1530062845289-9109b2c9c868?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2852&q=80");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  min-height: 500px;
   background-repeat: no-repeat;
   background-size: 100%;
-  height: 400px;
-  margin: 0;
+  margin: 0 0 40px 0;
+}
+
+.welcome .hero .big-title {
+  font-size: 500%;
+  text-shadow: 1px 1px 2px black;
+  margin: 30px;
+  color: white;
 }
 
 .welcome .hero .quicksearch {
@@ -365,16 +381,23 @@ img.bg {
           justify-content: center;
 }
 
+.recipe-results .recipes-results-container .recipe-results, .recipe-results .recipes-results-container .recipes-results-card, .recipe-results .recipes-results-container .card-body {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
 .recipe-results .recipes-results-container .recipes-results-card {
   width: 250px;
   word-wrap: normal;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  -webkit-box-flex: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0;
   margin: 5px;
   text-align: center;
+}
+
+.recipe-results .recipes-results-container .recipes-results-card .card-img-top {
+  margin-bottom: 10px;
 }
 
 .recipe-results .recipes-results-container .recipes-results-card .card-title {
@@ -415,6 +438,10 @@ img.bg {
 
 .recipe-results .recipes-results-container .recipes-results-card .material-icons:hover {
   cursor: pointer;
+}
+
+.recipe-results .recipes-results-container .recipes-results-card .btn {
+  margin-bottom: 10px;
 }
 
 .recipe-results .hidden-filters-icon {

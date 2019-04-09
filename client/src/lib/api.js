@@ -68,6 +68,13 @@ console.log(recipeID)
   .then(cb)
 }
 
+const getFridgeRecipes = async(id, cb) => { // --------------------------REFACTOR ME----------------------------------------
+  let url = '/api/recipes/search/' + id;
+  axios.get(url).then(response => {
+    return response
+  }).then(checkStatus).then(cb)
+}
+
 function setFridgeItem(id, itemName, cb) {
   let url = 'api/fridges/' + id
   axios.post(url, {
@@ -77,12 +84,12 @@ function setFridgeItem(id, itemName, cb) {
   .then(cb)
 }
 
-function deleteFridgeItem(id, cb) {
+function deleteFridgeItem(id) {
   let url = 'api/fridges/' + id
   console.log("About to make delete request to this URL: ", url)
   axios.delete(url)
   .then(checkStatus)
-  .then(cb)
+  // .then(cb)
 }
 
 function setShoppingListItem(id, itemName, cb) {
@@ -94,10 +101,20 @@ function setShoppingListItem(id, itemName, cb) {
   .then(cb)
 }
 
-function deleteShoppingListItem(id, cb) {
+function deleteShoppingListItem(id) {
   let url = 'api/lists/' + id
   console.log("About to make delete request to this URL: ", url)
   axios.delete(url)
+  .then(checkStatus)
+}
+
+const getYummlyResults = (id, params, cb) => {
+  console.log("Running the yummly search")
+  let url = 'api/recipes/search/' + id
+  axios.get(url).then(response => {
+    console.log("In response block of api.js")
+    return response
+  })
   .then(checkStatus)
   .then(cb)
 }
@@ -111,5 +128,7 @@ export {
   getProfile,
   setFridgeItem,
   deleteFridgeItem, 
-  getRecipeID
+  getRecipeID,
+  getFridgeRecipes, 
+  getYummlyResults
 }

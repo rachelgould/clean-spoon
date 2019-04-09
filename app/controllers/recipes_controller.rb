@@ -4,19 +4,23 @@ class RecipesController < ApplicationController
   def search
     user = User.find(params[:userId])
     searchParameters = {
-      extraAllergies: ["dairy", "eggs"],
-      diet: { vegan: false, vegetarian: true},
-      maxResult: 10,
-      start: 0
+      diet: { vegan: false, vegetarian: false}
     }
     searchResults = yummly_search(searchParameters, user)
+
+    bigImages = []
+     searchResults["matches"].each do |recipe|
+      result = JSON.parse(yummly_get(recipe["id"]))
+       recipe["bigImage"] = result["images"][0]["hostedLargeUrl"]
+       recipe["courses"] = result["attributes"]["course"]
+     end
+    
     json_response(searchResults)
   end
 
   def show
     #recipeID = "Hot-Dogs-with-Krautslaw-894904";
-    url = yummly_get(params[:recipeId])
-    info = Net::HTTP.get(URI.parse(url))
+    info = yummly_get(params[:recipeId])
     json_response(info)
   end 
 

@@ -50,6 +50,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
+    combination_generator (0.1.2)
+    combinatorics (0.4.3)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
     debug_inspector (0.0.3)
@@ -188,6 +190,8 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
+  combination_generator
+  combinatorics
   dotenv-rails
   foreman (~> 0.82.0)
   jbuilder (~> 2.0)

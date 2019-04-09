@@ -5,10 +5,9 @@ import {
 import { getFridge } from '../../lib/api.js';
 
 class RecipeSearch extends Component {
-
    //default values for the time being
    state = {
-    foodItems: []
+    foodItems: [],
   };
 
   componentDidMount()  {
@@ -28,25 +27,29 @@ class RecipeSearch extends Component {
     })
   }
 
+  performSearch = (event) => {
+    event.persist();
+    event.preventDefault();
+    console.log("About to submit search!")
+    this.props.onSubmit(event);
+  }
+
   render() {
     let arr = [];
     Object.keys(this.state.foodItems).map(key => {
       return arr.push(" " + this.state.foodItems[key].item);
     })
 
-    return (    
+    return (
       <Jumbotron className="recipe-search-container" fluid>
         <div id="recipeSearch" className="search-card">
           <Card body>
             <CardTitle><h1>Find Recipes Now!</h1></CardTitle>
             <CardText><b>Includes: </b> {arr + "  "} from your <a href="/fridge">fridge</a></CardText>
-            <Form>
-            <Input />
-            <br />
+            <Form onSubmit={this.performSearch}>
             <Button type="submit">Click Here to Search</Button>
             </Form>
             <br />
-            {/* <p><a href="#">Filter</a></p> */}
           </Card>
         </div>
       </Jumbotron>

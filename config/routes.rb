@@ -13,10 +13,12 @@ Rails.application.routes.draw do
     post '/allergies/:userId', to: 'allergies#create'
     delete '/allergies/:userId', to: 'allergies#destroy'
 
-    # RECIPES
+    # FAV RECIPES
     get '/favRecipes/:userId', to: 'fav_recipes#index'
-    # post '/favRecipes/:userId', to: 'fav_recipes#create'
-    # delete '/favRecipes/:favRecipeId', to: 'fav_recipes#destroy'
+    post '/favRecipes/:userId', to: 'fav_recipes#create'
+    delete '/favRecipes/:favRecipeId', to: 'fav_recipes#destroy'
+
+    # RECIPES
     get '/recipes/search/:userId', to: 'recipes#search'
     get '/recipes/:recipeId', to: 'recipes#show'
 
