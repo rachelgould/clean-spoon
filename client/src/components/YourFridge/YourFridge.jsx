@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
 import { Card, CardTitle } from 'reactstrap';
-import Form from './Form.jsx';
+import FridgeForm from './FridgeForm.jsx';
 import IngredientCard from './IngredientCard.jsx';
 import SmallLoader from '../Loading/SmallLoader';
 import { getFridge, setFridgeItem, deleteFridgeItem } from '../../lib/api.js';
@@ -95,9 +95,10 @@ class YourFridge extends Component {
       <Card body >
         <CardTitle><h2>Your Fridge</h2></CardTitle>
         <hr />
-        {this.state.isLoading ? <SmallLoader /> : <div className="ingredient-list-container">{ingredients}</div>}
+        {this.state.isLoading ? <SmallLoader /> : 
+        <><div className="center-form"><FridgeForm handleSubmit={this.handleSubmit} /></div><hr />
+        <div className="ingredient-list-container">{ingredients}</div></>}
         <br />
-        <Form handleSubmit={this.handleSubmit} />
       </Card>
     );
   }

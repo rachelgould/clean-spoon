@@ -81,7 +81,7 @@ When I go shopping, I want to be able to scan my receipt and have those items go
 
 # Database Planning
 
-https://www.canva.com/design/DADVp7huS0Q/jeaC_KruWQI6th9qoDgFfQ/
+https://www.canva.com/design/DADVp7huS0Q/jeaC_KruWQI6th9qoDgFfQ/view
 
 ---
 ---
@@ -157,17 +157,3 @@ Always (for backend)
 # Wireframes
 
 https://www.canva.com/design/DADVjFdd_9s/Fj1T39Og42aMGse9t0CE4w/view?utm_content=DADVjFdd_9s&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton
-
-### Notes
-
-* Add all recipes returned by the API to a DB "cache" so that they can be referenced later, and then favorite recipes can look in our recipes table for Yummly ID. 
-
-* Ingredients belong to recipes (show the recipes that you're buying an ingredient for)
-
-**Tech Stack Alt Ideas:**
-* React Router
-* _NO:_ Redux –> Lots of state happening everywhere (nightmare boilerplate)
-  * Move "global state" into a Redux store 
-  * You can subscribe to changes in the global store
-  * Certain components can dispatch changes to the store
-* React Hooks: Gives functional components the ability to create state on 1 variable at a time 

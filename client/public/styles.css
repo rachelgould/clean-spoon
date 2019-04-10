@@ -603,23 +603,32 @@ img.bg {
   }
 }
 
-
-.savedRecipesParent {
-  text-align: center
+.recipe-modal {
+  font-size: 80%;
 }
 
-.savedRecipesChild {
-  display: inline-block
+.recipe-modal a {
+  cursor: pointer;
 }
 
-#leftAlign{
-  float: left;
-  padding: 20px;
+.recipe-modal h4 {
+  margin: 20px 0px;
 }
 
-#rightAlign {
-  float: right;
-  padding: 20px;
+.recipe-modal .modal-header {
+  text-align: center;
+  color: #bb3535;
+}
+
+.recipe-modal .jumbotron {
+  margin-bottom: 5px;
+}
+
+.recipe-modal .prep-time {
+  text-align: center;
+  font-variant-caps: all-small-caps;
+  margin: 0px;
+  color: gray;
 }
 
 .recipe-modal .ingredient-list-1 {
@@ -630,5 +639,31 @@ img.bg {
 .recipe-modal .ingredient-list-2 {
   float: right;
   margin-right: 20px;
+}
+
+.dashboard-sub-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dashboard-sub-form h3 {
+  padding-right: 30px;
+  font-variant-caps: all-petite-caps;
+  margin: 0px;
+}
+
+.flex-forms {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.center-form {
+  margin: auto;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -514,3 +514,22 @@ img.bg {
     margin-right: 20px;
   }
 }
+
+.dashboard-sub-form {
+  display: flex;
+  h3 {
+    padding-right: 30px;
+    font-variant-caps: all-petite-caps;
+    margin: 0px;
+  }
+}
+
+.flex-forms {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.center-form {
+  margin: auto;
+}
