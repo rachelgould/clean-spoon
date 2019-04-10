@@ -42,11 +42,6 @@ function getFridge(id, cb) {
 function getProfile(id, cb) {
   let url = 'api/users/' + id
   axios.get(url).then(response => {
-<<<<<<< HEAD
-    // console.log('Received user details from server')
-    // console.log('The response was::::::::', response)
-=======
->>>>>>> 6f6cc93ae6c14b55117c5022d61ccca1ae7fe045
     return response
   })
   .then(checkStatus)
