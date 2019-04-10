@@ -603,32 +603,23 @@ img.bg {
   }
 }
 
-.recipe-modal {
-  font-size: 80%;
+
+.savedRecipesParent {
+  text-align: center
 }
 
-.recipe-modal a {
-  cursor: pointer;
+.savedRecipesChild {
+  display: inline-block
 }
 
-.recipe-modal h4 {
-  margin: 20px 0px;
+#leftAlign{
+  float: left;
+  padding: 20px;
 }
 
-.recipe-modal .modal-header {
-  text-align: center;
-  color: #bb3535;
-}
-
-.recipe-modal .jumbotron {
-  margin-bottom: 5px;
-}
-
-.recipe-modal .prep-time {
-  text-align: center;
-  font-variant-caps: all-small-caps;
-  margin: 0px;
-  color: gray;
+#rightAlign {
+  float: right;
+  padding: 20px;
 }
 
 .recipe-modal .ingredient-list-1 {
