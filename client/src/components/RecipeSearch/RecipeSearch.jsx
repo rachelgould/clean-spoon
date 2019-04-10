@@ -11,7 +11,6 @@ class RecipeSearch extends Component {
   };
 
   componentDidMount()  {
-    console.log("PROPS: ", this.props)
     // Get the fridge items from the server
     getFridge(this.props.cookies.get('id'), (results) => {
       let newfoodItems = []
