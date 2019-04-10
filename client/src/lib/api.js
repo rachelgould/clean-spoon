@@ -48,6 +48,7 @@ function getProfile(id, cb) {
   .then(cb)
 }
 
+
 function updateProfile(id, userObj, cb) {
   console.log("These are the allergy details: " + userObj['allergies']);
   let url ='/api/users/' + id 
@@ -71,6 +72,13 @@ console.log(recipeID)
   }) 
   .then(checkStatus)
   .then(cb)
+}
+
+function getFavRecipes(id, cb) {
+  let url = '/api/favRecipes/' + id;
+  axios.get(url).then(response => {
+    return response
+  }).then(checkStatus).then(cb)
 }
 
 const getFridgeRecipes = async(id, cb) => { // --------------------------REFACTOR ME----------------------------------------
@@ -150,5 +158,6 @@ export {
   getRecipeID,
   getFridgeRecipes,
   updateProfile,
-  getYummlyResults
+  getYummlyResults,
+  getFavRecipes
 }
