@@ -99,7 +99,7 @@ function RecipeCard(props) {
           <Button onClick={addRecipeToShoppingList}>Add to Shopping List</Button>
         </CardBody>
       </Card>
-      <RecipeModal id={id} recipe={props.recipe} haveIngredients={ingredientLists.matching} needIngredients={ingredientLists.new} prepTime={prepTimeString} save={addRecipeToSaved} active={modalActive} toggle={modalToggle}/>
+      <RecipeModal id={id} recipe={props.recipe} haveIngredients={ingredientLists.matching} needIngredients={ingredientLists.new} prepTime={prepTimeString} save={addRecipeToSaved} addToShoppingList={addRecipeToShoppingList} active={modalActive} toggle={modalToggle}/>
     </div>
   )
 }
