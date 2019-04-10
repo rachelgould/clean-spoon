@@ -13,6 +13,7 @@ class RecipesController < ApplicationController
       result = JSON.parse(yummly_get(recipe["id"]))
        recipe["bigImage"] = result["images"][0]["hostedLargeUrl"]
        recipe["courses"] = result["attributes"]["course"]
+       recipe["sourceUrl"] = result["source"]["sourceRecipeUrl"]
      end
     
     json_response(searchResults)
