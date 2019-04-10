@@ -94,7 +94,7 @@ function RecipeCard(props) {
           <LikeButton recipe={id}/>
         </CardBody>
       </Card>
-      <RecipeModal id={id} recipe={props.recipe} active={modalActive} toggle={modalToggle}/>
+      {/* <RecipeModal id={id} recipe={props.recipe} haveIngredients={ingredientLists.matching} needIngredients={ingredientLists.new} active={modalActive} toggle={modalToggle}/> */}
     </div>
   )
 }

@@ -3,11 +3,9 @@ import Navbar from '../Navbar/nav.jsx';
 import RecipesContainer from './RecipesContainer';
 import SearchAgain from './SearchAgain';
 import SideBar from './SideBar';
-import { getFridge, getFridgeRecipe} from '../../lib/api.js';
+import { getFridge } from '../../lib/api.js';
 
 function RecipeResults(props) {
-  // Todo: Add hook for loading state
-
   let [recipes, setRecipes] = useState(props.location.state.searchResults);
 
   let [fridge, setFridge] = useState(null);
@@ -34,13 +32,14 @@ function RecipeResults(props) {
 
   function processRecipeData(recipes) {
     let processed = [];
+    console.log("Raw unprocessed recipes: ", recipes)
     recipes.data.matches.forEach((recipe) => {
       processed.push({
         recipeName: recipe.recipeName,
         id: recipe.id,
         course: recipe.attributes.course,
         ingredients: recipe.ingredients,
-        rating: recipe.rating,
+        matchedIngredients: recipe.matchedIngredients,
         source: recipe.sourceDisplayName,
         image: recipe.bigImage,
         prepTime: recipe.totalTimeInSeconds

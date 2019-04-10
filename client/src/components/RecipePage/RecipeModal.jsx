@@ -3,6 +3,13 @@ import { Container, Row, Col, Card, Form, Button, Input, Label, FormGroup, Modal
 import { getRecipeID } from '../../lib/api.js';
 
 const RecipeModal = (props) => {
+  let { haveIngredients, needIngredients } = props
+  let { 
+    course,
+    image,
+    source,
+    id
+  } = props.recipe
   // const [active, setActive] = useState(props.active)
 
   // const toggle = () => {
@@ -11,16 +18,17 @@ const RecipeModal = (props) => {
 
   console.log("recipe: ", props.recipe)
 
-  // getRecipeID(this.props.match.params.id, (res) => {
-  //   this.setState({
-  //     recipeTitle: res.data.name,
-  //     recipePrepTime: "Prep time: " + res.data.prepTime,
-  //     recipeCookTime: "Cook time: " + res.data.cookTime,
-  //     recipeTotalTime: "Total time: " + res.data.totalTime,
-  //     recipeSteps: res.data.attribution.url,
-  //     image: res.data.images[0].hostedLargeUrl,
-  //     recipeIngredients: res.data.ingredientLines + " "
-  //   }))
+  getRecipeID(id, (res) => {
+    this.setState({
+      recipeTitle: res.data.name,
+      recipePrepTime: "Prep time: " + res.data.prepTime,
+      recipeCookTime: "Cook time: " + res.data.cookTime,
+      recipeTotalTime: "Total time: " + res.data.totalTime,
+      recipeSteps: res.data.attribution.url,
+      image: res.data.images[0].hostedLargeUrl,
+      recipeIngredients: res.data.ingredientLines + " "
+    })
+  })
 
   return(
     <Modal isOpen={props.active} toggle={props.toggle} className="recipe-modal">
