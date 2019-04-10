@@ -1,28 +1,48 @@
 import React, { Component } from 'react';
-import {Button, Card, CardBody, CardTitle, CardSubtitle, CardText} from 'reactstrap';
-import { getFavRecipes } from '../../lib/api.js';
+import { Button, Card, CardBody, CardTitle, CardSubtitle, CardText} from 'reactstrap';
+import { getFavRecipes, deleteFavRecipe} from '../../lib/api.js';
+import Table from './Table'
 
 class SavedRecipes extends Component {
 
   constructor(props) {
-    super(props);
+    super(props)
+    this.state = {
+      favRecipes: []
+    }
   }
 
   componentDidMount() {
 
     getFavRecipes(this.props.cookies.get('id'), (res) => {
       let favs = []
-      console.log("GETTING favs" + JSON.stringify(res.data[0]));
+     //  console.log("GETTING favs" + JSON.stringify(res.data[0]));
       res.data.forEach((entry) => {
         favs.push({ 
           name: entry.name,
-          url: entry.source.sourceSiteUrl, 
+          url: entry.source.sourceRecipeUrl, 
           id: entry.id
         })
       })
-      console.log(favs);
+      this.setState({
+        favRecipes: favs,
+      })
+      console.log(this.state.favRecipes);
     });
    
+  }
+
+  removeItem = index => {
+
+
+    //deleteFavRecipe(this.props.cookies.get('id'))
+    const { favRecipes } = this.state
+    console.log("HERE" + JSON.stringify(favRecipes))
+    this.setState({
+      favRecipes: favRecipes.filter((character, i) => {
+        return i !== index
+      }),
+    })
   }
  
   render() {
@@ -33,11 +53,7 @@ class SavedRecipes extends Component {
     
       <Card>
         <CardBody>
-          <CardTitle>Card title</CardTitle>
-          <CardSubtitle>Card subtitle</CardSubtitle>
-          <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-          <Button>View Recipe</Button>
-          <br />
+     <Table characterData={this.state.favRecipes} removeItem={this.removeItem}  /> 
         </CardBody>
       </Card>
       <br />
