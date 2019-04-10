@@ -85,7 +85,7 @@ class ShoppingList extends Component {
 
     return (
       <Card body >
-        <CardTitle className="CardTitle">This is your Shopping List</CardTitle>
+        <CardTitle className="CardTitle"><h2>Shopping List</h2></CardTitle>
         <hr />
         {this.state.isLoading ? <SmallLoader /> : <div className="ingredient-list-container">{ingredients}</div>} 
         <br />

@@ -93,7 +93,7 @@ class YourFridge extends Component {
 
     return (
       <Card body >
-        <CardTitle>This is your Fridge</CardTitle>
+        <CardTitle><h2>Your Fridge</h2></CardTitle>
         <hr />
         {this.state.isLoading ? <SmallLoader /> : <div className="ingredient-list-container">{ingredients}</div>}
         <br />

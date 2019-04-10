@@ -43,18 +43,11 @@ class SavedRecipes extends Component {
  
   render() {
     return (   
-    <div id="savedRecipes">
-      <p>These are your Saved Recipes</p>
-      <hr />
-    
-      <Card>
-        <CardBody>
-          <Table cookies={this.props.cookies} characterData={this.state.favRecipes} removeItem={this.removeItem}  /> 
-        </CardBody>
+      <Card body>
+        <CardTitle><h2>Saved Recipes</h2></CardTitle>
+        <hr />
+        <Table cookies={this.props.cookies} characterData={this.state.favRecipes} removeItem={this.removeItem}  />
       </Card>
-      <br />
-
-    </div>
     );
   }
 }
