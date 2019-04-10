@@ -52,6 +52,7 @@ class YourFridge extends Component {
   
   removeItem = fridgeIngredientId => {
     deleteFridgeItem(fridgeIngredientId)
+    console.log("Deleting fridge ITEM" + fridgeIngredientId)
     let newItems = this.state.foodItems.slice(0)
     let index = newItems.findIndex((item) => fridgeIngredientId === item.id)
     newItems.splice(index, 1)

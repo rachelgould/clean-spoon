@@ -83,10 +83,11 @@ function getFavRecipes(id, cb) {
   }).then(checkStatus).then(cb)
 }
 
-function deleteFavRecipe(id) {
-  let url = 'api/favRecipes/' + id
+function deleteFavRecipe(recipeID, cb) {
+  let url = 'api/favRecipes/' + recipeID
   axios.delete(url)
   .then(checkStatus)
+  .then(cb)
 }
 
 const getFridgeRecipes = async(id, cb) => { // --------------------------REFACTOR ME----------------------------------------

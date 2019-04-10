@@ -18,7 +18,8 @@ class FavRecipesController < ApplicationController
   end
 
   def destroy
-    FavRecipe.destroy(params[:favRecipeId])
+    recipe = FavRecipe.find_by(yummly_id: params[:favRecipeId])
+    recipe.destroy ? json_response("Deleted!") : json_response("Failed to delete")
   end
 
 end

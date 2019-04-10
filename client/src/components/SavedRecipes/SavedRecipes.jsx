@@ -12,8 +12,7 @@ class SavedRecipes extends Component {
     }
   }
 
-  componentDidMount() {
-
+  refreshRecipes = () => {
     getFavRecipes(this.props.cookies.get('id'), (res) => {
       let favs = []
      //  console.log("GETTING favs" + JSON.stringify(res.data[0]));
@@ -29,19 +28,16 @@ class SavedRecipes extends Component {
       })
       console.log(this.state.favRecipes);
     });
-   
   }
 
-  removeItem = index => {
+  componentDidMount() {
+    this.refreshRecipes()
+  }
 
-
-    //deleteFavRecipe(this.props.cookies.get('id'))
+  removeItem = (index) => {
     const { favRecipes } = this.state
-    console.log("HERE" + JSON.stringify(favRecipes))
-    this.setState({
-      favRecipes: favRecipes.filter((character, i) => {
-        return i !== index
-      }),
+    deleteFavRecipe(index, (res) => {
+      this.refreshRecipes()
     })
   }
  
@@ -53,7 +49,7 @@ class SavedRecipes extends Component {
     
       <Card>
         <CardBody>
-     <Table characterData={this.state.favRecipes} removeItem={this.removeItem}  /> 
+          <Table cookies={this.props.cookies} characterData={this.state.favRecipes} removeItem={this.removeItem}  /> 
         </CardBody>
       </Card>
       <br />

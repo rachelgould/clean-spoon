@@ -16,19 +16,21 @@ const TableHeader = () => {
 }
 
 const TableBody = props => {
-
-  // console.log(this.props.characterData)
   
   const rows = props.characterData.map((row, index) => {
-    // console.log("TEST" + row)
+    let id = row.id;
+
+    console.log("ROW ID" + row.id);
+
+
     return (
       <tr key={index}>
         <td>{row.name}</td>
         <td>{row.url}</td>
         <td>{row.id}</td>
-        {/* <td><Button onClick={() => props.removeItem(index)}> Remove </Button></td>     //<Button onClick={() => props.removeItem(index)}></Button> */}
+      
+        <Button onClick={() => props.removeItem(id)}> Remove </Button>
 
-        <Button onClick={() => props.removeItem(index)}> Remove </Button>
         
       </tr>
     )
@@ -47,7 +49,7 @@ class Table extends Component {
     return (
       <table>
         {/* <TableHeader /> */}
-        <TableBody characterData={characterData} removeItem={removeItem} />
+        <TableBody cookies={this.props.cookies} characterData={characterData} removeItem={removeItem} />
       </table>
     )
   }
