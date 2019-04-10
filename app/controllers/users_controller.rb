@@ -19,20 +19,65 @@ class UsersController < ApplicationController
 
   def update
 
-    receivedAllergies = params[:allergies]
-    allergyArray = []
-    receivedAllergies.each do |object|
-      allergyArray << object
-    end
-
+    allergyArray = params[:allergies]
+   
     @user = User.update(params[:userId], {
       name: params[:name],
       email: params[:email],
       vegan: params[:vegan],
-      vegetarian: params[:vegetarian],
-      #allergies: allergyArray
+      vegetarian: params[:vegetarian]
      })
-     json_response(@user)
+
+     #Remove existing allergies
+     @user = User.find(params[:userId])
+     @user.user_allergies.destroy_all 
+     
+    allergyArray.each do |item|
+
+      if (AllowedItems.instance.allowed_allergies[item])
+        allergy = Allergy.find_or_create_by(
+          name: item,
+          is_ingredient: false
+          )
+        user_allergy = allergy.user_allergies.find_or_create_by(user_id: @user.id)
+       # json_response("Success": "Allergy created or found")
+      elsif (AllowedItems.instance.allowed_ingredients[item])
+        allergy = Allergy.find_or_create_by(
+          name: item,
+          is_ingredient: true
+          )
+        user_allergy = allergy.user_allergies.find_or_create_by(user_id: @user.id)
+      #  json_response("Success": "Allergy created or found")
+      else 
+      #  json_response("Failure": "Not a valid allergy")
+      end
+
+      puts "TESSSTTTt"
+     puts @user.allergies
+     puts "TESSSTTTt"
+
+
+   @allergies = @user.allergies
+   allergyArray = []
+   @allergies.each do |object|
+     allergyArray << object.name
+
+    end
+
+    puts "TESSSTTTt"
+     puts allergyArray
+     puts "TESSSTTTt"
+
+    end
+
+    data = {
+      name: @user.name,
+      email: @user.email,
+      vegan: @user.vegan,
+      vegetarian: @user.vegetarian,
+      allergies: allergyArray
+    }
+     json_response(data)
   end
 
   def create

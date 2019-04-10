@@ -3,11 +3,9 @@ import Navbar from '../Navbar/nav.jsx';
 import RecipesContainer from './RecipesContainer';
 import SearchAgain from './SearchAgain';
 import SideBar from './SideBar';
-import { getFridge, getFridgeRecipe} from '../../lib/api.js';
+import { getFridge } from '../../lib/api.js';
 
 function RecipeResults(props) {
-  // Todo: Add hook for loading state
-
   let [recipes, setRecipes] = useState(props.location.state.searchResults);
 
   let [fridge, setFridge] = useState(null);
@@ -40,10 +38,11 @@ function RecipeResults(props) {
         id: recipe.id,
         course: recipe.attributes.course,
         ingredients: recipe.ingredients,
-        rating: recipe.rating,
+        matchedIngredients: recipe.matchedIngredients,
         source: recipe.sourceDisplayName,
         image: recipe.bigImage,
-        prepTime: recipe.totalTimeInSeconds
+        prepTime: recipe.totalTimeInSeconds,
+        sourceUrl: recipe.sourceUrl
       })
     })
     return processed;
@@ -54,7 +53,7 @@ function RecipeResults(props) {
   return (
     <div className="recipe-results">
       <Navbar />
-      <RecipesContainer recipes={processedRecipes} currentFridge={fridge}/>
+      <RecipesContainer recipes={processedRecipes} currentFridge={fridge} cookies={props.cookies}/>
       <SearchAgain />
       <SideBar />
     </div>

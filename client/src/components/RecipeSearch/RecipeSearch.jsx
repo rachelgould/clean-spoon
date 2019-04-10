@@ -10,9 +10,7 @@ class RecipeSearch extends Component {
     foodItems: [],
   };
 
-  componentDidMount()  {
-    console.log("PROPS: ", this.props)
-    // Get the fridge items from the server
+  refreshFridge = () => {
     getFridge(this.props.cookies.get('id'), (results) => {
       let newfoodItems = []
       results.data.forEach((entry) => {
@@ -27,25 +25,43 @@ class RecipeSearch extends Component {
     })
   }
 
+  componentDidMount()  {
+    this.refreshFridge()
+  }
+
+  componentDidUpdate(prevProps) {
+    console.log('Previous props: ', prevProps)
+    console.log("current props: ", this.props)
+    if (this.props.promptReload !== prevProps.promptReload) {
+      this.refreshFridge()
+    }  
+  }
+
   performSearch = (event) => {
     event.persist();
     event.preventDefault();
-    console.log("About to submit search!")
     this.props.onSubmit(event);
   }
 
-  render() {
+  recipeText = () => {
     let arr = [];
-    Object.keys(this.state.foodItems).map(key => {
-      return arr.push(" " + this.state.foodItems[key].item);
-    })
+    if (this.state.foodItems.length !== 0) {
+      Object.keys(this.state.foodItems).map(key => {
+        return arr.push(this.state.foodItems[key].item);
+      })
+      return (<CardText><b>Includes:</b> {arr.join(', ')} from your <a href="/fridge">fridge</a></CardText>)
+    }
+    return (<CardText>There's nothing in your <a href="/fridge">fridge</a></CardText>)
+  }
+
+  render() {
 
     return (
       <Jumbotron className="recipe-search-container" fluid>
         <div id="recipeSearch" className="search-card">
           <Card body>
             <CardTitle><h1>Find Recipes Now!</h1></CardTitle>
-            <CardText><b>Includes: </b> {arr + "  "} from your <a href="/fridge">fridge</a></CardText>
+            {this.recipeText()}
             <Form onSubmit={this.performSearch}>
             <Button type="submit">Click Here to Search</Button>
             </Form>

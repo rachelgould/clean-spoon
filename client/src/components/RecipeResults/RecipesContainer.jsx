@@ -7,7 +7,7 @@ function RecipesContainer(props) {
   const makeCards = (recipes) => {
     return recipes.map((recipe) => {
       return (
-        <RecipeCard recipe={recipe} key={recipe.id} currentFridge={currentFridge} />
+        <RecipeCard recipe={recipe} key={recipe.id} currentFridge={currentFridge} cookies={props.cookies}/>
       )
     })
   }

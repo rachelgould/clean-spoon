@@ -3,18 +3,22 @@ import { Card, CardTitle } from 'reactstrap';
 import Form from './Form.jsx';
 import SMSForm from './SMSForm.jsx';
 import IngredientCard from './IngredientCard.jsx';
+import SmallLoader from '../Loading/SmallLoader';
 import { getShoppingList, setShoppingListItem, deleteShoppingListItem } from '../../lib/api.js'
 
 class ShoppingList extends Component {
 
   state = {
-    foodItems: []
+    foodItems: [],
+    isLoading: false
   };
 
   refreshShoppingList = () => {
+    this.setState({
+      isLoading: true
+    })
     getShoppingList(this.props.cookies.get('id'), (results) => {
       let newfoodItems = []
-      console.log(results.data)
       results.data.forEach((entry) => {
         newfoodItems.push({ 
           item: entry.name, 
@@ -24,7 +28,8 @@ class ShoppingList extends Component {
       })
       if (this._isMounted) {
         this.setState({
-          foodItems: newfoodItems
+          foodItems: newfoodItems,
+          isLoading: false
         })
       }
     })
@@ -81,8 +86,8 @@ class ShoppingList extends Component {
     return (
       <Card body >
         <CardTitle className="CardTitle">This is your Shopping List</CardTitle>
-        <hr />  
-        <div className="ingredient-list-container">{ingredients}</div>
+        <hr />
+        {this.state.isLoading ? <SmallLoader /> : <div className="ingredient-list-container">{ingredients}</div>} 
         <br />
         <Form handleSubmit={this.handleSubmit} />
         <br />
