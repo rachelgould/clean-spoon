@@ -598,4 +598,23 @@ img.bg {
             transform: rotate(360deg);
   }
 }
+
+
+.savedRecipesParent {
+  text-align: center
+}
+
+.savedRecipesChild {
+  display: inline-block
+}
+
+#leftAlign{
+  float: left;
+  padding: 20px;
+}
+
+#rightAlign {
+  float: right;
+  padding: 20px;
+}
 /*# sourceMappingURL=styles.css.map */

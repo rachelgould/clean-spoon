@@ -19,19 +19,15 @@ const TableBody = props => {
   
   const rows = props.characterData.map((row, index) => {
     let id = row.id;
-
-    console.log("ROW ID" + row.id);
-
+    let url = row.url;
 
     return (
       <tr key={index}>
-        <td>{row.name}</td>
-        <td>{row.url}</td>
-        <td>{row.id}</td>
-      
-        <Button onClick={() => props.removeItem(id)}> Remove </Button>
 
-        
+        <td id="leftAlign"><a href={row.url} target="_blank">{row.name}</a></td>
+        <td id="floatRight">
+        <Button onClick={() => props.removeItem(id)}> Remove </Button> 
+        </td>
       </tr>
     )
   })
