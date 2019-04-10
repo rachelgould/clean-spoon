@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
 import LikeButton from './LikeButton';
-<<<<<<< HEAD
 import RecipePage from '../RecipePage/RecipePage.jsx';
-import { calcPrepTime, getMatchingIngredients, getNewIngredients } from './recipeAnalysis.js';
 import { getRecipeID, bulkSetShoppingListItem } from '../../lib/api.js';
-=======
 import { calcPrepTime, getMatchingIngredients, getNewIngredients } from './recipeAnalysis.js';
-import { bulkSetShoppingListItem } from '../../lib/api.js';
->>>>>>> 3f1ed798ea6ecfe7e405d84f4bb023f55d66b5db
 
 function RecipeCard(props) {
   let { recipeName, id, course, ingredients, rating, source, image, prepTime } = props.recipe;
