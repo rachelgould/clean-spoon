@@ -32,7 +32,6 @@ function RecipeResults(props) {
 
   function processRecipeData(recipes) {
     let processed = [];
-    console.log("Raw unprocessed recipes: ", recipes)
     recipes.data.matches.forEach((recipe) => {
       processed.push({
         recipeName: recipe.recipeName,
@@ -42,7 +41,8 @@ function RecipeResults(props) {
         matchedIngredients: recipe.matchedIngredients,
         source: recipe.sourceDisplayName,
         image: recipe.bigImage,
-        prepTime: recipe.totalTimeInSeconds
+        prepTime: recipe.totalTimeInSeconds,
+        sourceUrl: recipe.sourceUrl
       })
     })
     return processed;

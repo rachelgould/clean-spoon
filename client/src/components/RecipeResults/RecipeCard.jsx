@@ -79,13 +79,15 @@ function RecipeCard(props) {
     setModalActive(!currentState);
   }
 
+  const prepTimeString = calcPrepTime(prepTime)
+
   return (
     <div className="recipes-results-card">
       <Card>
         <CardImg top width="100%" src={image || imagePlaceholder} alt={recipeName} />
         <CardBody>
           <CardTitle>{shortenRecipeName()}</CardTitle>
-          <CardSubtitle className="small"><p>Prep Time: {calcPrepTime(prepTime)}</p></CardSubtitle>
+          <CardSubtitle className="small"><p>Prep Time: {prepTimeString}</p></CardSubtitle>
           <CardText className="small">
             {writeIngredientsText()}
             <a href="#" onClick={recipeLink}>See full recipe...</a>
@@ -94,7 +96,7 @@ function RecipeCard(props) {
           <LikeButton recipe={id}/>
         </CardBody>
       </Card>
-      {/* <RecipeModal id={id} recipe={props.recipe} haveIngredients={ingredientLists.matching} needIngredients={ingredientLists.new} active={modalActive} toggle={modalToggle}/> */}
+      <RecipeModal id={id} recipe={props.recipe} haveIngredients={ingredientLists.matching} needIngredients={ingredientLists.new} prepTime={prepTimeString} active={modalActive} toggle={modalToggle}/>
     </div>
   )
 }
