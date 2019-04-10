@@ -90,7 +90,7 @@ function deleteFavRecipe(recipeID, cb) {
   .then(cb)
 }
 
-const getFridgeRecipes = async(id, cb) => { // --------------------------REFACTOR ME----------------------------------------
+const getFridgeRecipes = async(id, cb) => { 
   let url = '/api/recipes/search/' + id;
   axios.get(url).then(response => {
     return response
@@ -101,6 +101,15 @@ function setFridgeItem(id, itemName, cb) {
   let url = 'api/fridges/' + id
   axios.post(url, {
     name: itemName
+  })
+  .then(checkStatus)
+  .then(cb)
+}
+
+function saveFavRecipe(id, recipeId, cb) {
+  let url = 'api/favRecipes/' + id
+  axios.post(url, {
+    recipeId: recipeId
   })
   .then(checkStatus)
   .then(cb)
@@ -169,5 +178,6 @@ export {
   updateProfile,
   getYummlyResults,
   getFavRecipes,
+  saveFavRecipe,
   deleteFavRecipe
 }

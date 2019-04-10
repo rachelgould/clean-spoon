@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Container, Row, Col, Card, Form, Button, Input, Label, FormGroup, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { getRecipeID } from '../../lib/api.js';
 
 const RecipeModal = (props) => {
   let { haveIngredients, needIngredients, prepTime } = props
@@ -12,13 +11,11 @@ const RecipeModal = (props) => {
     recipeName
   } = props.recipe
   let imagePlaceholder = 'https://images.unsplash.com/photo-1527756898251-203e9ce0d9c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1654&q=80';
-  // const [active, setActive] = useState(props.active)
 
-  // const toggle = () => {
-  //   setActive(!active)
-  // }
-
-  console.log("recipe: ", props.recipe)
+  const saveRecipe = () => {
+    props.toggle();
+    props.save();
+  }
 
   return(
     <Modal isOpen={props.active} toggle={props.toggle} className="recipe-modal">
@@ -35,7 +32,7 @@ const RecipeModal = (props) => {
       </ModalBody>
 
       <ModalFooter>
-        <Button color="primary" onClick={props.toggle}>Save</Button>
+        <Button color="primary" onClick={saveRecipe}>Save</Button>
         <Button color="secondary" onClick={props.toggle}>Cancel</Button>
       </ModalFooter>
     </Modal>

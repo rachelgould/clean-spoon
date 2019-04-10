@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
-import LikeButton from './LikeButton';
-import RecipePage from '../RecipePage/RecipePage.jsx';
-import { getRecipeID, bulkSetShoppingListItem } from '../../lib/api.js';
+import { bulkSetShoppingListItem, saveFavRecipe } from '../../lib/api.js';
 import { calcPrepTime, getNewIngredients } from './recipeAnalysis.js';
 import RecipeModal from '../RecipePage/RecipeModal';
 
@@ -69,6 +67,12 @@ function RecipeCard(props) {
     })
   }
 
+  const addRecipeToSaved = () => {
+    saveFavRecipe(props.cookies.get('id'), id, (res) => {
+      console.log("Added recipe to saved recipes")
+    })
+  }
+
   const recipeLink = (event) => {
     event.preventDefault();
     modalToggle();
@@ -93,10 +97,9 @@ function RecipeCard(props) {
             <a href="#" onClick={recipeLink}>See full recipe...</a>
           </CardText>
           <Button onClick={addRecipeToShoppingList}>Add to Shopping List</Button>
-          <LikeButton recipe={id}/>
         </CardBody>
       </Card>
-      <RecipeModal id={id} recipe={props.recipe} haveIngredients={ingredientLists.matching} needIngredients={ingredientLists.new} prepTime={prepTimeString} active={modalActive} toggle={modalToggle}/>
+      <RecipeModal id={id} recipe={props.recipe} haveIngredients={ingredientLists.matching} needIngredients={ingredientLists.new} prepTime={prepTimeString} save={addRecipeToSaved} active={modalActive} toggle={modalToggle}/>
     </div>
   )
 }
