@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import {Button} from 'reactstrap';
 
-const TableHeader = () => {
-  return (
-    <thead>
-      <tr>
-        <th>Item</th>    
-        <th>Action</th>
-      </tr>
-    </thead>
-  )
-}
+// const TableHeader = () => {
+//   return (
+//     <thead>
+//       <tr>
+//         <th>Item</th>    
+//         <th>Action</th>
+//       </tr>
+//     </thead>
+//   )
+// }
 
 const TableBody = props => {
 
@@ -21,7 +21,8 @@ const TableBody = props => {
     return (
       <tr key={index}>
         <td>{row}</td>
-        <td><Button color="danger" onClick={() => props.removeItem(index)}> Remove </Button></td>    
+        <td><Button onClick={() => props.removeItem(index)}> Remove </Button></td>    
+  
       </tr>
     )
   })
@@ -34,12 +35,11 @@ class Table extends Component {
     
   }
   render() {
-    // console.log(this.props.characterData)
     const { characterData, removeItem } = this.props
 
     return (
       <table>
-        <TableHeader />
+        {/* <TableHeader /> */}
         <TableBody characterData={characterData} removeItem={removeItem} />
       </table>
     )

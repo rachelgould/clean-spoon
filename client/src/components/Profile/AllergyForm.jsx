@@ -10,37 +10,34 @@ class AllergyForm extends Component {
         };
         this.state = this.initialState;
 }
-
 handleChange = event => {
-  //  const { foodItem } = event.target;
     this.setState({
         foodItem: event.target.value
     });
 }
 
-
 onFormSubmit = (event) => {
     const {foodItem} = this.state;
     event.preventDefault();   
+    if(foodItem){
     this.props.handleSubmit(foodItem);
     this.setState(this.initialState);
+    }
 }
 
 render() {
-
     return (
-        <form onSubmit={this.onFormSubmit}>
+        <div>
         <br />
-            <label>Food Item</label>
             <input 
                 type="text" 
                 name="foodItem" 
-                onChange={this.handleChange} />
-
-            <button type="submit">
-                Submit
+                onChange={this.handleChange}
+                placeholder="Add allergies here.." />
+            <button type="submit" onClick={this.onFormSubmit}>
+                Add
             </button>
-        </form>
+        </div>
     );
 }
 

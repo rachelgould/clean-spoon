@@ -61,8 +61,8 @@ function updateProfile(id, userObj, cb) {
   axios.put(url, {
     name: userObj['name'],
     email: userObj['email'],
-    vegan: userObj['vegetarian'], 
-    vegetarian: userObj['vegan'], 
+    vegan: userObj['vegan'], 
+    vegetarian: userObj['vegetarian'], 
     allergies: userObj['allergies']
   }).then(checkStatus)
   .then(cb).catch(error => {
