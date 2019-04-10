@@ -35,8 +35,8 @@ const RecipeModal = (props) => {
       </ModalBody>
 
       <ModalFooter>
-        <Button color="primary" onClick={this.toggle}>Save</Button>{' '}
-        <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+        <Button color="primary" onClick={props.toggle}>Save</Button>
+        <Button color="secondary" onClick={props.toggle}>Cancel</Button>
       </ModalFooter>
     </Modal>
   )

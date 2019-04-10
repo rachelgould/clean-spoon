@@ -15,25 +15,10 @@ const calcPrepTime = (prepTime) => {
   return prepTimeInMins + " mins"
 }
 
-const getMatchingIngredients = (fridge, ingredients) => {
-  let fridgeItems = fridge.map(elem => elem.name)
-  let matching = fridgeItems.filter(item =>
-    { 
-      for (let thing of ingredients) {
-        if (fuzzyMatch(thing, item)) {
-          return true
-        }
-      }
-    }
-  )
-  return matching
-}
-
-const getNewIngredients = (fridge, ingredients) => {
-  let matchingIngredients = getMatchingIngredients(fridge, ingredients);
+const getNewIngredients = (ingredients, matchingIngredients) => {
   let newFoods = ingredients.filter(item =>
     { 
-      if (item === 'water') {
+      if (item === 'water' || item === 'salt' || item === 'pepper') {
         return false
       }
       for (let thing of matchingIngredients) {
@@ -49,6 +34,5 @@ const getNewIngredients = (fridge, ingredients) => {
 
 export {
   calcPrepTime,
-  getMatchingIngredients,
   getNewIngredients
 }

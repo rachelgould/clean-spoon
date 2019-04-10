@@ -3,11 +3,11 @@ import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } fr
 import LikeButton from './LikeButton';
 import RecipePage from '../RecipePage/RecipePage.jsx';
 import { getRecipeID, bulkSetShoppingListItem } from '../../lib/api.js';
-import { calcPrepTime, getMatchingIngredients, getNewIngredients } from './recipeAnalysis.js';
+import { calcPrepTime, getNewIngredients } from './recipeAnalysis.js';
 import RecipeModal from '../RecipePage/RecipeModal';
 
 function RecipeCard(props) {
-  let { recipeName, id, course, ingredients, rating, source, image, prepTime } = props.recipe;
+  let { recipeName, id, course, ingredients, image, prepTime, matchedIngredients } = props.recipe;
   let imagePlaceholder = 'https://images.unsplash.com/photo-1527756898251-203e9ce0d9c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1654&q=80';
   let [fridge, setFridge] = useState(false);
   let [ingredientLists, setIngredientLists] = useState(false);
@@ -18,8 +18,8 @@ function RecipeCard(props) {
       let fridgeItems = props.currentFridge.foodItems
       setFridge({fridge: fridgeItems});
       setIngredientLists({
-        matching: getMatchingIngredients(fridgeItems, ingredients),
-        new: getNewIngredients(fridgeItems, ingredients)
+        matching: matchedIngredients,
+        new: getNewIngredients(ingredients, matchedIngredients)
       })
     }
   }, [props.currentFridge])
