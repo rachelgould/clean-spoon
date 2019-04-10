@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Card, CardText, CardTitle, Button, Jumbotron, Form, Input 
-  } from 'reactstrap';
+  Card, CardText, CardTitle, Button, Jumbotron, Form } from 'reactstrap';
 import { getFridge } from '../../lib/api.js';
 
 class RecipeSearch extends Component {
@@ -30,8 +29,6 @@ class RecipeSearch extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log('Previous props: ', prevProps)
-    console.log("current props: ", this.props)
     if (this.props.promptReload !== prevProps.promptReload) {
       this.refreshFridge()
     }  

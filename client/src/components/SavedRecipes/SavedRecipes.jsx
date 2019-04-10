@@ -20,7 +20,6 @@ class SavedRecipes extends Component {
     })
     getFavRecipes(this.props.cookies.get('id'), (res) => {
       let favs = []
-     //  console.log("GETTING favs" + JSON.stringify(res.data[0]));
       res.data.forEach((entry) => {
         favs.push({ 
           name: entry.name,
@@ -32,7 +31,6 @@ class SavedRecipes extends Component {
         favRecipes: favs,
         isLoading: false
       })
-      console.log(this.state.favRecipes);
     });
   }
 
@@ -41,7 +39,6 @@ class SavedRecipes extends Component {
   }
 
   removeItem = (index) => {
-    const { favRecipes } = this.state
     deleteFavRecipe(index, (res) => {
       this.refreshRecipes()
     })

@@ -4,11 +4,6 @@ import Table from './Table.jsx';
 
 function DietAllergies(props) {
 
-  // updateUserPreferences= (event) => {
-  //   console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-  //   console.log(event.target)
-  // }
-
   return ( 
     <div className="diet-allergies">
       <Form>

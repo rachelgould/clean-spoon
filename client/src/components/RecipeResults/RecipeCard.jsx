@@ -5,7 +5,7 @@ import { calcPrepTime, getNewIngredients } from './recipeAnalysis.js';
 import RecipeModal from '../RecipePage/RecipeModal';
 
 function RecipeCard(props) {
-  let { recipeName, id, course, ingredients, image, prepTime, matchedIngredients } = props.recipe;
+  let { recipeName, id, ingredients, image, prepTime, matchedIngredients } = props.recipe;
   let imagePlaceholder = 'https://images.unsplash.com/photo-1527756898251-203e9ce0d9c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1654&q=80';
   let [fridge, setFridge] = useState(false);
   let [ingredientLists, setIngredientLists] = useState(false);
@@ -63,7 +63,6 @@ function RecipeCard(props) {
 
   const addRecipeToShoppingList = () => {
     bulkSetShoppingListItem(props.cookies.get('id'), [...ingredientLists.new], (res) => {
-      console.log("Added items to the shopping list")
     })
   }
 

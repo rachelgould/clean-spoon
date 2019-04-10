@@ -50,7 +50,6 @@ function getProfile(id, cb) {
 
 
 function updateProfile(id, userObj, cb) {
-  console.log("These are the allergy details: " + userObj['allergies']);
   let url ='/api/users/' + id 
   axios.put(url, {
     name: userObj['name'],
@@ -78,7 +77,6 @@ function getFavRecipes(id, cb) {
   let url = '/api/favRecipes/' + id;
   axios.get(url).then(response => 
     {
-    console.log("HERE IS THE RESPONSE:::::" + JSON.stringify(response))
     return response
   }).then(checkStatus).then(cb)
 }
@@ -119,7 +117,6 @@ function deleteFridgeItem(id) {
   let url = 'api/fridges/' + id
   axios.delete(url)
   .then(checkStatus)
-  // .then(cb)
 }
 
 function setShoppingListItem(id, itemName, cb) {

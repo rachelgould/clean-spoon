@@ -6,7 +6,7 @@ import SideBar from './SideBar';
 import { getFridge } from '../../lib/api.js';
 
 function RecipeResults(props) {
-  let [recipes, setRecipes] = useState(props.location.state.searchResults);
+  let [recipes] = useState(props.location.state.searchResults);
 
   let [fridge, setFridge] = useState(null);
 
@@ -20,9 +20,6 @@ function RecipeResults(props) {
         name: entry.name, 
         id: entry.id
       })
-    })
-    console.log("About to set the fridge with this: ", {
-      foodItems: newfoodItems
     })
     setFridge({
       foodItems: newfoodItems
