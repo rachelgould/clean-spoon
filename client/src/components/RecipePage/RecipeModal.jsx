@@ -53,20 +53,21 @@ const RecipeModal = (props) => {
           backgroundRepeat: 'no-repeat'
         }}>
         </Jumbotron>
-        <br />
         <h4 className="prep-time">Ready in {prepTime}</h4>
-        <h4>Ingredients</h4>
-        <div className="ingredients-list">
-          <p>You Have:</p>
-          {haveIngredients ? makeIngredientList(haveIngredients) : "Loading ingredients..."}
-        </div>
-        <div className="ingredients-list">
-          <p>You Need:</p>
-          {needIngredients ? makeIngredientList(needIngredients) : "Loading ingredients..."}
-        </div>
         <h4>Make This Recipe</h4>
         <p>Find the steps for this recipe at <a href={sourceUrl} target="_blank">{source}</a></p>
         <a href="#" onClick={addToShoppingList}>Add the ingredients to your shopping list.</a>
+        <h4>Ingredients</h4>
+        <div classname="ingredients-list container">
+          <div className="ingredients-list">
+            <p>You Have:</p>
+            {haveIngredients ? makeIngredientList(haveIngredients) : "Loading ingredients..."}
+          </div>
+          <div className="ingredients-list">
+            <p>You Need:</p>
+            {needIngredients ? makeIngredientList(needIngredients) : "Loading ingredients..."}
+          </div>
+        </div>
       </ModalBody>
       <ModalFooter>
         <Button color="primary" onClick={saveRecipe}>Save</Button>
