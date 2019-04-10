@@ -4,14 +4,14 @@ import LikeButton from './LikeButton';
 import RecipePage from '../RecipePage/RecipePage.jsx';
 import { getRecipeID, bulkSetShoppingListItem } from '../../lib/api.js';
 import { calcPrepTime, getMatchingIngredients, getNewIngredients } from './recipeAnalysis.js';
+import RecipeModal from '../RecipePage/RecipeModal';
 
 function RecipeCard(props) {
   let { recipeName, id, course, ingredients, rating, source, image, prepTime } = props.recipe;
   let imagePlaceholder = 'https://images.unsplash.com/photo-1527756898251-203e9ce0d9c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1654&q=80';
   let [fridge, setFridge] = useState(false);
   let [ingredientLists, setIngredientLists] = useState(false);
-
-
+  let [modalActive, setModalActive] = useState(false);
 
   useEffect(() => {
     if (props.currentFridge) {
@@ -69,6 +69,16 @@ function RecipeCard(props) {
     })
   }
 
+  const recipeLink = (event) => {
+    event.preventDefault();
+    modalToggle();
+  }
+
+  const modalToggle = () => {
+    let currentState = modalActive;
+    setModalActive(!currentState);
+  }
+
   return (
     <div className="recipes-results-card">
       <Card>
@@ -78,12 +88,13 @@ function RecipeCard(props) {
           <CardSubtitle className="small"><p>Prep Time: {calcPrepTime(prepTime)}</p></CardSubtitle>
           <CardText className="small">
             {writeIngredientsText()}
-            <a href={`/recipe/${id}`}>See full recipe...</a>
+            <a href="#" onClick={recipeLink}>See full recipe...</a>
           </CardText>
           <Button onClick={addRecipeToShoppingList}>Add to Shopping List</Button>
           <LikeButton recipe={id}/>
         </CardBody>
       </Card>
+      <RecipeModal id={id} recipe={props.recipe} active={modalActive} toggle={modalToggle}/>
     </div>
   )
 }
