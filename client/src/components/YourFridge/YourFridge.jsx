@@ -29,6 +29,7 @@ class YourFridge extends Component {
           foodItems: newfoodItems,
           isLoading: false
         })
+        this.props.onUpdate()
       }
     })
   }

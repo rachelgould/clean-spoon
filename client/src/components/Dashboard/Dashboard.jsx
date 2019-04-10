@@ -15,7 +15,8 @@ class Dashboard extends Component {
     this.state = {
       render: this.props.view,
       searchResults: null,
-      isLoading: false
+      isLoading: false,
+      incrementSearch: 0
     };
   }
 
@@ -24,15 +25,19 @@ class Dashboard extends Component {
   }
 
   updateSearchBox = () => {
-    
+    let currentIncrementer = this.state.incrementSearch
+    let newNum = currentIncrementer + 1
+    this.setState({ 
+      render: 'yourFridge', incrementSearch: newNum
+    })
   }
 
   _renderSubComp() {
     switch (this.state.render) {
       case 'savedRecipes': return <SavedRecipes cookies={this.props.cookies} />
-      case 'yourFridge': return <YourFridge cookies={this.props.cookies} onUpdate={}/>
+      case 'yourFridge': return <YourFridge cookies={this.props.cookies} onUpdate={this.updateSearchBox} />
       case 'shoppingList': return <ShoppingList cookies={this.props.cookies} />
-      default : return <YourFridge cookies={this.props.cookies} />
+      default : return <YourFridge cookies={this.props.cookies} onUpdate={this.updateSearchBox} />
     }
   }
 
@@ -66,7 +71,7 @@ class Dashboard extends Component {
     return (
       <div className="dashboard">
         <Navbar />
-        <RecipeSearch cookies={this.props.cookies} onSubmit={this.yummlySearch}/>
+        <RecipeSearch cookies={this.props.cookies} onSubmit={this.yummlySearch} promptReload={this.state.incrementSearch}/>
         <div className="text-center" id="topMargin">
           <ButtonGroup size="lg" className="block">
             <Button color="danger" onClick={this.handleKeyPress.bind(this, 'savedRecipes')}>Saved Recipes</Button>
