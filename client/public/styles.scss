@@ -484,3 +484,26 @@ img.bg {
     transform: rotate(360deg);
   }
 }
+
+.recipe-modal {
+  font-size: 80%;
+  a {
+    cursor: pointer;
+  }
+  h4 {
+    margin: 20px 0px;
+  }
+  .modal-header {
+    text-align: center;
+    color: $main-bright;
+  }
+  .jumbotron {
+    margin-bottom: 5px;
+  }
+  .prep-time {
+    text-align: center;
+    font-variant-caps: all-small-caps;
+    margin: 0px;
+    color: gray;
+  }
+}
