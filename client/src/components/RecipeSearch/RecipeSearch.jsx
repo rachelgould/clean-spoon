@@ -30,9 +30,11 @@ class RecipeSearch extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    console.log('Previous props: ', prevProps)
+    console.log("current props: ", this.props)
     if (this.props.promptReload !== prevProps.promptReload) {
       this.refreshFridge()
-    }
+    }  
   }
 
   performSearch = (event) => {

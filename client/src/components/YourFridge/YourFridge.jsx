@@ -43,6 +43,12 @@ class YourFridge extends Component {
   componentWillUnmount() {
     this._isMounted = false;
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.foodItems !== prevState.foodItems) {
+      this.props.onUpdate()
+    }  
+  }
   
   removeItem = fridgeIngredientId => {
     deleteFridgeItem(fridgeIngredientId)
