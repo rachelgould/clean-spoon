@@ -44,7 +44,6 @@ class Table extends Component {
 
     return (
       <table>
-        {/* <TableHeader /> */}
         <TableBody cookies={this.props.cookies} characterData={characterData} removeItem={removeItem} />
       </table>
     )

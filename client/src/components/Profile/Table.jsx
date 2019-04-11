@@ -20,8 +20,8 @@ const TableBody = props => {
     // console.log("TEST" + row)
     return (
       <tr key={index}>
-        <td>{row}</td>
-        <td><Button onClick={() => props.removeItem(index)}> Remove </Button></td>    
+        <td id="leftAlign">{row}</td>
+        <td id="floatRight"><Button onClick={() => props.removeItem(index)}> Remove </Button></td>    
   
       </tr>
     )

@@ -7,6 +7,10 @@ import { getProfile, updateProfile } from '../../lib/api.js';
 import { resetWarningCache } from 'prop-types';
 import Table from './Table.jsx';
 import AllergyForm from './AllergyForm.jsx'
+import bg from './bg.jpg';
+
+var background=require('./bg.jpg')
+
 
 class Profile extends Component {
   constructor(props) {
@@ -132,12 +136,16 @@ class Profile extends Component {
 
   render() {
     return (
-      <div>
+      <body class="profileBG">
+      <div >
         <Navbar />
         <br />
         <center> <h1>Edit Profile</h1> </center>
+        {/* <img src={bg} alt="bg" />; */} 
+        <Card id="profileCard">
         <div className="profile">
           <Form onSubmit={this.handleUserSubmit}>
+          <center><h4>Profile details</h4></center>
             <FormGroup>
               <Label for="name" className="label">Name</Label>
               <Input type="text" name="name" id="name" placeholder={this.state.username} onChange={this.updateNameValue} />
@@ -148,11 +156,11 @@ class Profile extends Component {
             </FormGroup>
             <br />
             <FormGroup>
-              <Label for="vegetarian" className="label">Vegetarian?</Label>
+              <Label for="vegetarian" className="label">Vegetarian &nbsp;</Label>
                <input type="checkbox" checked={this.state.vegetarianChecked} name="vegetarian" onChange={this.handleVegetarianCheckboxChange} />
                </FormGroup>
             <FormGroup>
-              <Label for="vegan" className="label">Vegan? </Label>
+              <Label for="vegan" className="label">Vegan &nbsp;</Label>
               <input type="checkbox" checked={this.state.veganChecked} name="vegan" onChange={this.handleVeganCheckboxChange} />
             </FormGroup>
             <br />
@@ -167,8 +175,10 @@ class Profile extends Component {
               </div>
             </div>
           </Form>
-        </div>
+          </div>
+          </Card>
       </div>
+      </body>
     );
   }
 }
