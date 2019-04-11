@@ -696,4 +696,14 @@ img.bg {
 .savedRecipesParent {
   margin: auto;
 }
+
+#leftAlign {
+  float: left;
+  padding: 10px;
+}
+
+#rightAlign {
+  float:right;
+  padding:10px;
+}
 /*# sourceMappingURL=styles.css.map */
