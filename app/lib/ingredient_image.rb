@@ -12,8 +12,9 @@ module IngredientImage
       res = JSON.parse(RestClient.get @url)
       if res['status'] == 'success'
         return res['data']['result']['items'][0]['media']
+      else
+        return 'https://images.unsplash.com/photo-1531928351158-2f736078e0a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'
       end
-      return 'https://images.unsplash.com/photo-1531928351158-2f736078e0a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'
     end
   end
 end

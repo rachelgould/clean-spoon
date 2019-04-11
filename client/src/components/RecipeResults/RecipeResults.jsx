@@ -51,8 +51,9 @@ function RecipeResults(props) {
     <div className="recipe-results">
       <Navbar />
       <RecipesContainer recipes={processedRecipes} currentFridge={fridge} cookies={props.cookies}/>
-      <SearchAgain />
-      <SideBar />
+      {/* Uncomment these when filter searches is implemented: */}
+      {/* <SearchAgain />
+      <SideBar /> */}
     </div>
   )
 }
