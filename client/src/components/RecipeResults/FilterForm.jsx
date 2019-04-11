@@ -14,7 +14,6 @@ function FilterForm(props) {
     event.persist();
     event.preventDefault();
     const { value } = event.target;
-    console.log("Submitted new allergy: ", value)
   }
 
   return (

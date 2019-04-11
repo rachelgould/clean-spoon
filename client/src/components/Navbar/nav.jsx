@@ -31,7 +31,6 @@ class nav extends React.Component {
               color="primary" className="loginBtn recipe-search" href="/search">Recipe Search</Button>
               </NavItem>
             </Nav>
-          {/* </Collapse> */}
         </Navbar> 
       </div>
     );

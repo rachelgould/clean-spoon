@@ -115,7 +115,6 @@ class Profile extends Component {
 
 
   removeItem = index => {
-    // Must be edited to call DB
     const { allergies } = this.state
     this.setState({
       allergies: allergies.filter((character, i) => {

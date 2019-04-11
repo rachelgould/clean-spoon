@@ -5,13 +5,9 @@ const RecipeModal = (props) => {
   let { prepTime, addToShoppingList } = props
   let [haveIngredients, setHaveIngredients] = useState(false)
   let [needIngredients, setNeedIngredients] = useState(false)
-  console.log("haveIngredients is", haveIngredients)
-  console.log("needIngredients ", needIngredients)
-  console.log("All props: ", props)
   let { 
     image,
     source,
-    id,
     sourceUrl,
     recipeName
   } = props.recipe
@@ -42,28 +38,33 @@ const RecipeModal = (props) => {
     )
   }
 
+  const triggerAddToShoppingList = event => {
+    event.preventDefault();
+    addToShoppingList();
+  }
+
   return(
     <Modal isOpen={props.active} toggle={props.toggle} className="recipe-modal">
       <ModalHeader id="modalHeader" toggle={props.toggle}>{recipeName}</ModalHeader>
+      <Jumbotron fluid style={{
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${image || imagePlaceholder})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+      }}>
+      </Jumbotron>
       <ModalBody>
-        <Jumbotron fluid style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${image || imagePlaceholder})`,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat'
-        }}>
-        </Jumbotron>
         <h4 className="prep-time">Ready in {prepTime}</h4>
         <h4>Make This Recipe</h4>
-        <p>Find the steps for this recipe at <a href={sourceUrl} target="_blank">{source}</a></p>
-        <a href="#" onClick={addToShoppingList}>Add the ingredients to your shopping list.</a>
+        <p>Find the steps for this recipe at <a href={sourceUrl} target="_blank" rel="noopener noreferrer">{source}</a></p>
+        <a href="#" onClick={triggerAddToShoppingList}>Add the ingredients to your shopping list.</a>
         <h4>Ingredients</h4>
         <div classname="ingredients-list container">
-          <div className="ingredients-list">
+          <div className="ingredients-list-1">
             <p>You Have:</p>
             {haveIngredients ? makeIngredientList(haveIngredients) : "Loading ingredients..."}
           </div>
-          <div className="ingredients-list">
+          <div className="ingredients-list-2">
             <p>You Need:</p>
             {needIngredients ? makeIngredientList(needIngredients) : "Loading ingredients..."}
           </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardTitle } from 'reactstrap';
-import Form from './Form.jsx';
 import SMSForm from './SMSForm.jsx';
+import FridgeForm from '../YourFridge/FridgeForm';
 import IngredientCard from './IngredientCard.jsx';
 import SmallLoader from '../Loading/SmallLoader';
 import { getShoppingList, setShoppingListItem, deleteShoppingListItem } from '../../lib/api.js'
@@ -85,13 +85,10 @@ class ShoppingList extends Component {
 
     return (
       <Card body >
-        <CardTitle className="CardTitle">This is your Shopping List</CardTitle>
+        <CardTitle className="CardTitle"><h2>Shopping List</h2></CardTitle>
         <hr />
-        {this.state.isLoading ? <SmallLoader /> : <div className="ingredient-list-container">{ingredients}</div>} 
-        <br />
-        <Form handleSubmit={this.handleSubmit} />
-        <br />
-        <SMSForm cookies={this.props.cookies} />
+        {this.state.isLoading ? <SmallLoader /> : <><div className="flex-forms"><FridgeForm handleSubmit={this.handleSubmit} /><SMSForm cookies={this.props.cookies} /></div>
+        <hr /><div className="ingredient-list-container">{ingredients}</div></>}       
       </Card>
     );
   }

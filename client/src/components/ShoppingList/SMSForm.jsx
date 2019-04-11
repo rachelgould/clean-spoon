@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input, InputGroup, InputGroupAddon, Button } from 'reactstrap';
+import { Form, FormGroup, Button, Input } from 'reactstrap';
 import { sendSMS } from '../../lib/api.js'
 
 class SMSForm extends Component {
@@ -10,7 +10,6 @@ class SMSForm extends Component {
     }
     this.state = this.initialState;
   }
-
 
   handleChange = event => {
     const { value } = event.target;
@@ -25,7 +24,6 @@ class SMSForm extends Component {
 
   submitForm = (event) => {
     event.preventDefault();
-    // event.stopPropagation();
     let id = this.props.cookies.get('id')
     let phoneNum = this.state.number
     sendSMS(id, phoneNum);
@@ -33,18 +31,21 @@ class SMSForm extends Component {
 
   render() {
     return (
-    <div id="smsParent">
-      <div id="sms">
-        <form onSubmit={this.submitForm}>
-          <InputGroup size="lg">
-            <Input placeholder="Phone number" onChange={this.handleChange} />
-            <InputGroupAddon addonType="append" >
-            <Button color="danger">Send to SMS</Button>
-            </InputGroupAddon>
-          </InputGroup>
-        </form>
+      <div className="dashboard-sub-form">
+        <h3>Share </h3>
+        <Form onSubmit={this.submitForm} inline>
+          <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+            <Input
+              id="phoneNum"
+              type="text"
+              name="phoneNum"
+              value={this.state.name}
+              placeholder="e.g. 6049012010"
+              onChange={this.handleChange} />
+            <Button color="danger">Send</Button>
+          </FormGroup>
+        </Form>
       </div>
-    </div>
     )
   }
 }

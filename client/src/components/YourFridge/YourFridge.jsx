@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
 import { Card, CardTitle } from 'reactstrap';
-import Form from './Form.jsx';
+import FridgeForm from './FridgeForm.jsx';
 import IngredientCard from './IngredientCard.jsx';
 import SmallLoader from '../Loading/SmallLoader';
 import { getFridge, setFridgeItem, deleteFridgeItem } from '../../lib/api.js';
@@ -52,11 +52,9 @@ class YourFridge extends Component {
   
   removeItem = fridgeIngredientId => {
     deleteFridgeItem(fridgeIngredientId)
-    console.log("Deleting fridge ITEM" + fridgeIngredientId)
     let newItems = this.state.foodItems.slice(0)
     let index = newItems.findIndex((item) => fridgeIngredientId === item.id)
     newItems.splice(index, 1)
-    console.log(newItems)
     this.setState({
       foodItems: newItems
     })
@@ -93,11 +91,12 @@ class YourFridge extends Component {
 
     return (
       <Card body >
-        <CardTitle>This is your Fridge</CardTitle>
+        <CardTitle><h2>Your Fridge</h2></CardTitle>
         <hr />
-        {this.state.isLoading ? <SmallLoader /> : <div className="ingredient-list-container">{ingredients}</div>}
+        {this.state.isLoading ? <SmallLoader /> : 
+        <><div className="center-form"><FridgeForm handleSubmit={this.handleSubmit} /></div><hr />
+        <div className="ingredient-list-container">{ingredients}</div></>}
         <br />
-        <Form handleSubmit={this.handleSubmit} />
       </Card>
     );
   }
