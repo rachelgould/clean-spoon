@@ -52,10 +52,6 @@ class UsersController < ApplicationController
       #  json_response("Failure": "Not a valid allergy")
       end
 
-      puts "TESSSTTTt"
-     puts @user.allergies
-     puts "TESSSTTTt"
-
 
    @allergies = @user.allergies
    allergyArray = []
@@ -63,11 +59,6 @@ class UsersController < ApplicationController
      allergyArray << object.name
 
     end
-
-    puts "TESSSTTTt"
-     puts allergyArray
-     puts "TESSSTTTt"
-
     end
 
     data = {

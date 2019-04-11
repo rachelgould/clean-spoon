@@ -251,13 +251,6 @@ img.bg {
   left: 0;
 }
 
-/* @media screen and (max-width: 1024px) { 
-  img.bg {
-    left: 50%;
-    margin-left: -512px;   
-  }
-} */
-
 #profileCard {
   margin-left: 200px;
   margin-right: 200px;
@@ -265,13 +258,10 @@ img.bg {
 }
 
 .profileBG {
-  background: url(./bg2.jpg);
+  background: url(./images/bg.jpg);
    background-repeat: no-repeat;
   background-attachment: fixed; 
   margin-bottom: 0;
-  /* -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover; */
   background-size: cover;
   background-position: cover; 
   padding-bottom: 200px;

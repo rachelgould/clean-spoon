@@ -78,7 +78,6 @@ function getFavRecipes(id, cb) {
   let url = '/api/favRecipes/' + id;
   axios.get(url).then(response => 
     {
-    console.log("HERE IS THE RESPONSE:::::" + JSON.stringify(response))
     return response
   }).then(checkStatus).then(cb)
 }

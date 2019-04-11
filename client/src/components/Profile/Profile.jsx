@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
 import Navbar from '../Navbar/nav.jsx';
-import { ButtonGroup, InputGroup, InputGroupAddon, Row, Col, Card, Form, Button, Input, Label, FormGroup, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import Hero from './Hero.jsx'
-import DietAllergies from './DietAllergies.jsx'
+import { Card, Form, Button, Input, Label, FormGroup} from 'reactstrap';
 import { getProfile, updateProfile } from '../../lib/api.js';
-import { resetWarningCache } from 'prop-types';
 import Table from './Table.jsx';
 import AllergyForm from './AllergyForm.jsx'
-import bg from './bg.jpg';
-
-var background=require('./bg.jpg')
 
 
 class Profile extends Component {
