@@ -17,7 +17,11 @@ Our basic tech stack is **Ruby on Rails** on the back-end, and **React** on the 
 
 ## Demos
 
-Coming soon...
+![Adding items to your fridge](https://media.giphy.com/media/uiWayGFCGBg0gKjMge/giphy.gif)
+
+![Searching for recipes](https://media.giphy.com/media/dYiUGYw5Ku1kmwNb5Z/giphy.gif)
+
+![Adding recipe items to your shopping list](https://media.giphy.com/media/dYiUGYw5Ku1kmwNb5Z/giphy.gif)
 
 ## Setup
 
