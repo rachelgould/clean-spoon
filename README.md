@@ -17,11 +17,19 @@ Our basic tech stack is **Ruby on Rails** on the back-end, and **React** on the 
 
 ## Demos
 
+![Homepage](https://github.com/rachelgould/clean-spoon/blob/master/public/Screenshots/homepage.png?raw=true)
+
+![Fridge](https://github.com/rachelgould/clean-spoon/blob/master/public/Screenshots/fridge.png?raw=true)
+
 ![Adding items to your fridge](https://media.giphy.com/media/uiWayGFCGBg0gKjMge/giphy.gif)
+
+![Recipes](https://github.com/rachelgould/clean-spoon/blob/master/public/Screenshots/recipe-view.png?raw=true)
 
 ![Searching for recipes](https://media.giphy.com/media/dYiUGYw5Ku1kmwNb5Z/giphy.gif)
 
-![Adding recipe items to your shopping list](https://media.giphy.com/media/dYiUGYw5Ku1kmwNb5Z/giphy.gif)
+![Shopping List](https://github.com/rachelgould/clean-spoon/blob/master/public/Screenshots/shopping-list.png?raw=true)
+
+![Adding recipe items to your shopping list](https://media.giphy.com/media/1O1Znq7cXGXCwQJDtc/giphy.gif)
 
 ## Setup
 
